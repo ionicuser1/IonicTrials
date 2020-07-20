@@ -10,9 +10,12 @@
   ],
   "include": [
     "src/**/*.ts",
+    "../node_modules/angular2-wizard/index.ts",
+     "/node_modules/angular2-wizard/src/**/*.ts",
     "src/**/*.d.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts"
+    "src/**/*.spec.ts",
+    "../node_modules/angular2-wizard/src/**/*.spec.ts"
   ]
 }
