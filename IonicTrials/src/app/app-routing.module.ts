@@ -15,6 +15,21 @@ const routes: Routes = [
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
   },
+  {
+    path: 'page1',
+    loadChildren: () => import('./page1/page1.module').then( m => m.Page1PageModule),
+    data: {
+      breadcrumb: 'Page 1'
+    }
+  },
+  {
+    path: 'page1/:page/page4',
+    loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule),
+    data: {
+      breadcrumb: 'Page 4'
+    }
+  },
+
   
 ];
 
