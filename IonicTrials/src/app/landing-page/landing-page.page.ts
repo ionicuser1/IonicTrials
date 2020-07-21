@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPagePage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  user()
+  {
+    this.navCtrl.navigateForward('user-home');
+  }
+  admin_user()
+  {
+    this.navCtrl.navigateForward('admin-user-home'); 
   }
 
 }

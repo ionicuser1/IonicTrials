@@ -25,6 +25,7 @@ import { AceEditorModule } from 'ng2-ace-editor';
 import { CodemirrorModule } from 'ng2-codemirror';
 import { ChartsModule } from 'ng2-charts';
 // import { Select2Module } from 'ng2-select2';
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MorrisJsModule } from 'angular-morris-js';
 import { ChartistModule } from 'ng-chartist';
 // import { DataTablesModule } from 'angular-datatables';
@@ -50,6 +51,7 @@ import { CustomFormsModule } from 'ng2-validation'
     NgbModule,
     // DragulaModule.forRoot(),
     ClipboardModule,
+    BrowserAnimationsModule,
     ContextMenuModule.forRoot(),
     NouisliderModule,
     CarouselModule,

@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  },  {
+    path: 'user-home',
+    loadChildren: () => import('./user-home/user-home.module').then( m => m.UserHomePageModule)
   },
+  {
+    path: 'admin-user-home',
+    loadChildren: () => import('./admin-user-home/admin-user-home.module').then( m => m.AdminUserHomePageModule)
+  },
+
   
 ];
 
