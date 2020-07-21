@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LandingPagePageRoutingModule } from './landing-page-routing.module';
 
 import { LandingPagePage } from './landing-page.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LandingPagePageRoutingModule
+    LandingPagePageRoutingModule,
+    TranslateModule
   ],
   declarations: [LandingPagePage]
 })

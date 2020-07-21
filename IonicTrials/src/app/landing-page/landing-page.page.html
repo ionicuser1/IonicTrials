@@ -1,16 +1,26 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>Landing-Page</ion-title>
+    <!-- <ion-title>Landing-Page</ion-title> -->
+    <ion-title> {{ 'LandingPage.Title' | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="more" slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="text-align: center;" [fullscreen]="true">
+<ion-content style="text-align: center;" [fullscreen]="true" padding>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">This is a landing page</ion-title>
     </ion-toolbar>
   </ion-header>
   <div id="container">
-    <strong>This is a landing page</strong>
+    <!-- <strong>This is a landing page</strong> -->
+
+    <strong>{{ 'LandingPage.TextValue' | translate }}</strong>
+
   </div>
 </ion-content>
