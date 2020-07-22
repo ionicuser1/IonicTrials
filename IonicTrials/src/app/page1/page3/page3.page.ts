@@ -14,7 +14,7 @@ export class Page3Page implements OnInit {
   }
 
   goToPage4(){
-    this.navCtrl.navigateForward("page1/page3/page4");
+    this.navCtrl.navigateForward("page1/page2/page4");
   }
   goToPage5(){
     this.navCtrl.navigateForward("page1/page3/page5");

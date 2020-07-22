@@ -22,13 +22,13 @@ const routes: Routes = [
       breadcrumb: 'Page 1'
     }
   },
-  {
-    path: 'page1/:page/page4',
-    loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule),
-    data: {
-      breadcrumb: 'Page 4'
-    }
-  },
+  // {
+  //   path: 'page1/:page/page4',
+  //   loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule),
+  //   data: {
+  //     breadcrumb: 'Page 4'
+  //   }
+  // },
 
   
 ];

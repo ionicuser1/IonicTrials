@@ -8,6 +8,13 @@ const routes: Routes = [
     path: '',
     component: Page2Page
   },
+  {
+    path: 'page4',
+    loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule),
+    data: {
+      breadcrumb: 'Page 4'
+    }
+  },
 ];
 
 @NgModule({
