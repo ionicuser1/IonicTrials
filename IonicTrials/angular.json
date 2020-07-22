@@ -32,6 +32,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               {
                 "input": "src/theme/variables.scss"
               },
@@ -46,12 +47,19 @@
               "node_modules/ace-builds/src-min/ace.js",
               "node_modules/ace-builds/src-min/theme-eclipse.js",
               "node_modules/ace-builds/src-min/mode-html.js",
-              { "bundleName": "worker-html", "input": "node_modules/ace-builds/src-min/worker-html.js" },
+              {
+                "bundleName": "worker-html",
+                "input": "node_modules/ace-builds/src-min/worker-html.js"
+              },
               "node_modules/ace-builds/src-min/mode-javascript.js",
-              { "bundleName": "worker-javascript", "input": "node_modules/ace-builds/src-min/worker-javascript.js" },
+              {
+                "bundleName": "worker-javascript",
+                "input": "node_modules/ace-builds/src-min/worker-javascript.js"
+              },
               "node_modules/raphael/raphael.js",
               "node_modules/morris.js/morris.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"]
+              "node_modules/datatables.net/js/jquery.dataTables.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -110,7 +118,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ],
             "scripts": [],
             "assets": [
               {
@@ -140,7 +150,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -186,7 +198,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@ionic/angular-toolkit",
+    "analytics": "81b29822-962e-4486-8306-c4a63f3789e3"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

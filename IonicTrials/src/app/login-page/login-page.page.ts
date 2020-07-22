@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { LoginModel } from '../core/model/LoginModel';
+import { DataService } from '../core/data.service/data.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,19 +11,23 @@ import { NavController } from '@ionic/angular';
 
 export class LoginPagePage implements OnInit {
 
-  username : String;
-  password : String;
-  constructor(public navCtrl: NavController) {
+  isValidUser : boolean;
+  loginModel: LoginModel;
+  dataService : DataService;
+
+  constructor(public navCtrl: NavController, private service: DataService) {
     this.navCtrl = navCtrl;
+    this.dataService = service;
+    this.loginModel = new LoginModel();
   }
 
   ngOnInit() {
   }
 
   LoginUser() {
-    if(this.username == "parent" && this.password == "parent")
-    {
-      this.navCtrl.navigateForward('home'); 
+    if(this.service.validateUser(this.loginModel.username, this.loginModel.password)){
+      this.service.loggedInUser = this.loginModel.username;
+      this.navCtrl.navigateForward('user-home-page');
     }
   }
 
