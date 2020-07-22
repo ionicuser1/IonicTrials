@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { LanguageService } from 'src/app/services/language.service';
+import { LanguageService } from 'src/app/core/language.service/language.service';
 
 @Component({
   selector: 'app-language-popover',
