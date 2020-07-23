@@ -7,20 +7,26 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { IonicModule } from '@ionic/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
+
+
 import { UserHomePageRoutingModule } from './user-home-routing.module';
 
 
 import { UserHomePage } from './user-home.page';
+import { SharedModule } from '../shared/shared.module';
+import { UserCollectionsComponent } from '../shared/user-collections/user-collections.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+  SharedModule,
+ 
     NgImageSliderModule,
     CarouselModule,
     IonicModule,
     UserHomePageRoutingModule
   ],
-  declarations: [UserHomePage]
+  declarations: [UserHomePage, UserCollectionsComponent]
 })
 export class UserHomePageModule {}

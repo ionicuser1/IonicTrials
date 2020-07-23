@@ -6,6 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgImageSliderModule } from 'ng-image-slider';
 // import { DragulaModule } from 'ng2-dragula';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ContextMenuModule } from 'ngx-contextmenu';
@@ -33,6 +34,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ToastrModule } from 'ngx-toastr';
 // import { AgmCoreModule } from '@agm/core';
 import { BarRatingModule } from "ngx-bar-rating";
+
 // import { FullCalendarModule } from 'ng-fullcalendar';
 // import { ScrollToModule } from 'ng2-scroll-to-el';
 
@@ -40,8 +42,12 @@ import { BarRatingModule } from "ngx-bar-rating";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+
+import { SharedModule } from './shared/shared.module';
+import { UserCollectionsComponent } from './shared/user-collections/user-collections.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,9 +55,12 @@ import { CustomFormsModule } from 'ng2-validation'
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     NgbModule,
+     SharedModule,
     // DragulaModule.forRoot(),
     ClipboardModule,
-    BrowserAnimationsModule,
+    NgImageSliderModule,
+    
+     BrowserAnimationsModule,
     ContextMenuModule.forRoot(),
     NouisliderModule,
     CarouselModule,

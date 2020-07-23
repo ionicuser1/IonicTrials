@@ -6,12 +6,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { AdminUserHomePageRoutingModule } from './admin-user-home-routing.module';
 
+
+
 import { AdminUserHomePage } from './admin-user-home.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+   
     IonicModule,
     AdminUserHomePageRoutingModule
   ],
