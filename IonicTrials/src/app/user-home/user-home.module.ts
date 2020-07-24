@@ -20,13 +20,13 @@ import { UserCollectionsComponent } from '../shared/user-collections/user-collec
   imports: [
     CommonModule,
     FormsModule,
-  SharedModule,
- 
+    SharedModule,
     NgImageSliderModule,
     CarouselModule,
     IonicModule,
     UserHomePageRoutingModule
   ],
-  declarations: [UserHomePage, UserCollectionsComponent]
+  declarations: [UserHomePage],
+ 
 })
 export class UserHomePageModule {}

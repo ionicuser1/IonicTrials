@@ -1,5 +1,5 @@
 export class UserCollections {
-    //collection_name : string;
+  collection_name : "User Collection";
   card_name: string;
  card_details: string;
  

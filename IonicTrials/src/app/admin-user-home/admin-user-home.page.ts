@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../core/data.service/data.service';
+import { UserCollections } from '../core/model/user_collection.model';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-user-home',
@@ -11,16 +14,28 @@ export class AdminUserHomePage implements OnInit {
   ngOnInit() {
   }
 
+  userCollectioN : UserCollections[];
+  constructor(private dataService : DataService) {
+    this.userCollectioN = this.dataService.userCollection;
+   }
 
-
-  slides = [342, 453, 846, 855, 234, 564, 744, 243]
-  slideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 1,
-    "nextArrow": "<div class='nav-btn next-slide'></div>",
-    "prevArrow": "<div class='nav-btn prev-slide'></div>",
-    "dots": true,
-    "infinite": false
+   slideOpts = {
+    initialSlide: 1,
+    autoplay: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    speed: 400
   };
+
+   @ViewChild(IonSlides) slider: IonSlides;
+
+   slidePrev() {
+     this.slider.slidePrev();
+   }
+   slideNext() {
+     this.slider.slideNext();
+   }
+
 }
 

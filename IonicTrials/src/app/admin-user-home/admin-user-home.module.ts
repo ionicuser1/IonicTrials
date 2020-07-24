@@ -9,12 +9,13 @@ import { AdminUserHomePageRoutingModule } from './admin-user-home-routing.module
 
 
 import { AdminUserHomePage } from './admin-user-home.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-   
+    SharedModule,
     IonicModule,
     AdminUserHomePageRoutingModule
   ],

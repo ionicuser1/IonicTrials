@@ -59,7 +59,7 @@ import { UserCollectionsComponent } from './shared/user-collections/user-collect
     // DragulaModule.forRoot(),
     ClipboardModule,
     NgImageSliderModule,
-    
+   // UserCollectionsComponent,
      BrowserAnimationsModule,
     ContextMenuModule.forRoot(),
     NouisliderModule,
@@ -94,6 +94,7 @@ import { UserCollectionsComponent } from './shared/user-collections/user-collect
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
+  exports :[UserCollectionsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
