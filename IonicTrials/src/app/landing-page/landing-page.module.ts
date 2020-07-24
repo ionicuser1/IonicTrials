@@ -7,7 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { LandingPagePageRoutingModule } from './landing-page-routing.module';
 
 import { LandingPagePage } from './landing-page.page';
+
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +18,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FormsModule,
     IonicModule,
     LandingPagePageRoutingModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    TranslateModule
   ],
   declarations: [LandingPagePage]
 })

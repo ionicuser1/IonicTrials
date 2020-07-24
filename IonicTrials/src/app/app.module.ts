@@ -42,6 +42,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { IonicStorageModule } from '@ionic/storage'
+import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+
+export function createTranslateLoader(http : HttpClient){
+
+return new TranslateHttpLoader(http,'assets/language/',".json");
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -77,6 +89,17 @@ import { CustomFormsModule } from 'ng2-validation'
     BarRatingModule,
     // FullCalendarModule,
     // ScrollToModule.forRoot()
+
+    IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader : {
+
+        provide: TranslateLoader,
+        useFactory : (createTranslateLoader),
+        deps : [HttpClient]
+      }
+    }),
+    LanguagePopoverPageModule
   ],
   providers: [
     StatusBar,
