@@ -1,7 +1,7 @@
 <div class="row grid-margin" style="margin-left: 20px;margin-right: 0.5px;">
   <div class="col-lg-12">
-   <h5 style="color:gray">Free Collection</h5>
-  <ion-slides  [options]="slideOpts2" paginationType="bullets" class="full-width">
+   <h5 style="color:gray">{{public_collection_name}} </h5>
+  <ion-slides  [options]="slideOpts2" paginationType="bullets" class="full-width" (click)="module7()">
     <ion-slide carouselSlide>
       <img src="assets/images/carousel/banner_1.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
@@ -27,8 +27,8 @@
 
 <div class="row grid-margin" style="margin-left: 20px;margin-right: 0.5px;">
   <div class="col-lg-12">
-   <h5 style="color:gray">Free Collection</h5>
-  <ion-slides  [options]="slideOpts3" paginationType="bullets" class="full-width">
+   <h5 style="color:gray">{{free_collection_name}} </h5>
+  <ion-slides  [options]="slideOpts3" paginationType="bullets" class="full-width" (click)="module7()">
     <ion-slide carouselSlide>
       <img src="assets/images/carousel/banner_1.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
@@ -55,8 +55,8 @@
 
 <div class="row grid-margin" style="margin-left: 20px;margin-right: 0.5px;">
   <div class="col-lg-12">
-   <h5 style="color:gray">Free Collection</h5>
-  <ion-slides  [options]="slideOpts4" paginationType="bullets" class="full-width">
+   <h5 style="color:gray">{{private_collection_name}} </h5>
+  <ion-slides  [options]="slideOpts4" paginationType="bullets" class="full-width" (click)="module7()">
     <ion-slide carouselSlide>
       <img src="assets/images/carousel/banner_1.jpg" height="185" width="200" alt="image"/>
     </ion-slide>

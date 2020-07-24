@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserCollections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-other-collections',
@@ -12,12 +12,17 @@ export class OtherCollectionsComponent implements OnInit {
 
   public userCollectioN : UserCollections[];
   
-  constructor(private dataService : DataService) {
+  constructor(private dataService : DataService, private navCtrl : NavController) {
     this.userCollectioN = this.dataService.userCollection;
    }
    public_collection_size  = this.dataService.public_collection.length;
    free_collection_size  = this.dataService.freeCollection.length;
    private_collection_size  = this.dataService.privateCollection.length;
+
+
+   public_collection_name = this.dataService.publicCollectionName
+   free_collection_name = this.dataService.freeCollectionName
+   private_collection_name = this.dataService.privateCollectionName
 
    
    ngOnInit() {
@@ -72,4 +77,8 @@ export class OtherCollectionsComponent implements OnInit {
       }
     }
   };
+
+  module7(){
+    this.navCtrl.navigateForward('module7');
+  }
 }

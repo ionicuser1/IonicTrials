@@ -8,9 +8,13 @@ import { AdminUserCollections } from '../model/admin_collections.model';
   })
 
 export class DataService {
+  
+    userCollectionName = "User Collection"
+    freeCollectionName = "Free Collection"
+    publicCollectionName = "Public Collection"
+    privateCollectionName  = "Private Collection"
 
-
-    userCollection : UserCollections[] = [{'card_name': 'card1','card_details' : 'this is card1','collection_name' : 'User Collection'},{'card_name':'card2','card_details' : 'this is card2', 'collection_name' : 'User Collection'},{'card_name':'card3','card_details' : 'this is card3', 'collection_name' : 'User Collection'},{'card_name':'card4','card_details' : 'this is card4','collection_name' : 'User Collection'},{'card_name':'card5','card_details' : 'this is card5', 'collection_name' : 'User Collection'},{'card_name':'card6','card_details' : 'this is card6','collection_name' : 'User Collection'}];
+    userCollection : UserCollections[] = [{'card_name': 'card1','card_details' : 'this is card1'},{'card_name':'card2','card_details' : 'this is card2'},{'card_name':'card3','card_details' : 'this is card3'},{'card_name':'card4','card_details' : 'this is card4'},{'card_name':'card5','card_details' : 'this is card5'},{'card_name':'card6','card_details' : 'this is card6'}];
 
     freeCollection : FreeCollections[] = [{'card_name': 'card1','card_details' : 'this is card1'},{'card_name':'card2','card_details' : 'this is card2'},{'card_name':'card3','card_details' : 'this is card3'},{'card_name':'card4','card_details' : 'this is card4'}];
 

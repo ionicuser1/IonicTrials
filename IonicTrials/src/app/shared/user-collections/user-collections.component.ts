@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserCollections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-collections',
@@ -10,20 +10,26 @@ import { IonSlides } from '@ionic/angular';
 })
 export class UserCollectionsComponent implements OnInit {
 
-  public userCollectioN : UserCollections[];
+
   
-  constructor(private dataService : DataService) {
+  public userCollectioN : UserCollections[];
+  public userCollection1 : UserCollections;
+  //collection :string;
+  constructor(private dataService : DataService, private navCtrl : NavController) {
     this.userCollectioN = this.dataService.userCollection;
+
+   
    }
-  /// user_collection_size  = this.dataService.userCollection.length;
+   
    user_collection_size  = this.dataService.userCollection.length;
 
-   collection_name = 'User Collection';
-   
+   collection = this.dataService.userCollectionName
    ngOnInit() {
-  
-    console.log("arraysize="+this.user_collection_size);
+   console.log("arraysize="+this.user_collection_size);
+   console.log("collection name="+this.collection);
   }
+
+  
 
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
@@ -40,4 +46,24 @@ export class UserCollectionsComponent implements OnInit {
       }
     }
   };
+
+  module1(){
+    this.navCtrl.navigateForward('module1');
+  }
+  module2(){
+    this.navCtrl.navigateForward('module2');
+  }
+  module3(){
+    this.navCtrl.navigateForward('module3');
+  }
+   module4(){
+    this.navCtrl.navigateForward('module4');
+  }
+   module5(){
+    this.navCtrl.navigateForward('module5');
+  }
+  module6(){
+    this.navCtrl.navigateForward('module6');
+  }
+ 
 }

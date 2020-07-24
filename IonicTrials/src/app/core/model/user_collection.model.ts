@@ -1,7 +1,6 @@
 export class UserCollections {
-  collection_name : "User Collection";
   card_name: string;
- card_details: string;
+  card_details: string;
  
    
   }

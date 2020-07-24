@@ -12,7 +12,7 @@ import { UserCollections, FreeCollections } from '../core/model/user_collection.
 export class UserHomePage implements OnInit {
 
  
- 
+  name = "User Home Page"
   public userCollectioN : UserCollections[];
   
   constructor(private dataService : DataService) {

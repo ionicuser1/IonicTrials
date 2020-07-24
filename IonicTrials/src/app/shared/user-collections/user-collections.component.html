@@ -1,23 +1,24 @@
 <div class="row grid-margin" style="margin-left: 20px;margin-right: 0.5px;">
   <div class="col-lg-12">
-   <h5 style="color:gray">{{collection_name}} </h5>
+   <h5 style="color:gray">{{collection}} </h5>
   <ion-slides  [options]="slideOpts2" paginationType="bullets" class="full-width">
-    <ion-slide carouselSlide>
+    <ion-slide carouselSlide   (click)="module1()">
       <img src="assets/images/carousel/banner_1.jpg" height="185" width="200" alt="image"/>
+     
     </ion-slide>
-    <ion-slide carouselSlide>
-      <img src="assets/images/carousel/banner_2.jpg" height="185" width="200" alt="image"/>>
+    <ion-slide carouselSlide (click)="module2()">
+      <img src="assets/images/carousel/banner_2.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
-    <ion-slide carouselSlide>
+    <ion-slide carouselSlide (click)="module3()">
       <img src="assets/images/carousel/banner_3.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
-    <ion-slide carouselSlide>
+    <ion-slide carouselSlide (click)="module4()">
       <img src="assets/images/carousel/banner_4.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
-    <ion-slide carouselSlide>
+    <ion-slide carouselSlide (click)="module5()">
       <img src="assets/images/carousel/banner_5.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
-    <ion-slide carouselSlide>
+    <ion-slide carouselSlide (click)="module6()">
       <img src="assets/images/carousel/banner_6.jpg" height="185" width="200" alt="image"/>
     </ion-slide>
   </ion-slides> 
