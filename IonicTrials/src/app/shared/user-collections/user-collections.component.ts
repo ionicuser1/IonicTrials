@@ -15,19 +15,22 @@ export class UserCollectionsComponent implements OnInit {
   constructor(private dataService : DataService) {
     this.userCollectioN = this.dataService.userCollection;
    }
-   arraySize  = this.dataService.public_collection.length;
+  /// user_collection_size  = this.dataService.userCollection.length;
+   user_collection_size  = this.dataService.userCollection.length;
+
+   collection_name = 'User Collection';
    
    ngOnInit() {
   
-    console.log("arraysize="+this.arraySize);
+    console.log("arraysize="+this.user_collection_size);
   }
 
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
-    initialSlide: this.arraySize,
+    initialSlide: this.user_collection_size,
     autoplay: true,
     nav: true,
-    slidesPerView: this.arraySize,
+    slidesPerView: this.user_collection_size,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
