@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LandingPagePageRoutingModule } from './landing-page-routing.module';
 
 import { LandingPagePage } from './landing-page.page';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LandingPagePageRoutingModule
+    LandingPagePageRoutingModule,
+    SweetAlert2Module
   ],
   declarations: [LandingPagePage]
 })

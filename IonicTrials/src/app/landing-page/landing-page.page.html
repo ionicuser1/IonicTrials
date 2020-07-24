@@ -2,6 +2,8 @@
   <ion-toolbar>
     <ion-title>Landing-Page</ion-title>
   </ion-toolbar>
+
+
 </ion-header>
 
 <ion-content style="text-align: center;" [fullscreen]="true">
@@ -12,5 +14,23 @@
   </ion-header>
   <div id="container">
     <strong>This is a landing page</strong>
+  </div>
+
+  <div>
+    <div class="card-body">
+      <div class="wrapper text-center">
+        <button class="btn btn-outline-success" (click) = "backGround()">Show Message Dialog</button>
+
+        <!-- <button class="btn btn-outline-success" [swal]="[param, 'Click OK to close this alert']">Show Message Dialog</button> -->
+
+        <!-- <swal #swal1
+        title="Work in progress, be patient"
+        text="Click OK to close this alert"
+        customClass = `
+          popup = 'my-swal'
+      
+        ></swal> -->
+      </div>
+    </div>  
   </div>
 </ion-content>
