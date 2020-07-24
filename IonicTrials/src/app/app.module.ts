@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { DragulaModule } from 'ng2-dragula';
+import { DragulaModule } from 'ng2-dragula';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { NouisliderModule } from 'ng2-nouislider';
@@ -18,8 +18,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TagInputModule } from 'ngx-chips';
-// import { FormWizardModule } from 'angular2-wizard';
-// import { NgxSummernoteModule } from 'ngx-summernote';
+import { FormWizardModule } from 'angular2-wizard';
+import { NgxSummernoteModule } from 'ngx-summernote';
 // import { TinymceModule } from 'angular2-tinymce';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { CodemirrorModule } from 'ng2-codemirror';
@@ -27,13 +27,13 @@ import { ChartsModule } from 'ng2-charts';
 // import { Select2Module } from 'ng2-select2';
 import { MorrisJsModule } from 'angular-morris-js';
 import { ChartistModule } from 'ng-chartist';
-// import { DataTablesModule } from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ToastrModule } from 'ngx-toastr';
 // import { AgmCoreModule } from '@agm/core';
 import { BarRatingModule } from "ngx-bar-rating";
 // import { FullCalendarModule } from 'ng-fullcalendar';
-// import { ScrollToModule } from 'ng2-scroll-to-el';
+import { ScrollToModule } from 'ng2-scroll-to-el';
 
 
 import { AppComponent } from './app.component';
@@ -41,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,18 +49,19 @@ import { CustomFormsModule } from 'ng2-validation'
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    // DragulaModule.forRoot(),
+    DragulaModule.forRoot(),
     ClipboardModule,
     ContextMenuModule.forRoot(),
     NouisliderModule,
     CarouselModule,
     DropzoneModule,
+    SharedModule,
     ColorPickerModule,
     AngularDateTimePickerModule,
     AmazingTimePickerModule,
     TagInputModule,
-    // FormWizardModule,
-    // NgxSummernoteModule,
+    FormWizardModule,
+    NgxSummernoteModule,
     // TinymceModule.withConfig({}),
     AceEditorModule,
     CodemirrorModule,
@@ -70,13 +72,13 @@ import { CustomFormsModule } from 'ng2-validation'
     // Select2Module,
     MorrisJsModule,
     ChartistModule,
-    // DataTablesModule,
+    DataTablesModule,
     SweetAlert2Module.forRoot(),
     ToastrModule.forRoot(),
     // AgmCoreModule.forRoot({ apiKey: 'AIzaSyCnT63XUjqjPgXZ0lFTU_pdpfUX7swzTTM' }),
     BarRatingModule,
     // FullCalendarModule,
-    // ScrollToModule.forRoot()
+    ScrollToModule.forRoot()
   ],
   providers: [
     StatusBar,
