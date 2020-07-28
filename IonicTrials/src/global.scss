@@ -177,3 +177,36 @@
 @import "./assets/styles/settings-panel";
 
 /*-------------------------------------------------------------------*/
+.my-custom-alert .alert-wrapper {
+    min-width: 510px !important;
+    min-height: 200px !important;
+
+    .alert-button-group {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        button {
+                color: white;
+                background-color: #036bfc;
+                // width: 70px;
+                // text-align: center !important;
+                // margin-left: -15px;
+              }
+      }
+
+  
+    .alert-sub-title {
+        margin-top: 22px !important;
+        text-align: center !important;
+        font-size: 25px;
+    }
+
+    .alert-message {
+      color: black !important;
+      text-align: center !important;
+      font-size: 14px;
+    }
+  }
+
+//<button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block; border-left-color: rgb(36, 138, 253); border-right-color: rgb(36, 138, 253);">OK</button>

@@ -1,8 +1,10 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "Dies ist eine Landingpage"
+    "TextValue": "Dies ist eine Landingpage",
+    "ModalDialogTitle": "In Arbeit, sei geduldig",
+    "ModalDialogText":"Klicken Sie auf OK, um diese Warnung zu schließen",
+    "BtnShowDialog":"Nachrichtendialog anzeigen",
+    "BtnOk":"OK"
     }
-
-   
 }

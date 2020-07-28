@@ -47,7 +47,6 @@ import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage'
-import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
 
 export function createTranslateLoader(http : HttpClient){
 
@@ -98,8 +97,7 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
         useFactory : (createTranslateLoader),
         deps : [HttpClient]
       }
-    }),
-    LanguagePopoverPageModule
+    })
   ],
   providers: [
     StatusBar,

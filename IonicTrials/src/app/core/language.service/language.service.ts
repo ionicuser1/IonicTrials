@@ -18,13 +18,13 @@ export class LanguageService {
     let language = this.translate.getBrowserLang();
     this.translate.setDefaultLang(language);
 
-    this.storage.get(LNG_KEY).then(val => {
-      if(val)
-      {
-        this.setLanguage(val);
-        this.seleceted =  val;
-      }
-    });
+    // this.storage.get(LNG_KEY).then(val => {
+    //   if(val)
+    //   {
+    //     this.setLanguage(val);
+    //     this.seleceted =  val;
+    //   }
+    // });
   }
 
   getLanguages()
@@ -39,6 +39,6 @@ export class LanguageService {
   {
     this.translate.use(lng);
     this.seleceted = lng;
-    this.storage.set(LNG_KEY,lng);
+    //this.storage.set(LNG_KEY,lng);
   }
 }

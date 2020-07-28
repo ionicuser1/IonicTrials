@@ -3,11 +3,11 @@
     <!-- <ion-title>Landing-Page</ion-title> -->
     <ion-title> {{ 'LandingPage.Title' | translate }}</ion-title>
 
-    <ion-buttons slot="end">
+    <!-- <ion-buttons slot="end">
       <ion-button (click)="openLanguagePopover($event)">
         <ion-icon name="more" slot="icon-only" ios="ellipsis-horizontal"  md="ellipsis-vertical"></ion-icon>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 
 
@@ -29,9 +29,9 @@
   <div>
     <div class="card-body">
       <div class="wrapper text-center">
-        <button class="btn btn-outline-success" (click) = "backGround()">Show Message Dialog</button>
+        <!-- <button class="btn btn-outline-success" (click) = "backGround()">{{ 'LandingPage.BtnShowDialog' | translate }}</button> -->
 
-        <!-- <button class="btn btn-outline-success" [swal]="[param, 'Click OK to close this alert']">Show Message Dialog</button> -->
+        <button class="btn btn-outline-success" [swal]="['LandingPage.ModalDialogTitle' | translate,'LandingPage.ModalDialogText' | translate]">{{ 'LandingPage.BtnShowDialog' | translate }}</button>
 
         <!-- <swal #swal1
         title="Work in progress, be patient"
@@ -40,6 +40,15 @@
           popup = 'my-swal'
       
         ></swal> -->
+      </div>
+    </div>  
+  </div>
+
+
+  <div>
+    <div class="card-body">
+      <div class="wrapper text-center">
+        <button class="btn btn-outline-success" (click) = "presentAlert()">{{ 'LandingPage.BtnShowDialog' | translate }}</button>
       </div>
     </div>  
   </div>

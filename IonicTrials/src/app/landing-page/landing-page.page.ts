@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import Swal from 'sweetalert2';
 
-import { PopoverController } from '@ionic/angular';
-import { LanguagePopoverPage } from '../pages/language-popover/language-popover.page';
+import { TranslateService } from '@ngx-translate/core';
+
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,33 +13,53 @@ import { LanguagePopoverPage } from '../pages/language-popover/language-popover.
 })
 export class LandingPagePage implements OnInit {
 
-  param = "Work in progress, be patient";
+  dialogTitle: any;
+  dialogText: any;
+  dialogBtnOk: any;
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(public translate: TranslateService,public alertController: AlertController) { 
+  }
 
   ngOnInit() {
-    
     
   }
 
   backGround()
   {
-    Swal.fire({
-      title: this.param,
-      text: 'Click OK to close this alert',
+      this.getStringLocalization();
+      Swal.fire({
+      title: this.dialogTitle,
+      text: this.dialogText,
       customClass:{
-        popup:'bg-class'
+        popup:'swal-overlay'
       }
     });
     
   }
 
-  
-  async openLanguagePopover(ev){
-    const popover = await this.popoverCtrl.create({
-      component: LanguagePopoverPage,
-      event : ev
+
+  async presentAlert() {
+
+    this.getStringLocalization();
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-alert',
+      subHeader: this.dialogTitle,
+      message: this.dialogText,
+      buttons: [this.dialogBtnOk]
     });
-    await popover.present();
+
+    await alert.present();
+  }
+
+
+getStringLocalization(){
+    this.translate.get('LandingPage').subscribe((data:any)=> {
+    this.dialogTitle = data.ModalDialogTitle;
+    this.dialogText = data.ModalDialogText;
+    this.dialogBtnOk = data.BtnOk;
+     });
   }
 }
+
+
+
