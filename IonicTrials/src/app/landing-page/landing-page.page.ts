@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { LanguagePopoverPage } from '../pages/language-popover/language-popover.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,7 +10,7 @@ import { LanguagePopoverPage } from '../pages/language-popover/language-popover.
 })
 export class LandingPagePage implements OnInit {
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(private popoverCtrl: PopoverController,private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,4 +22,7 @@ export class LandingPagePage implements OnInit {
     });
     await popover.present();
   }
+
+  goToExternalPage() {
+    this.router.navigateByUrl('/externallinks');  }
 }

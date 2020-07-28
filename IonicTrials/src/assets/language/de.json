@@ -1,8 +1,12 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "Dies ist eine Landingpage"
+    "TextValue": "Dies ist eine Landingpage",
+    "ExternalLinkBtnText":"Externe Links"
+    },
+    "ExternalLinks":{
+      "ExternalLinksPageTitle":"Seite für externe Links",
+      "AddBtnText":"Link hinzufügen"
     }
-
-   
+      
 }
