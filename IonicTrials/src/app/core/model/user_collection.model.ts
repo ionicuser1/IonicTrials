@@ -1,6 +1,7 @@
 export class UserCollections {
   card_name: string;
   card_details: string;
+  
  
    
   }
@@ -22,4 +23,5 @@ export class UserCollections {
   card_name: string;
   card_details: string;
   }
+  
 

@@ -15,11 +15,13 @@ import { UserHomePageRoutingModule } from './user-home-routing.module';
 import { UserHomePage } from './user-home.page';
 import { SharedModule } from '../shared/shared.module';
 import { UserCollectionsComponent } from '../shared/user-collections/user-collections.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     SharedModule,
     NgImageSliderModule,
     CarouselModule,

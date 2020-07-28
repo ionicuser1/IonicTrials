@@ -10,11 +10,13 @@ import { AdminUserHomePageRoutingModule } from './admin-user-home-routing.module
 
 import { AdminUserHomePage } from './admin-user-home.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     SharedModule,
     IonicModule,
     AdminUserHomePageRoutingModule

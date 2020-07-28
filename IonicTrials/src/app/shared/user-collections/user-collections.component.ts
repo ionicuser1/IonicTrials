@@ -14,18 +14,22 @@ export class UserCollectionsComponent implements OnInit {
   
   public userCollectioN : UserCollections[];
   public userCollection1 : UserCollections;
-  //collection :string;
-  constructor(private dataService : DataService, private navCtrl : NavController) {
+
+  constructor(private dataService : DataService, private navCtrl : NavController ) {
     this.userCollectioN = this.dataService.userCollection;
+    
 
    
    }
-   
+   names = this.dataService.getStringUserLocalization();
    user_collection_size  = this.dataService.userCollection.length;
+   // this.dataService.getStringUserLocalization();
+  collection = this.dataService.userCollectionName;
 
-   collection = this.dataService.userCollectionName
+
    ngOnInit() {
-   console.log("arraysize="+this.user_collection_size);
+    
+   console.log("UserCollectionSize="+this.user_collection_size);
    console.log("collection name="+this.collection);
   }
 
@@ -48,22 +52,22 @@ export class UserCollectionsComponent implements OnInit {
   };
 
   module1(){
-    this.navCtrl.navigateForward('module1');
+    this.navCtrl.navigateForward('module-page1');
   }
   module2(){
-    this.navCtrl.navigateForward('module2');
+    this.navCtrl.navigateForward('module-page2');
   }
   module3(){
-    this.navCtrl.navigateForward('module3');
+    this.navCtrl.navigateForward('module-page3');
   }
    module4(){
-    this.navCtrl.navigateForward('module4');
+    this.navCtrl.navigateForward('module-page4');
   }
    module5(){
-    this.navCtrl.navigateForward('module5');
+    this.navCtrl.navigateForward('module-page5');
   }
   module6(){
-    this.navCtrl.navigateForward('module6');
+    this.navCtrl.navigateForward('module-page6');
   }
  
 }

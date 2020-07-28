@@ -3,6 +3,18 @@
     "Title": "Landing-Page ",
     "TextValue": "This is a landing page"
     
-  }
- 
+  },
+
+    "UserHomePage":{
+      "ButtonValue1": "User",
+      "ButtonValue2": "Admin User",
+      "userTitle": "User Home Page",
+      "AdminTitle": "Admin Home page",
+      "User_Collection_name": "User Collection",
+      "Free_Collection_name": "Free Collection",
+      "Private_Collection_name": "Private Collection",
+      "Public_Collection_name": "Public Collection"
+      
+    }
+
 }

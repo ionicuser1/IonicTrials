@@ -26,33 +26,36 @@ const routes: Routes = [
   {
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
-  },  {
-    path: 'module1',
-    loadChildren: () => import('./module1/module1.module').then( m => m.Module1PageModule)
+  },
+  
+  {
+    path: 'module-page7',
+    loadChildren: () => import('./modulepages/module-page7/module-page7.module').then( m => m.ModulePage7PageModule)
   },
   {
-    path: 'module2',
-    loadChildren: () => import('./module2/module2.module').then( m => m.Module2PageModule)
+    path: 'module-page1',
+    loadChildren: () => import('./modulepages/module-page1/module-page1.module').then( m => m.ModulePage1PageModule)
+  },
+  
+  {
+    path: 'module-page3',
+    loadChildren: () => import('./modulepages/module-page3/module-page3.module').then( m => m.ModulePage3PageModule)
   },
   {
-    path: 'module3',
-    loadChildren: () => import('./module3/module3.module').then( m => m.Module3PageModule)
+    path: 'module-page4',
+    loadChildren: () => import('./modulepages/module-page4/module-page4.module').then( m => m.ModulePage4PageModule)
   },
   {
-    path: 'module4',
-    loadChildren: () => import('./module4/module4.module').then( m => m.Module4PageModule)
+    path: 'module-page5',
+    loadChildren: () => import('./modulepages/module-page5/module-page5.module').then( m => m.ModulePage5PageModule)
   },
   {
-    path: 'module5',
-    loadChildren: () => import('./module5/module5.module').then( m => m.Module5PageModule)
+    path: 'module-page6',
+    loadChildren: () => import('./modulepages/module-page6/module-page6.module').then( m => m.ModulePage6PageModule)
   },
   {
-    path: 'module6',
-    loadChildren: () => import('./module6/module6.module').then( m => m.Module6PageModule)
-  },
-  {
-    path: 'module7',
-    loadChildren: () => import('./module7/module7.module').then( m => m.Module7PageModule)
+    path: 'module-page2',
+    loadChildren: () => import('./modulepages/module-page2/module-page2.module').then( m => m.ModulePage2PageModule)
   },
 
 

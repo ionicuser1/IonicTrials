@@ -12,9 +12,11 @@ export class OtherCollectionsComponent implements OnInit {
 
   public userCollectioN : UserCollections[];
   
+  
   constructor(private dataService : DataService, private navCtrl : NavController) {
     this.userCollectioN = this.dataService.userCollection;
    }
+   names = this.dataService.getStringUserLocalization();
    public_collection_size  = this.dataService.public_collection.length;
    free_collection_size  = this.dataService.freeCollection.length;
    private_collection_size  = this.dataService.privateCollection.length;
@@ -27,9 +29,12 @@ export class OtherCollectionsComponent implements OnInit {
    
    ngOnInit() {
   
-    console.log("arraysize="+this.public_collection_size);
-    console.log("arraysize="+this.free_collection_size);
-    console.log("arraysize="+this.private_collection_size);
+    console.log("Public Collection Size="+this.public_collection_size);
+    console.log("Free Collection Size="+this.free_collection_size);
+    console.log("Private Collection Size="+this.private_collection_size);
+    console.log("collection name="+this.public_collection_name);
+    console.log("collection name="+this.free_collection_name);
+    console.log("collection name="+this.private_collection_name);
   }
 
   @ViewChild(IonSlides) slider: IonSlides;
@@ -79,6 +84,19 @@ export class OtherCollectionsComponent implements OnInit {
   };
 
   module7(){
-    this.navCtrl.navigateForward('module7');
+   // const collectionName =  this.dataService.getCollectionsName;
+    if(onclick === this.free_collection_name)
+    {
+      console.log("CollectionName free")
+    }else if(onclick == this.dataService.publicCollectionName)
+    {
+      console.log("CollectionName public")
+    }else if(onclick == this.dataService.privateCollectionName){
+      console.log("CollectionName private")
+    }else{
+      console.log("CollectionName wrong")
+    }
+    this.navCtrl.navigateForward('module-page7');
+   // console.log("CollectionName=" + collectionName)
   }
 }
