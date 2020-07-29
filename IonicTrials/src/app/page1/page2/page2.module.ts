@@ -8,6 +8,7 @@ import { Page2PageRoutingModule } from './page2-routing.module';
 
 import { Page2Page } from './page2.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     IonicModule,
     Page2PageRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [Page2Page]
 })

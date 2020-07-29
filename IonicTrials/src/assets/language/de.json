@@ -1,0 +1,28 @@
+{
+  "LandingPage":{
+    "Title": "Landing-Page ",
+    "TextValue": "Dies ist eine Landingpage"
+    },
+    "Page1": {
+      "Title": "Seite 1",
+      "TextValue": "Dies ist Seite 1"
+    },
+    "Page2": {
+      "Title": "Seite 2",
+      "TextValue": "Dies ist Seite 2" 
+    },
+    "Page3": {
+      "Title": "Seite 3",
+      "TextValue" : "Dies ist Seite 3"
+    },
+    "Page4": {
+      "Title": "Seite 4",
+      "TextValue" : "Dies ist Seite 4"
+    },
+    "Page5": {
+      "Title": "Seite 5",
+      "TextValue" : "Dies ist Seite 5"
+    }
+
+   
+}

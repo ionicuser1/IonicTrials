@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Page2</ion-title>
+    <ion-title>{{ 'Page2.Title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <app-breadcrumb style="margin-top: 6px;"></app-breadcrumb>
 
 <ion-content>
-  <h3>This is page 2</h3>
-  <ion-button (click)="goToPage4()">Page 4</ion-button>
+  <h3>{{ 'Page2.TextValue' | translate }}</h3>
+  <ion-button (click)="goToPage4()">{{ 'Page4.Title' | translate }}</ion-button>
 </ion-content>

@@ -43,12 +43,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 import { SharedModule } from './shared/shared.module';
 
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { IonicStorageModule } from '@ionic/storage'
+import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+
+export function createTranslateLoader(http : HttpClient){
+
+return new TranslateHttpLoader(http,'assets/language/',".json");
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    TranslateModule,
     DragulaModule.forRoot(),
     ClipboardModule,
     ContextMenuModule.forRoot(),
@@ -78,7 +91,19 @@ import { SharedModule } from './shared/shared.module';
     // AgmCoreModule.forRoot({ apiKey: 'AIzaSyCnT63XUjqjPgXZ0lFTU_pdpfUX7swzTTM' }),
     BarRatingModule,
     // FullCalendarModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    // ScrollToModule.forRoot()
+
+    IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader : {
+
+        provide: TranslateLoader,
+        useFactory : (createTranslateLoader),
+        deps : [HttpClient]
+      }
+    }),
+    LanguagePopoverPageModule
   ],
   providers: [
     StatusBar,

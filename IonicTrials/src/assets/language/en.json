@@ -1,0 +1,29 @@
+{
+  "LandingPage":{
+    "Title": "Landing-Page ",
+    "TextValue": "This is a landing page"
+    
+  },
+  "Page1": {
+    "Title": "Page 1",
+    "TextValue": "This is page 1",
+    "BreadCrumb": "Page 1"
+  },
+  "Page2": {
+    "Title": "Page 2",
+    "TextValue": "This is page 2" 
+  },
+  "Page3": {
+    "Title": "Page 3",
+    "TextValue" : "This is page 3"
+  },
+  "Page4": {
+    "Title":"Page 4",
+    "TextValue" : "This is page 4"
+  },
+  "Page5": {
+    "Title":"Page 5",
+    "TextValue" : "This is page 5"
+  }
+ 
+}
