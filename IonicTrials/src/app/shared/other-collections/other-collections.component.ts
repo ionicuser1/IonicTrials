@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserCollections } from 'src/app/core/model/user_collection.model';
+import { UserCollections, FreeCollections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { IonSlides, NavController } from '@ionic/angular';
 
@@ -11,6 +11,7 @@ import { IonSlides, NavController } from '@ionic/angular';
 export class OtherCollectionsComponent implements OnInit {
 
   public userCollectioN : UserCollections[];
+  public freeCollectio : FreeCollections;
   
   
   constructor(private dataService : DataService, private navCtrl : NavController) {
@@ -21,10 +22,29 @@ export class OtherCollectionsComponent implements OnInit {
    free_collection_size  = this.dataService.freeCollection.length;
    private_collection_size  = this.dataService.privateCollection.length;
 
-
+   
    public_collection_name = this.dataService.publicCollectionName
    free_collection_name = this.dataService.freeCollectionName
    private_collection_name = this.dataService.privateCollectionName
+ 
+   slidePrev() {
+    this.slider.slidePrev();
+  }
+  slideNext() {
+    this.slider.slideNext();
+  }
+  slidePrev1() {
+    this.slider.slidePrev();
+  }
+  slideNext1() {
+    this.slider.slideNext();
+  }
+  slidePrev2() {
+    this.slider.slidePrev();
+  }
+  slideNext2() {
+    this.slider.slideNext();
+  }
 
    
    ngOnInit() {
@@ -35,6 +55,7 @@ export class OtherCollectionsComponent implements OnInit {
     console.log("collection name="+this.public_collection_name);
     console.log("collection name="+this.free_collection_name);
     console.log("collection name="+this.private_collection_name);
+    
   }
 
   @ViewChild(IonSlides) slider: IonSlides;
@@ -85,10 +106,10 @@ export class OtherCollectionsComponent implements OnInit {
 
   module7(){
    // const collectionName =  this.dataService.getCollectionsName;
-    if(onclick === this.free_collection_name)
-    {
-      console.log("CollectionName free")
-    }else if(onclick == this.dataService.publicCollectionName)
+   // if(onclick === this.dataService.freeCollection[])
+   // {
+    //  console.log("CollectionName free"+ this.freeCollectio.card_name)
+     if(onclick == this.dataService.publicCollectionName)
     {
       console.log("CollectionName public")
     }else if(onclick == this.dataService.privateCollectionName){

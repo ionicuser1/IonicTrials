@@ -32,6 +32,12 @@ export class UserCollectionsComponent implements OnInit {
    console.log("UserCollectionSize="+this.user_collection_size);
    console.log("collection name="+this.collection);
   }
+  slidePrev() {
+    this.slider.slidePrev();
+  }
+  slideNext() {
+    this.slider.slideNext();
+  }
 
   
 

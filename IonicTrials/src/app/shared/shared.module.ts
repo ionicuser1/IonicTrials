@@ -4,15 +4,16 @@ import { UserCollectionsComponent } from './user-collections/user-collections.co
 import { IonicModule } from '@ionic/angular';
 import { AdminCollectionsComponent } from './admin-collections/admin-collections.component';
 import { OtherCollectionsComponent } from './other-collections/other-collections.component';
+import { SlidesCompComponent } from './slides-comp/slides-comp.component';
 
 
 
 @NgModule({
-  declarations: [UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent],
+  declarations: [UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent, SlidesCompComponent],
   imports: [
     CommonModule,
     IonicModule
   ],
-  exports :[UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent]
+  exports :[UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent,SlidesCompComponent]
 })
 export class SharedModule { }

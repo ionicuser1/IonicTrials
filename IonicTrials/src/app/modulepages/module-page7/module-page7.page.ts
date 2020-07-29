@@ -9,19 +9,21 @@ import { UserCollections, FreeCollections, PrivateCollections, PublicCollections
 })
 export class ModulePage7Page implements OnInit {
 
-  // CollectionName = "public collection";
-  // cardName = "card 1";
-  // cardDetails = "This is card 1"
+ 
 
-
+  freeCollectionObj : FreeCollections;
+  publicCollectinObj : PublicCollections;
+  privateCollectionObj : PrivateCollections;
  // public freeCollections : FreeCollections[];
-  public publicCollections : PublicCollections[];
-  public privateCollections : PrivateCollections[];
+  //public publicCollections : PublicCollections[];
+ // public privateCollections : PrivateCollections[];
 
   constructor( private dataService : DataService) {
     // this.freeCollections = this.dataService.freeCollectionName
-     this.publicCollections = this.dataService.publicCollectionName
-     this.privateCollections = this.dataService.privateCollectionName
+    this.freeCollectionObj = this.dataService.newFreeColl;
+    this.publicCollectinObj = this.dataService.newPublicColl;
+    this.privateCollectionObj = this.dataService.newPrivateColl;
+
 
      }
     
