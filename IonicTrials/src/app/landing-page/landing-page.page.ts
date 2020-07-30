@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPagePage implements OnInit {
 
+
   constructor(private popoverCtrl: PopoverController,private router: Router) { }
 
   ngOnInit() {
@@ -24,5 +25,6 @@ export class LandingPagePage implements OnInit {
   }
 
   goToExternalPage() {
-    this.router.navigateByUrl('/externallinks');  }
+    this.router.navigateByUrl('/externallinks');  
+  }
 }

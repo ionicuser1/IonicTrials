@@ -7,7 +7,32 @@
 <ion-content>
 
   <div class="template-demo">
-    <button type="button" class="btn btn-primary" (click)="addLink()">{{ 'ExternalLinks.AddBtnText' | translate }}</button>
+    <!-- <button type="button" class="btn btn-primary" [swal]="formSwal" >{{ 'ExternalLinks.AddBtnText' | translate }} -->
+
+    <button type="button" class="btn btn-primary" (click)= "addLink()">{{ 'ExternalLinks.AddBtnText' | translate }}
+
+    </button>
+    <!-- <swal
+        #formSwal
+        showCancelButton="true"
+        cancelButtonClass="btn btn-danger"
+        confirmButtonText= "Save"
+        html = '<div>
+          <input class="swal2-input" type="text" placeholder="Enter Topic"/>
+          <br/>
+          <input class="swal2-input" type="text" placeholder="Enter Sub-Topic"/>
+          <br/>
+          <input class="swal2-input" type="text" placeholder="Enter Link Description"/>
+          <br/>
+          <input class="swal2-input" type="url" placeholder="Enter Link URL" pattern="https?://.+" required/>
+        </div>'>
+        
+    </swal> -->
   </div>
 
+  <div class="template-demo">
+    <button type="button" class="btn btn-primary" (click)= "addLinkAlert()">{{ 'ExternalLinks.AddBtnText' | translate }}</button>
+  </div>
 </ion-content>
+
+

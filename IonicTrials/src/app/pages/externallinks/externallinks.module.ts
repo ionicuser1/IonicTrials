@@ -8,6 +8,7 @@ import { ExternallinksPageRoutingModule } from './externallinks-routing.module';
 
 import { ExternallinksPage } from './externallinks.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     ExternallinksPageRoutingModule,
-    TranslateModule
+    TranslateModule,
+    SweetAlert2Module
   ],
   declarations: [ExternallinksPage]
 })
