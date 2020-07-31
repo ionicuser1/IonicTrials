@@ -1,25 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, NavController } from '@ionic/angular';
-import { UserCollections, FreeCollections, OtherCollections } from 'src/app/core/model/user_collection.model';
+import { FreeCollections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
+import { NavController, IonSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-collections',
-  templateUrl: './admin-collections.component.html',
-  styleUrls: ['./admin-collections.component.scss'],
+  selector: 'app-other-admin-comp',
+  templateUrl: './other-admin-comp.component.html',
+  styleUrls: ['./other-admin-comp.component.scss'],
 })
-export class AdminCollectionsComponent implements OnInit {
+export class OtherAdminCompComponent implements OnInit {
 
-  public freeCollectioN : OtherCollections[];
+  public freeCollectioN : FreeCollections[];
 
   constructor(private dataService : DataService, private navCtrl : NavController ) {
-    this.freeCollectioN = this.dataService.otherCollection;
+    this.freeCollectioN = this.dataService.freeCollection;
    }
 
-   free_collection_size  = this.dataService.otherCollection.length;
+   free_collection_size  = this.dataService.freeCollection.length;
   
    // this.dataService.getStringUserLocalization();
-  freecollection = this.dataService.otherCollectionName;
+  freecollection = this.dataService.freeCollectionName;
 
   ngOnInit() {}
   slidePrev() {

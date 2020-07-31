@@ -26,5 +26,12 @@ export class UserCollections {
   card_details: string;
   image : string
   }
+
+  export class OtherCollections {
+    collection_name : string;
+    card_name: string;
+    card_details: string;
+    image : string
+    }
   
 

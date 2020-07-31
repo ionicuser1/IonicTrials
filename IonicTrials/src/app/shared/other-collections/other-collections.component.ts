@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserCollections, FreeCollections } from 'src/app/core/model/user_collection.model';
+import { UserCollections, FreeCollections, PublicCollections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { IonSlides, NavController } from '@ionic/angular';
 
@@ -12,10 +12,13 @@ export class OtherCollectionsComponent implements OnInit {
 
   public userCollectioN : UserCollections[];
   public freeCollectio : FreeCollections;
+
+  public publicCollectioN : PublicCollections[];
   
   
   constructor(private dataService : DataService, private navCtrl : NavController) {
     this.userCollectioN = this.dataService.userCollection;
+    this.publicCollectioN = this.dataService.public_collection;
    }
    names = this.dataService.getStringUserLocalization();
    public_collection_size  = this.dataService.public_collection.length;
@@ -33,18 +36,7 @@ export class OtherCollectionsComponent implements OnInit {
   slideNext() {
     this.slider.slideNext();
   }
-  slidePrev1() {
-    this.slider.slidePrev();
-  }
-  slideNext1() {
-    this.slider.slideNext();
-  }
-  slidePrev2() {
-    this.slider.slidePrev();
-  }
-  slideNext2() {
-    this.slider.slideNext();
-  }
+  
 
    
    ngOnInit() {
@@ -60,11 +52,11 @@ export class OtherCollectionsComponent implements OnInit {
 
   @ViewChild(IonSlides) slider: IonSlides;
 
-  slideOpts2 = {
+  slideOpts3 = {
     initialSlide: this.public_collection_size,
     autoplay: true,
     nav: true,
-    slidesPerView: this.public_collection_size,
+    slidesPerView: 4,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
@@ -74,50 +66,12 @@ export class OtherCollectionsComponent implements OnInit {
       }
     }
   };
-  slideOpts3 = {
-    initialSlide: this.free_collection_size,
-    autoplay: true,
-    nav: true,
-    slidesPerView: this.free_collection_size,
-    spaceBetween: 0,
-    autoplayTimeout: 5500,
-    navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
-    responsive: {
-      2100: {
-       
-      }
-    }
-  };
+  
 
-  slideOpts4 = {
-    initialSlide: this.private_collection_size,
-    autoplay: true,
-    nav: true,
-    slidesPerView: this.private_collection_size,
-    spaceBetween: 0,
-    autoplayTimeout: 5500,
-    navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
-    responsive: {
-      2100: {
-       
-      }
-    }
-  };
+ 
 
-  module7(){
-   // const collectionName =  this.dataService.getCollectionsName;
-   // if(onclick === this.dataService.freeCollection[])
-   // {
-    //  console.log("CollectionName free"+ this.freeCollectio.card_name)
-     if(onclick == this.dataService.publicCollectionName)
-    {
-      console.log("CollectionName public")
-    }else if(onclick == this.dataService.privateCollectionName){
-      console.log("CollectionName private")
-    }else{
-      console.log("CollectionName wrong")
-    }
+  desc1(temp:PublicCollections){
+    this.dataService.newPublicColl = temp;
     this.navCtrl.navigateForward('module-page7');
-   // console.log("CollectionName=" + collectionName)
-  }
+    }
 }

@@ -5,11 +5,15 @@
   
     <h4 style="text-align: center;">{{ 'UserHomePage.userTitle' | translate }}</h4>
     <ion-card style="margin-top: 20px;max-height: 400px;">
-      <div style="position: absolute;top: 30%;left: 16px;font-size: 25px;z-index: 2;" (click)="slidePrev()">
-        <ion-icon name="arrow-back"></ion-icon>
+      <div style="position: absolute;top: 40%; left: 16px;font-size: 15px;z-index: 2;" (click)="slidePrev()">
+        <button type="button" style="color: rgb(83, 82, 82);font-size: 40px;" class="btn btn-secondary btn-rounded btn-icon">
+          <i style="font-size: 40px;color:white;" class="mdi mdi-chevron-left"></i>
+        </button>
       </div>
-      <div style="position: absolute;top: 30%;right: 16px;font-size: 25px;z-index: 2;" (click)="slideNext()">
-        <ion-icon name="arrow-forward"></ion-icon>
+      <div style="position: absolute;top: 40%;right: 16px;font-size: 25px;z-index: 2;" (click)="slideNext()">
+        <button type="button" style="color: rgb(83, 82, 82);font-size: 40px;" class="btn btn-secondary btn-rounded btn-icon">
+          <i style="font-size: 40px;color: white;" class="mdi mdi-chevron-right"></i>
+        </button>
       </div>
       <ion-slides  [options]="slideOpts" paginationType="bullets" class="full-width">
         <ion-slide carouselSlide>
@@ -30,6 +34,8 @@
 
    <!-- <app-other-collections> </app-other-collections> -->
    <app-slides-comp> </app-slides-comp>
+   <app-other-admin-comp > </app-other-admin-comp>
+   
   
 
      

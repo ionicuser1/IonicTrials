@@ -60,6 +60,7 @@
     "electron-packager": "^15.0.0",
     "flag-icon-css": "^3.5.0",
     "font-awesome": "^4.7.0",
+    "ionicons": "^5.1.2",
     "jquery": "^3.5.1",
     "mdi": "^2.2.43",
     "morris.js": "^0.5.0",

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { UserCollections, FreeCollections, PublicCollections, PrivateCollections } from 'src/app/core/model/user_collection.model';
 import { NavController, IonSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slides-comp',
@@ -17,13 +18,17 @@ export class SlidesCompComponent implements OnInit {
 
 
   public userCollection1 : FreeCollections;
+  selectedTab = 0;
 
-  constructor(private dataService : DataService, private navCtrl : NavController ) {
+  constructor(private dataService : DataService, private navCtrl : NavController,private router: Router ) {
     this.freeCollectioN = this.dataService.freeCollection;
     this.publicCollectioN = this.dataService.public_collection;
     this.privateCollectioN = this.dataService.privateCollection;
     
  }
+
+ 
+
    names = this.dataService.getStringUserLocalization();
    free_collection_size  = this.dataService.freeCollection.length;
    public_collection_size  = this.dataService.public_collection.length;
@@ -44,6 +49,7 @@ export class SlidesCompComponent implements OnInit {
     this.slider.slideNext();
   }
 
+
   desc(temp:FreeCollections){
   this.dataService.newFreeColl = temp;
   this.navCtrl.navigateForward('module-page7');
@@ -62,9 +68,10 @@ export class SlidesCompComponent implements OnInit {
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
     initialSlide: this.free_collection_size,
-    autoplay: true,
+    autoplay: false,
     nav: true,
-    slidesPerView: this.free_collection_size,
+    loop:false,
+    slidesPerView: 4,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
@@ -77,9 +84,10 @@ export class SlidesCompComponent implements OnInit {
 
   slideOpts3 = {
     initialSlide: this.public_collection_size,
-    autoplay: true,
+    autoplay: false,
     nav: true,
-    slidesPerView: this.public_collection_size,
+    loop:false,
+    slidesPerView: 4,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
@@ -92,9 +100,10 @@ export class SlidesCompComponent implements OnInit {
 
   slideOpts4 = {
     initialSlide: this.private_collection_size,
-    autoplay: true,
+    autoplay: false,
     nav: true,
-    slidesPerView: this.private_collection_size,
+    loop:false,
+    slidesPerView: 4,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],

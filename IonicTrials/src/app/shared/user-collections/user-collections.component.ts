@@ -44,9 +44,10 @@ export class UserCollectionsComponent implements OnInit {
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
     initialSlide: this.user_collection_size,
-    autoplay: true,
+    autoplay: false,
     nav: true,
-    slidesPerView: this.user_collection_size,
+    loop:false,
+    slidesPerView: 4,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
