@@ -14,10 +14,23 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
-  },  {
+  },
+  {
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+  },
+
+  // {
+  //   path: 'page1/:page/page4',
+  //   loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule),
+  //   data: {
+  //     breadcrumb: 'Page 4'
+  //   }
+  // },
 
   
 ];

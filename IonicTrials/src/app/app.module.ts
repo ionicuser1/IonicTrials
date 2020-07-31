@@ -49,6 +49,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage'
 import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
 
+import { FullCalendarModule } from 'ng-fullcalendar'
+import { SharedModule } from './shared/shared.module';
+
 export function createTranslateLoader(http : HttpClient){
 
 return new TranslateHttpLoader(http,'assets/language/',".json");
@@ -66,6 +69,8 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
     NouisliderModule,
     CarouselModule,
     DropzoneModule,
+    SharedModule,
+    FullCalendarModule,
     ColorPickerModule,
     AngularDateTimePickerModule,
     AmazingTimePickerModule,

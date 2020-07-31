@@ -177,3 +177,12 @@
 @import "./assets/styles/settings-panel";
 
 /*-------------------------------------------------------------------*/
+
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+// @import '~@fullcalendar/list/main.css';
+
+.my-custom-alert .alert-wrapper {
+    min-width: 510px !important;
+    min-height: 200px !important;}
