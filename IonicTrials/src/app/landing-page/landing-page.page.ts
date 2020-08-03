@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavController } from '@ionic/angular';
 import { LanguagePopoverPage } from '../pages/language-popover/language-popover.page';
 
 @Component({
@@ -9,7 +9,7 @@ import { LanguagePopoverPage } from '../pages/language-popover/language-popover.
 })
 export class LandingPagePage implements OnInit {
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(private popoverCtrl: PopoverController, private navCtr: NavController) { }
 
   ngOnInit() {
   }
@@ -20,5 +20,10 @@ export class LandingPagePage implements OnInit {
       event : ev
     });
     await popover.present();
+  }
+
+  showmsg()
+  {
+    this.navCtr.navigateForward('view-page')
   }
 }

@@ -1,8 +1,18 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "This is a landing page"
+    "TextValue": "This is a landing page",
+    "ButtonName": "Show Message"
+    
+  },
+  "ViewPage":{
+    "Title": "View Page",
+    "BackButton": "Back",
+    "msg": "Work in progress, be patient.."
+
+    
     
   }
+  
  
 }
