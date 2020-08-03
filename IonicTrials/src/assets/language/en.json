@@ -7,25 +7,31 @@
   "ExternalLinks":{
     "ExternalLinksPageTitle":"External Links Page",
     "AddBtnText":"Add Link",
+
     "SrNo":"Sr.No",
     "Topic":"Topic",
     "SubTopic":"Sub-Topic",
     "LinkDescription":"Link Description",
     "LinkUrl":"Link URL",
+
     "Invoke":"Invoke",
     "Edit":"Edit",
     "Delete":"Delete",
+
     "PhTopic":"Enter The Topic",
     "PhSubtopic":"Enter The Sub-Topic",
     "PhLinkDescription":"Enter Link Description",
     "PhLinkURL":"Enter Link URL",
+
     "AddItem":"Item has been added.!",
     "DeleteItem":"Item has been Deleted.!",
+    "UpdateItem":"Data has been updated.!",
+
     "BtnSave":"Save",
     "InvalidURL":"URL is invalid.! Please Enter Valid URL..",
     "BtnCancel":"Cancel",
     "URLRequired":"Url address is required",
-    "UpdateItem":"Data has been updated.!",
+    
     "DeletePopupHeader":"Alert",
     "DeletePopupMessage":"Do you really want to delete this link?",
     "BtnYes":"Yes",

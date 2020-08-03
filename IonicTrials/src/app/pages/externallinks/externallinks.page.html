@@ -30,8 +30,8 @@
                     <th></th>
                 </tr>
               </thead>
-              <tbody *ngFor="let data of items ; let i = index">
-                <tr>
+              <tbody>
+                <tr *ngFor="let data of items ; let i = index">
                   <td>{{ i+1 }}</td>
                   <td>{{ data.topic }}</td>
                   <td>{{ data.subtopic }}</td>

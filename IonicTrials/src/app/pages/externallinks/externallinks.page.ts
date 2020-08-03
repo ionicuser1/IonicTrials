@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController, Platform } from '@ionic/angular';
 import { StorageService, Item } from 'src/app/core/storage.service/storage.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-externallinks',
@@ -15,8 +16,28 @@ export class ExternallinksPage implements OnInit {
 
   updatedItem : Item = <Item>{};
 
+  phForTopic: any;
+  phForSubTopic: any;
+  phForLinkDesc: any;
+  phForLinkURL: any;
+
+  alertSaveBtn: any;
+  alertCancelBtn: any;
+  phForURLInvalid: any;
+  phForURLRequired: any;
+
+  deletePopupYesBtn: any;
+  deletePopupNoBtn: any;
+  deletePopupMessage: any;
+  deletePopupHeader: any;
+
+  phForItemUpdate: any;
+  phForItemAdd: any;
+  phForItemDelete: any;
+
+
   constructor(public alertController: AlertController,private toastCtrl: ToastController,
-    public storageService : StorageService,private plt: Platform) {
+    public storageService : StorageService,private plt: Platform,public translate: TranslateService) {
       
       this.plt.ready().then(() => {
         this.loadItems();
@@ -34,7 +55,7 @@ export class ExternallinksPage implements OnInit {
     this.newItem.id = Date.now();
     this.storageService.addItem(this.newItem).then(item =>{
       this.newItem = <Item>{};
-      this.showErrorToast('Item has been added.!');
+      this.showErrorToast(this.phForItemAdd);
       this.loadItems();
     });
 
@@ -68,33 +89,36 @@ export class ExternallinksPage implements OnInit {
   ngOnInit() {  }
 
   async addLinkAlert(){
+
+    this.getExternalLinkLocalization();
+
     const alert = await this.alertController.create({
       cssClass: 'my-custom-alert',
       inputs: [
         {
           type: 'text',
           name: 'topic',
-          placeholder: 'Enter The Topic'
+          placeholder: this.phForTopic
           
         },
         {
           type: 'text',
           name: 'sub_topic',
-          placeholder: 'Enter The Sub-Topic'
+          placeholder: this.phForSubTopic
         },
         {
           type: 'text',
           name: 'link_desc',
-          placeholder: 'Enter Link Description'
+          placeholder: this.phForLinkDesc
         },{
           type: 'url',
           name: 'link_url',
-          placeholder: 'Enter Link URL'
+          placeholder: this.phForLinkURL
         },
       ],
       buttons: [
         {
-          text: 'Save',
+          text: this.alertSaveBtn,
           cssClass:'btn btn-outline-primary btn-fw',
           handler: (data) => {
             let validateUrl = this.validateUrl(data.link_url);
@@ -102,13 +126,13 @@ export class ExternallinksPage implements OnInit {
               this.addItem(data.topic,data.sub_topic,data.link_desc,data.link_url);
               return true;
             }else {
-              this.showErrorToast('URL is invalid.! Please Enter Valid URL..');
+              this.showErrorToast(this.phForURLInvalid);
               return false;
             }
           }
         }, 
         {
-          text: 'Cancel',
+          text: this.alertCancelBtn,
           role: 'cancel',
           cssClass:'btn btn-outline-danger btn-fw',
           handler: () => {
@@ -121,6 +145,7 @@ export class ExternallinksPage implements OnInit {
   }
 
   validateUrl(data: string){
+    this.getExternalLinkLocalization();
     var regexUrl = new RegExp("(?:(?:(?:ht|f)tp)s?://)?[\\w_-]+(?:\\.[\\w_-]+)+([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?");
     if(regexUrl.test(data) ){
       return {
@@ -130,7 +155,7 @@ export class ExternallinksPage implements OnInit {
     } else {
        return {
           isValid: false,
-          message: 'Url address is required'
+          message: this.phForURLRequired
        }
     }
   }
@@ -149,36 +174,37 @@ export class ExternallinksPage implements OnInit {
 
 
  async loadEdit(index){
+  this.getExternalLinkLocalization();
     const alert = await this.alertController.create({
       cssClass: 'my-custom-alert',
       inputs: [
         {
           type: 'text',
           name: 'topic',
-          placeholder: 'Enter The Topic',
+          placeholder: this.phForTopic,
           value: this.items[index].topic
         },
         {
           type: 'text',
           name: 'subTopic',
-          placeholder: 'Enter The Sub-Topic',
+          placeholder: this.phForSubTopic,
           value: this.items[index].subtopic
         },
         {
           type: 'text',
           name: 'linkDescription',
-          placeholder: 'Enter Link Description',
+          placeholder: this.phForLinkDesc,
           value: this.items[index].linkDesc
         },{
           type: 'url',
           name: 'linkUrl',
-          placeholder: 'Enter Link URL',
+          placeholder: this.phForLinkURL,
           value: this.items[index].linkUrl
         },
       ],
       buttons: [
         {
-          text: 'Save',
+          text: this.alertSaveBtn,
           cssClass:'btn btn-outline-primary btn-fw',
           handler: (data) => {
           
@@ -191,22 +217,21 @@ export class ExternallinksPage implements OnInit {
               this.updatedItem.modified = Date.now();
               this.updatedItem.id = this.items[index].id;
               this.storageService.updateItem(this.updatedItem).then(item => {
-                this.showErrorToast('Data has been updated.!');
+                this.showErrorToast(this.phForItemUpdate);
                 this.loadItems();
               });
               return true;
             }else{
-              this.showErrorToast('URL is invalid.! Please Enter Valid URL..');
+              this.showErrorToast(this.phForURLInvalid);
               return false;
             }
           }
         }, 
         {
-          text: 'Cancel',
+          text: this.alertCancelBtn,
           role: 'cancel',
           cssClass:'btn btn-outline-danger btn-fw',
           handler: () => {
-            console.log('Confirm Cancel');
           }
         }
       ]
@@ -226,25 +251,26 @@ export class ExternallinksPage implements OnInit {
 
 
   async presentAlertDelete(index) {
+    this.getExternalLinkLocalization();
     const alert = await this.alertController.create({
       cssClass: 'my-custom-alert',
-      header: 'Alert',
-      message: 'Do you really want to delete this link?',
+      header: this.deletePopupHeader,
+      message: this.deletePopupMessage,
       buttons: [
         {
-          text: 'Yes',
+          text: this.deletePopupYesBtn,
           cssClass:'btn btn-outline-danger btn-fw',
           handler: (data) => {
             var number = this.items[index].id;
             this.storageService.deleteItem(number).then(item => {
               this.loadItems();
             });
-              this.showErrorToast('Item has been deleted.!');
+              this.showErrorToast(this.phForItemDelete);
               return true;
           }
         },
         {
-          text: 'No',
+          text: this.deletePopupNoBtn,
           cssClass: 'btn btn-outline-primary btn-fw',
           handler: () => {
           }
@@ -254,5 +280,31 @@ export class ExternallinksPage implements OnInit {
 
     await alert.present();
   }
+
+
+  getExternalLinkLocalization(){
+    this.translate.get('ExternalLinks').subscribe((data:any)=> {
+    this.phForTopic = data.PhTopic;
+    this.phForSubTopic = data.PhSubtopic;
+    this.phForLinkDesc = data.PhLinkDescription;
+    this.phForLinkURL = data.PhLinkURL;
+
+    this.alertSaveBtn = data.BtnSave;
+    this.alertCancelBtn = data.BtnCancel;
+    this.phForURLInvalid = data.InvalidURL;
+    this.phForURLRequired = data.URLRequired;
+
+    this.deletePopupYesBtn = data.BtnYes;
+    this.deletePopupNoBtn = data.BtnNo;
+    this.deletePopupMessage = data.DeletePopupMessage;
+    this.deletePopupHeader = data.DeletePopupHeader;
+
+    this.phForItemUpdate = data.UpdateItem;
+    this.phForItemAdd = data.AddItem;
+    this.phForItemDelete = data.DeleteItem;
+     
+   });
+  
+ }
 
 }
