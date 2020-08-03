@@ -7,31 +7,52 @@
 <ion-content>
 
   <div class="template-demo">
-    <!-- <button type="button" class="btn btn-primary" [swal]="formSwal" >{{ 'ExternalLinks.AddBtnText' | translate }} -->
-
-    <button type="button" class="btn btn-primary" (click)= "addLink()">{{ 'ExternalLinks.AddBtnText' | translate }}
-
-    </button>
-    <!-- <swal
-        #formSwal
-        showCancelButton="true"
-        cancelButtonClass="btn btn-danger"
-        confirmButtonText= "Save"
-        html = '<div>
-          <input class="swal2-input" type="text" placeholder="Enter Topic"/>
-          <br/>
-          <input class="swal2-input" type="text" placeholder="Enter Sub-Topic"/>
-          <br/>
-          <input class="swal2-input" type="text" placeholder="Enter Link Description"/>
-          <br/>
-          <input class="swal2-input" type="url" placeholder="Enter Link URL" pattern="https?://.+" required/>
-        </div>'>
-        
-    </swal> -->
+    <button type="button" class="btn btn-primary" (click)= "addLinkAlert()">{{ 'ExternalLinks.AddBtnText' | translate }}</button>
   </div>
 
-  <div class="template-demo">
-    <button type="button" class="btn btn-primary" (click)= "addLinkAlert()">{{ 'ExternalLinks.AddBtnText' | translate }}</button>
+   <br/>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table id="order-listing" datatable class="table">
+              <thead>
+                <tr>
+                    <th>{{ 'ExternalLinks.SrNo' | translate }}</th>
+                    <th>{{ 'ExternalLinks.Topic' | translate }}</th>
+                    <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
+                    <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
+                    <th>{{ 'ExternalLinks.LinkUrl' | translate }}</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let data of items ; let i = index">
+                <tr>
+                  <td>{{ i+1 }}</td>
+                  <td>{{ data.topic }}</td>
+                  <td>{{ data.subtopic }}</td>
+                  <td>{{ data.linkDesc }}</td>
+                  <td>{{ data.linkUrl }}</td>
+                  <td>
+                    <label class="btn btn-outline-primary" (click)="invoke(i)">{{ 'ExternalLinks.Invoke' | translate }}</label>
+                  </td>
+                  <td>
+                    <label class="btn btn-outline-primary" (click)="loadEdit(i)">{{ 'ExternalLinks.Edit' | translate }}</label>
+                  </td>
+                  <td>
+                    <label class="btn btn-outline-primary" (click)="delete(i)">{{ 'ExternalLinks.Delete' | translate }}</label>
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
 

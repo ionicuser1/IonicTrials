@@ -6,7 +6,31 @@
     },
     "ExternalLinks":{
       "ExternalLinksPageTitle":"Seite für externe Links",
-      "AddBtnText":"Link hinzufügen"
+      "AddBtnText":"Link hinzufügen",
+      "SrNo":"Sr.Nr.",
+      "Topic":"Thema",
+      "SubTopic":"Unterthema",
+      "LinkDescription":"Link Beschreibung",
+      "LinkUrl":"URL verknüpfen",
+      "Invoke":"Aufrufen",
+      "Edit":"Bearbeiten",
+      "Delete":"Löschen",
+      "PhTopic":"Geben Sie das Thema ein",
+      "PhSubtopic":"Geben Sie das Unterthema ein",
+      "PhLinkDescription":"Geben Sie die Linkbeschreibung ein",
+      "PhLinkURL":"Link-URL eingeben",
+
+      "AddItem":"Artikel wurde hinzugefügt.!",
+      "DeleteItem":"Artikel wurde gelöscht.!",
+      "BtnSave":"sparen",
+      "InvalidURL":"URL ist ungültig.! Bitte geben Sie eine gültige URL ein.",
+      "BtnCancel":"Stornieren",
+      "URLRequired":"URL-Adresse ist erforderlich",
+      "UpdateItem":"Daten wurden aktualisiert.!",
+      "DeletePopupHeader":"Aufmerksam",
+      "DeletePopupMessage":"Möchten Sie diesen Link wirklich löschen?",
+      "BtnYes":"Ja",
+      "BtnNo":"Nein"
     }
       
 }

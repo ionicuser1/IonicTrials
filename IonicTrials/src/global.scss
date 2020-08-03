@@ -177,3 +177,32 @@
 @import "./assets/styles/settings-panel";
 
 /*-------------------------------------------------------------------*/
+.my-custom-alert .alert-wrapper {
+  min-width: 510px !important;
+  min-height: 200px !important;
+
+  // .alert-button-group {
+  //     -webkit-box-pack: center;
+  //     -ms-flex-pack: center;
+  //     justify-content: center;
+
+  //     button {
+  //             color: white;
+  //             background-color: #036bfc;
+  //           }
+  //   }
+
+
+  // .alert-sub-title {
+  //     margin-top: 22px !important;
+  //     text-align: center !important;
+  //     font-size: 25px;
+  // }
+
+  // .alert-message {
+  //   color: black !important;
+  //   text-align: center !important;
+  //   font-size: 14px;
+  // }
+  
+}
