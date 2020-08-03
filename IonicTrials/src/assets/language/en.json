@@ -14,8 +14,39 @@
       "Free_Collection_name": "Free Collection",
       "Private_Collection_name": "Private Collection",
       "Public_Collection_name": "Public Collection",
-      "Other_collection_name" : "Other Collection"
+      "Other_collection_name" : "Other Collection",
+      "card1":"Card 1",
+      "card2":"Card 2",
+      "card3":"Card 3",
+      "card4":"Card 4",
+      "card5":"Card 5",
+      "card6":"Card 6",
+      "card10":"Card 10",
+      "card7":"Card 7",
+      "card8":"Card 8",
+      "card9":"Card 9",
+      "card_detail1":"This is Card 1",
+      "card_detail2":"This is Card 2",
+      "card_detail3":"This is Card 3",
+      "card_detail4":"This is Card 4",
+      "card_detail5":"This is Card 5",
+      "card_detail6":"This is Card 6",
+      "card_detail7":"This is Card 7",
+      "card_detail8":"This is Card 8",
+      "card_detail9":"This is Card 9",
+      "card_detail10":"This is Card 10"
+
       
+    },
+    "extraPage":{
+      "modelpage1":"Welcome to Module Page 1",
+      "modelpage2":"Welcome to Module Page 2",
+      "modelpage3":"Welcome to Module Page 3",
+      "modelpage4":"Welcome to Module Page 4",
+      "modelpage5":"Welcome to Module Page 5",
+      "modelpage6":"Welcome to Module Page 6",
+      "modelpage7":"Welcome to Module Page 7"
+
     }
 
 }

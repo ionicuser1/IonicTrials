@@ -17,24 +17,16 @@
       <ion-title size="large">This is a landing page</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div id="container" style="margin-top: 10px;">
-    <!-- <strong>This is a landing page</strong> -->
+  <div id="container">
+    
 
     <strong>{{ 'LandingPage.TextValue' | translate }}</strong>
-
+<div style="margin-top: 15px;">
+  <button type="button" class="btn btn-primary btn-rounded btn-fw" (click)="user()"> {{'UserHomePage.ButtonValue1' | translate}} </button>  
+</div>
+<div style="margin-top: 10px;">
+  <button type="button" class="btn btn-primary btn-rounded btn-fw" (click)="admin_user()"> {{'UserHomePage.ButtonValue2' | translate}}</button>  
+</div>
+   
   </div>
-  <span> 
-  <div style="margin-top: 40px;">
-    <span> 
-<button type="button" class="btn btn-primary"  (click)="user()">{{ 'UserHomePage.ButtonValue1' | translate }} </button>
-</span>
-</div>
-<div style="margin-top: 10px;"> 
-  <span> 
-  <button type="button" class="btn btn-primary"    (click)="admin_user()">{{ 'UserHomePage.ButtonValue2' | translate }}</button>
-</span>
-</div>
-</span>
-
-
 </ion-content>

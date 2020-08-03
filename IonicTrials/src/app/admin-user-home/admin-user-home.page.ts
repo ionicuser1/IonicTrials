@@ -10,8 +10,7 @@ import { IonSlides } from '@ionic/angular';
 })
 export class AdminUserHomePage implements OnInit {
 
-  name = "Admin Home Page"
-
+  
   ngOnInit() {
   }
 

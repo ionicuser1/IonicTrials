@@ -11,7 +11,37 @@
       "User_Collection_name": "Benutzersammlung",
       "Free_Collection_name": "Kostenlose Sammlung",
       "Private_Collection_name": "Privatsammlung",
-      "Public_Collection_name": "Öffentliche Sammlung"
+      "Public_Collection_name": "Öffentliche Sammlung",
+      "card1":"Karte 1",
+      "card2":"Karte 2",
+      "card3":"Karte 3",
+      "card4":"Karte 4",
+      "card5":"Karte 5",
+      "card6":"Karte 6",
+      "card10":"Karte 10",
+      "card7":"Karte 7",
+      "card8":"Karte 8",
+      "card9":"Karte 9",
+      "card_detail1":"Das ist Karte 1",
+      "card_detail2":"Das ist Karte 2",
+      "card_detail3":"Das ist Karte 3",
+      "card_detail4":"Das ist Karte 4",
+      "card_detail5":"Das ist Karte 5",
+      "card_detail6":"Das ist Karte 6",
+      "card_detail7":"Das ist Karte 7",
+      "card_detail8":"Das ist Karte 8",
+      "card_detail9":"Das ist Karte 9",
+      "card_detail10":"Das ist Karte 10"
+    },
+    "extraPage":{
+      "modelpage1":"Willkommen bei Modul Seite 1",
+      "modelpage2":"Willkommen bei Modul Seite 2",
+      "modelpage3":"Willkommen bei Modul Seite 3",
+      "modelpage4":"Willkommen bei Modul Seite 4",
+      "modelpage5":"Willkommen bei Modul Seite 5",
+      "modelpage6":"Willkommen bei Modul Seite 6",
+      "modelpage7":"Willkommen bei Modul Seite 7"
+
     }
    
 }
