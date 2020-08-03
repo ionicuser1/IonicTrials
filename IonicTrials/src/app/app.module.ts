@@ -41,6 +41,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
+import { SharedModule } from './shared/shared.module';
+import { CalendarComponent } from './calendar/calendar.component';
+import { AppointmentDetailComponent } from './appointment-detail/appointment-detail.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -50,6 +53,9 @@ import { CustomFormsModule } from 'ng2-validation'
     NgbModule,
     // DragulaModule.forRoot(),
     ClipboardModule,
+    SharedModule,
+    CustomFormsModule,
+    ReactiveFormsModule,
     ContextMenuModule.forRoot(),
     NouisliderModule,
     CarouselModule,

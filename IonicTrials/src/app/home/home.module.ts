@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { AppointmentDetailComponent } from '../appointment-detail/appointment-detail.component';
 import { SharedModule } from '../shared/shared.module';
+import { CustomFormsModule } from 'ng2-validation';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    CustomFormsModule,
     IonicModule,
     HomePageRoutingModule
   ],

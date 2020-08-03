@@ -6,9 +6,9 @@ import { AppointmentDetailComponent } from '../appointment-detail/appointment-de
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CalendarComponent,AppointmentDetailComponent],
   imports: [
-    CommonModule,CalendarComponent,AppointmentDetailComponent
+    CommonModule
   ],
   exports: [
     CalendarComponent,AppointmentDetailComponent

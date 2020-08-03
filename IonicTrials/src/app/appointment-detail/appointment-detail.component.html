@@ -1,6 +1,6 @@
 <h2 *ngIf="!isNew">Edit event: '{{appointment?.title}}'</h2>
 <h2 *ngIf="isNew">Create new event</h2>
-<form [formGroup]="form">
+<form >
   <div class="form-group">
     <label>Title:
       <input type="text" formControlName="title"/>
