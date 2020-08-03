@@ -1,0 +1,17 @@
+{
+  "LandingPage":{
+    "Title": "Landing-Page ",
+    "TextValue": "Dies ist eine Landingpage"
+    },
+    "UserHomePage":{
+      "ButtonValue1": "Benutzerin",
+      "ButtonValue2": "Administrator",
+      "userTitle": "Benutzerhomepage",
+      "AdminTitle": "Admin-Homepage",
+      "User_Collection_name": "Benutzersammlung",
+      "Free_Collection_name": "Kostenlose Sammlung",
+      "Private_Collection_name": "Privatsammlung",
+      "Public_Collection_name": "Öffentliche Sammlung"
+    }
+   
+}
