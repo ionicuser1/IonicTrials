@@ -48,6 +48,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http : HttpClient){
 
@@ -99,7 +100,8 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
         deps : [HttpClient]
       }
     }),
-    LanguagePopoverPageModule
+    LanguagePopoverPageModule,
+    NoopAnimationsModule
   ],
   providers: [
     StatusBar,
