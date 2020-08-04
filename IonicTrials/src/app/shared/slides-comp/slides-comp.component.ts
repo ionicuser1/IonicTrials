@@ -11,14 +11,13 @@ import { Router } from '@angular/router';
 })
 export class SlidesCompComponent implements OnInit {
 
-  
+  slidePre = 4;
   public freeCollectioN : FreeCollections[];
   public publicCollectioN : PublicCollections[];
   public privateCollectioN : PrivateCollections[];
 
 
   public userCollection1 : FreeCollections;
-  selectedTab = 0;
 
   constructor(private dataService : DataService, private navCtrl : NavController,private router: Router ) {
     this.freeCollectioN = this.dataService.freeCollection;
@@ -26,20 +25,17 @@ export class SlidesCompComponent implements OnInit {
     this.privateCollectioN = this.dataService.privateCollection;
     
  }
-
- 
-
    names = this.dataService.getStringUserLocalization();
+   //getting length of collections
    free_collection_size  = this.dataService.freeCollection.length;
    public_collection_size  = this.dataService.public_collection.length;
    private_collection_size  = this.dataService.privateCollection.length;
-   // this.dataService.getStringUserLocalization();
+  //getting collections name
   freecollection = this.dataService.freeCollectionName;
   publiccollection = this.dataService.publicCollectionName;
   privatecollection = this.dataService.privateCollectionName;
 
-
-   ngOnInit() {
+ ngOnInit() {
     
   }
   slidePrev() {
@@ -66,12 +62,13 @@ export class SlidesCompComponent implements OnInit {
       }
 
   @ViewChild(IonSlides) slider: IonSlides;
+  
   slideOpts2 = {
     initialSlide: this.free_collection_size,
     autoplay: false,
     nav: true,
     loop:false,
-    slidesPerView: 4,
+    slidesPerView: this.slidePre,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
@@ -87,7 +84,7 @@ export class SlidesCompComponent implements OnInit {
     autoplay: false,
     nav: true,
     loop:false,
-    slidesPerView: 4,
+    slidesPerView: this.slidePre,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
@@ -103,7 +100,7 @@ export class SlidesCompComponent implements OnInit {
     autoplay: false,
     nav: true,
     loop:false,
-    slidesPerView: 4,
+    slidesPerView: this.slidePre,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],

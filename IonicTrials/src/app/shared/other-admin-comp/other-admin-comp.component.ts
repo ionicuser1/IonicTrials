@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class OtherAdminCompComponent implements OnInit {
 
+  slidePre = 4;
+
   public freeCollectioN : FreeCollections[];
 
   constructor(private dataService : DataService, private navCtrl : NavController ) {
@@ -41,7 +43,7 @@ export class OtherAdminCompComponent implements OnInit {
       autoplay: false,
       nav: true,
       loop:false,
-      slidesPerView: 4,
+      slidesPerView: this.slidePre,
       spaceBetween: 0,
       autoplayTimeout: 5500,
       navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],

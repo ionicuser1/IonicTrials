@@ -11,7 +11,7 @@ import { IonSlides, NavController } from '@ionic/angular';
 export class UserCollectionsComponent implements OnInit {
 
 
-  
+  slidePre = 4;
   public userCollectioN : UserCollections[];
   public userCollection1 : UserCollections;
 
@@ -47,7 +47,7 @@ export class UserCollectionsComponent implements OnInit {
     autoplay: false,
     nav: true,
     loop:false,
-    slidesPerView: 4,
+    slidesPerView: this.slidePre,
     spaceBetween: 0,
     autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],

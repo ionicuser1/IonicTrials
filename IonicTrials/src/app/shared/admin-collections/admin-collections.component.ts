@@ -9,7 +9,7 @@ import { DataService } from 'src/app/core/data.service/data.service';
   styleUrls: ['./admin-collections.component.scss'],
 })
 export class AdminCollectionsComponent implements OnInit {
-
+  slidePre = 4;
   public freeCollectioN : OtherCollections[];
 
   constructor(private dataService : DataService, private navCtrl : NavController ) {
@@ -40,7 +40,7 @@ export class AdminCollectionsComponent implements OnInit {
       autoplay: false,
       nav: true,
       loop:false,
-      slidesPerView: 4,
+      slidesPerView: this.slidePre,
       spaceBetween: 0,
       autoplayTimeout: 5500,
       navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
