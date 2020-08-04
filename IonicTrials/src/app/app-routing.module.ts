@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
+  {
+    path: 'timer-count-down',
+    loadChildren: () => import('./timer-count-down/timer-count-down.module').then( m => m.TimerCountDownPageModule)
+  },
 
   
 ];

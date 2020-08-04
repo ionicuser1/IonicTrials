@@ -1,0 +1,11 @@
+
+<div style="text-align: center;font-size: 20px;"> 
+  <div>
+    status: {{status}} 
+  </div>
+<countdown #countdown  [config]="{leftTime: 86400, demand: true}" (finished)="finishTest()">$!h!:$!m!:$!s!</countdown>
+<div>
+  <button (click)="resetTimer()" class="btn btn-link btn-sm">Reset</button>
+  <button (click)="start()" class="btn btn-link btn-sm">Start</button>
+</div>
+</div>
