@@ -10,7 +10,7 @@ export class MessageComponent implements OnInit {
 
   message = "Work in progress, be patient..";
 
-  constructor(private navCtr: NavController) { }
+  constructor(private navCtr: NavController,public translate: TranslateService) { }
 
   ngOnInit() {}
   back(){
