@@ -4,7 +4,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { CalendarComponent } from 'ng-fullcalendar';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+import { CalendarService } from '../data.service/calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -13,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class CalendarPage implements OnInit {
 
-  constructor(public eventAlert: AlertController) { }
+  constructor(public eventAlert: AlertController, private calServ: CalendarService, private navCtrl: NavController) { }
 
   options: OptionsInput;
   eventsModel: any;
@@ -22,7 +23,11 @@ export class CalendarPage implements OnInit {
     this.options = {
       editable: true,
       eventLimit: true,
-
+      events: [{
+        title: 'Long Event',
+        start: this.yearMonth + '-07',
+        end: this.yearMonth + '-10'
+      }],
       header: {
         left: 'prev,next today',
         center: 'title',
@@ -48,11 +53,11 @@ export class CalendarPage implements OnInit {
   //   console.log(model);
   // }
 
-  updateEvents(model: any){
+  updateEvents(){
     this.eventsModel = [{
-      title: 'Updated Event',
-      start: this.yearMonth + '-08',
-      end: this.yearMonth + '-10'
+      title: this.calServ.calendarService.eventName,
+      start: this.calServ.calendarService.startDate,
+      end: this.calServ.calendarService.endDate
     }];
   }
     get yearMonth(): string {
@@ -66,21 +71,21 @@ export class CalendarPage implements OnInit {
       inputs: [
         {
           type: 'text',
-          name: 'Event',
+          name: 'eventName',
           placeholder: 'Event Name',
         },
         {
           type: 'text',
-          name: 'Location',
+          name: 'location',
           placeholder: 'Location',
         },
         {
           type: 'date',
-          name: 'StartDate',
+          name: 'startDate',
           placeholder: 'Start Date',
         },{
           type: 'date',
-          name: 'EndDate',
+          name: 'endDate',
           placeholder: 'End Date',
         },
       ],
@@ -90,7 +95,13 @@ export class CalendarPage implements OnInit {
           cssClass:'btn btn-outline-primary btn-fw',
           handler: (data) => {
             console.log('Confirm Save');
-            
+            this.calServ.calendarService = data;
+            console.log(this.calServ.calendarService.eventName);
+            console.log(this.calServ.calendarService.location);
+            console.log(this.calServ.calendarService.startDate);
+            console.log(this.calServ.calendarService.endDate);
+            // location.reload();
+            this.navCtrl.navigateForward("calendar");
           }
         }, 
         {
