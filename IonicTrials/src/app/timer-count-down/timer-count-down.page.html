@@ -1,5 +1,5 @@
 
-<div style="text-align: center;font-size: 20px;"> 
+<!-- <div style="text-align: center;font-size: 20px;"> 
   <div>
     status: {{status}} 
   </div>
@@ -7,5 +7,20 @@
 <div>
   <button (click)="resetTimer()" class="btn btn-link btn-sm">Reset</button>
   <button (click)="start()" class="btn btn-link btn-sm">Start</button>
+
+  <button (click)="pauseTimer()"  class="btn btn-link btn-sm">Pause</button>
 </div>
+</div> -->
+<div style="text-align: center;">
+  <div> 
+  <button class="btn btn-link btn-sm" (click)='startTimer()'>Start Timer</button>
 </div>
+<div style="margin-top: 10px;"> 
+  <button class="btn btn-link btn-sm" (click)='pauseTimer()'>Pause</button>
+</div>
+<div style="margin-top: 10px;"> 
+  <button class="btn btn-link btn-sm" (click)='resetTimer()'>Reset</button>
+</div>
+  <p style="font-size: 20px;">{{transform(time)}}</p> 
+</div>
+
