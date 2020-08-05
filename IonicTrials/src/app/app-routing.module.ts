@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
+  {
+    path: 'dtable',
+    loadChildren: () => import('./dtable/dtable.module').then( m => m.DtablePageModule)
+  },
 
   
 ];
