@@ -10,6 +10,9 @@ import { ExternallinksPage } from './externallinks.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +20,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     IonicModule,
     ExternallinksPageRoutingModule,
     TranslateModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    NgxDatatableModule
   ],
   declarations: [ExternallinksPage]
 })

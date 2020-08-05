@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, ToastController, Platform } from '@ionic/angular';
 import { StorageService, Item } from 'src/app/core/storage.service/storage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { DatatableComponent } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-externallinks',
@@ -16,6 +17,7 @@ export class ExternallinksPage implements OnInit {
 
   updatedItem : Item = <Item>{};
 
+
   phForTopic: any;
   phForSubTopic: any;
   phForLinkDesc: any;
@@ -26,15 +28,17 @@ export class ExternallinksPage implements OnInit {
   phForURLInvalid: any;
   phForURLRequired: any;
 
-  deletePopupYesBtn: any;
-  deletePopupNoBtn: any;
-  deletePopupMessage: any;
-  deletePopupHeader: any;
-
-  phForItemUpdate: any;
   phForItemAdd: any;
-  phForItemDelete: any;
 
+  rows = [];
+  filteredData = [];
+  columnsWithSearch : string[] = [];
+  
+ // public companies = data;
+  tableStyle = "bootstrap"
+  // maxSize = 4;
+
+  @ViewChild('myTable') table: DatatableComponent;
 
   constructor(public alertController: AlertController,private toastCtrl: ToastController,
     public storageService : StorageService,private plt: Platform,public translate: TranslateService) {
@@ -42,7 +46,13 @@ export class ExternallinksPage implements OnInit {
       this.plt.ready().then(() => {
         this.loadItems();
       });
+      var par=document.getElementsByName('parameters')[0];
+      var index = par.selectedIndex
+      console.log(par.options[index].text);
+    //  document.getElementById("mySelect").value = 5;
   }
+
+ // maxSize = document.getElementById("mySelect").value;
 
   // Create
   addItem(topic,sub_topic,link_desc,link_url){
@@ -53,6 +63,7 @@ export class ExternallinksPage implements OnInit {
     this.newItem.linkUrl = link_url;
     this.newItem.modified = Date.now();
     this.newItem.id = Date.now();
+    this.newItem.count = ( this.items != null ) ? this.items.length + 1 : 1;
     this.storageService.addItem(this.newItem).then(item =>{
       this.newItem = <Item>{};
       this.showErrorToast(this.phForItemAdd);
@@ -63,30 +74,20 @@ export class ExternallinksPage implements OnInit {
   // READ
   loadItems(){
     this.storageService.getItems().then(items => {
-      this.items = items;
+        if(items != null){
+          this.items = items;
+          this.rows = this.items;
+          this.filteredData = this.rows;
+          this.columnsWithSearch = Object.keys(this.rows[0]);
+        }
+        
     });
   }
 
-  // UPDATE
-  updateItem(item : Item){
-    item.topic = `UPDATED: ${item.topic}`;
-    item.modified = Date.now();
 
-    this.storageService.updateItem(item).then(item => {
-      this.showErrorToast('Item Updated');
-      this.loadItems();
-    });
+  ngOnInit() {
+    this.table.offset = 0;
   }
-
-  // DELETE
-  deleteItem(item: Item){
-    this.storageService.deleteItem(item.id).then(item => {
-      this.showErrorToast('Item is removed.!');
-      this.loadItems();
-    });
-  }
-
-  ngOnInit() {  }
 
   async addLinkAlert(){
 
@@ -173,114 +174,6 @@ export class ExternallinksPage implements OnInit {
   }
 
 
- async loadEdit(index){
-  this.getExternalLinkLocalization();
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-alert',
-      inputs: [
-        {
-          type: 'text',
-          name: 'topic',
-          placeholder: this.phForTopic,
-          value: this.items[index].topic
-        },
-        {
-          type: 'text',
-          name: 'subTopic',
-          placeholder: this.phForSubTopic,
-          value: this.items[index].subtopic
-        },
-        {
-          type: 'text',
-          name: 'linkDescription',
-          placeholder: this.phForLinkDesc,
-          value: this.items[index].linkDesc
-        },{
-          type: 'url',
-          name: 'linkUrl',
-          placeholder: this.phForLinkURL,
-          value: this.items[index].linkUrl
-        },
-      ],
-      buttons: [
-        {
-          text: this.alertSaveBtn,
-          cssClass:'btn btn-outline-primary btn-fw',
-          handler: (data) => {
-          
-            let validateUrl = this.validateUrl(data.linkUrl);      
-            if(validateUrl.isValid){
-              this.updatedItem.topic = data.topic;
-              this.updatedItem.subtopic = data.subTopic;
-              this.updatedItem.linkDesc = data.linkDescription;
-              this.updatedItem.linkUrl = data.linkUrl;
-              this.updatedItem.modified = Date.now();
-              this.updatedItem.id = this.items[index].id;
-              this.storageService.updateItem(this.updatedItem).then(item => {
-                this.showErrorToast(this.phForItemUpdate);
-                this.loadItems();
-              });
-              return true;
-            }else{
-              this.showErrorToast(this.phForURLInvalid);
-              return false;
-            }
-          }
-        }, 
-        {
-          text: this.alertCancelBtn,
-          role: 'cancel',
-          cssClass:'btn btn-outline-danger btn-fw',
-          handler: () => {
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }
-
-  invoke(index) {
-    var value = this.items[index].linkUrl;
-    window.open(value,'_system', 'location=yes');
-  }
-
-  delete(index){
-    this.presentAlertDelete(index);
-  }
-
-
-  async presentAlertDelete(index) {
-    this.getExternalLinkLocalization();
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-alert',
-      header: this.deletePopupHeader,
-      message: this.deletePopupMessage,
-      buttons: [
-        {
-          text: this.deletePopupYesBtn,
-          cssClass:'btn btn-outline-danger btn-fw',
-          handler: (data) => {
-            var number = this.items[index].id;
-            this.storageService.deleteItem(number).then(item => {
-              this.loadItems();
-            });
-              this.showErrorToast(this.phForItemDelete);
-              return true;
-          }
-        },
-        {
-          text: this.deletePopupNoBtn,
-          cssClass: 'btn btn-outline-primary btn-fw',
-          handler: () => {
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }
-
 
   getExternalLinkLocalization(){
     this.translate.get('ExternalLinks').subscribe((data:any)=> {
@@ -294,17 +187,34 @@ export class ExternallinksPage implements OnInit {
     this.phForURLInvalid = data.InvalidURL;
     this.phForURLRequired = data.URLRequired;
 
-    this.deletePopupYesBtn = data.BtnYes;
-    this.deletePopupNoBtn = data.BtnNo;
-    this.deletePopupMessage = data.DeletePopupMessage;
-    this.deletePopupHeader = data.DeletePopupHeader;
 
-    this.phForItemUpdate = data.UpdateItem;
     this.phForItemAdd = data.AddItem;
-    this.phForItemDelete = data.DeleteItem;
      
    });
   
  }
 
+     // filters results
+filterDatatable(event){
+  // get the value of the key pressed and make it lowercase
+  let filter = event.target.value.toLowerCase();
+
+  // assign filtered matches to the active datatable
+  this.rows = this.filteredData.filter(item => {
+    // iterate through each row's column data
+    for (let i = 0; i < this.columnsWithSearch.length; i++){
+      var colValue = item[this.columnsWithSearch[i]] ;
+
+      // if no filter OR colvalue is NOT null AND contains the given filter
+      if (!filter || (!!colValue && colValue.toString().toLowerCase().indexOf(filter) !== -1)) {
+        // found match, return true to add to result set
+        return true;
+      }
+    }
+  });
+  // TODO - whenever the filter changes, always go back to the first page
+  //this.table.offset = 0;
+}
+
+ 
 }

@@ -7,7 +7,8 @@ export interface Item {
   subtopic: string,
   linkDesc: string,
   linkUrl: string,
-  modified: number
+  modified: number,
+  count: number
  }
 
  const ITEMS_KEY = 'my-items';
