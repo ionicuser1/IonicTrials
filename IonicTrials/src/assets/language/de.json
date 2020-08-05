@@ -1,8 +1,17 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "Dies ist eine Landingpage"
-    }
+    "TextValue": "Dies ist eine Landingpage",
+    "ButtonValue" : "Timer"
+    
+  },
+  "TimerPage":{
+    "startButton": "Timer starten ",
+    "pauseButton": "Pause"
+   
+    
+  }
+ 
 
    
 }

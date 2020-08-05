@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CountdownComponent } from 'ngx-countdown';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -9,35 +10,14 @@ import { CountdownComponent } from 'ngx-countdown';
 })
 export class TimerCountDownPage {
  
-//   interval;
-//   status = 'ready';
-//   @ViewChild('countdown') counter: CountdownComponent;
-
-//   start() {
-//     this.interval = setInterval(() => {
-//     this.status = 'started';
-//     this.counter.begin();
-//     },)
-//   }
-
-//   finishTest() {
-//     console.log("count down", this.counter);
-//     setTimeout(() => this.counter.restart());
-//     this.status = 'restarted';
-//   }
-
-//   resetTimer() {
-//     this.counter.restart();
-//   }
-
-//   pauseTimer() {
-//     clearInterval(this.interval);
-//   }
-// }
-
 time: number = 0;
   interval;
 
+  constructor(){
+ if (this.time === -1){
+  window.alert("Timer Has been finished")
+ }
+  }
   startTimer() {
     console.log("=====>");
     this.interval = setInterval(() => {
@@ -47,17 +27,14 @@ time: number = 0;
         this.time--;
       }
     }, 1000);
+   
   }
+
   pauseTimer() {
     clearInterval(this.interval);
   }
 
-  resetTimer() {
-       //  this.counter.restart();
-      stop();
-       }
-
-
+  
   transform(value: number): string {
     var sec_num = value; 
 
@@ -70,8 +47,6 @@ time: number = 0;
   if (minutes < 10) {minutes = 0+minutes;}
   if (seconds < 10) {seconds = 0+seconds;}
   return hours+':'+minutes+':'+seconds;
-
-
-  }
+}
 }
 
