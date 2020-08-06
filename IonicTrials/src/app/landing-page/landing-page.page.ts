@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavController } from '@ionic/angular';
 import { LanguagePopoverPage } from '../pages/language-popover/language-popover.page';
 
 @Component({
@@ -9,11 +9,14 @@ import { LanguagePopoverPage } from '../pages/language-popover/language-popover.
 })
 export class LandingPagePage implements OnInit {
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(private popoverCtrl: PopoverController,private navCtrl : NavController) { }
 
   ngOnInit() {
   }
 
+  openPage(){
+   this.navCtrl.navigateForward('notify');
+  }
   async openLanguagePopover(ev){
     const popover = await this.popoverCtrl.create({
       component: LanguagePopoverPage,

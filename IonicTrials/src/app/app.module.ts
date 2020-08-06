@@ -48,6 +48,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage'
 import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http : HttpClient){
 
@@ -68,6 +69,7 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
     DropzoneModule,
     ColorPickerModule,
     AngularDateTimePickerModule,
+    BrowserAnimationsModule,
     AmazingTimePickerModule,
     TagInputModule,
     // FormWizardModule,
