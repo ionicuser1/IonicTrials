@@ -5,10 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <div *ngIf="options">
+  <div class="col-md-12">
+    
+        <!-- <div *ngIf="options">
           <ng-fullcalendar 
            #fullcalendar
             (dateClick)="dateClick()"
@@ -17,8 +16,8 @@
             [options] = "options"
             (eventClick)="eventClick($event)"
         ></ng-fullcalendar>
-        </div>
-      </div>
-    </div>
+        </div> -->
+        <div id="calendar" ></div>
+     
   </div>
 </ion-content>
