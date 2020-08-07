@@ -1,23 +1,32 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 import { AlertController, ToastController, Platform } from '@ionic/angular';
 import { StorageService, Item } from 'src/app/core/storage.service/storage.service';
 import { TranslateService } from '@ngx-translate/core';
-import { DatatableComponent } from '@swimlane/ngx-datatable';
+import { Subject } from 'rxjs';
+import 'rxjs/add/operator/map';
+import { DataTableDirective } from 'angular-datatables';
+
 
 @Component({
   selector: 'app-externallinks',
   templateUrl: './externallinks.page.html',
   styleUrls: ['./externallinks.page.scss'],
 })
-export class ExternallinksPage implements OnInit {
+export class ExternallinksPage implements AfterViewInit, OnDestroy, OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
   items: Item[] = [];
+
+  dtTrigger: Subject<any> = new Subject();
 
   newItem : Item = <Item>{};
 
   updatedItem : Item = <Item>{};
 
-
+  @ViewChild(DataTableDirective, {static: false})
+  datatableElement: DataTableDirective;
+  
   phForTopic: any;
   phForSubTopic: any;
   phForLinkDesc: any;
@@ -34,25 +43,25 @@ export class ExternallinksPage implements OnInit {
   filteredData = [];
   columnsWithSearch : string[] = [];
   
- // public companies = data;
-  tableStyle = "bootstrap"
-  // maxSize = 4;
-
-  @ViewChild('myTable') table: DatatableComponent;
 
   constructor(public alertController: AlertController,private toastCtrl: ToastController,
     public storageService : StorageService,private plt: Platform,public translate: TranslateService) {
-      
       this.plt.ready().then(() => {
-        this.loadItems();
+        this.loadItems("Null");
       });
-      var par=document.getElementsByName('parameters')[0];
-      var index = par.selectedIndex
-      console.log(par.options[index].text);
-    //  document.getElementById("mySelect").value = 5;
+  }
+  ngAfterViewInit(): void {
+  }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5
+    };
   }
 
- // maxSize = document.getElementById("mySelect").value;
 
   // Create
   addItem(topic,sub_topic,link_desc,link_url){
@@ -66,29 +75,49 @@ export class ExternallinksPage implements OnInit {
     this.newItem.count = ( this.items != null ) ? this.items.length + 1 : 1;
     this.storageService.addItem(this.newItem).then(item =>{
       this.newItem = <Item>{};
-      this.showErrorToast(this.phForItemAdd);
-      this.loadItems();
+      this.showErrorToast(this.phForItemAdd,true);
     });
 
   }
   // READ
-  loadItems(){
+  loadItems(check : string){
     this.storageService.getItems().then(items => {
         if(items != null){
           this.items = items;
+          if(check !== "FromAddItem"){
+            this.dtTrigger.next();
+          }
           this.rows = this.items;
           this.filteredData = this.rows;
           this.columnsWithSearch = Object.keys(this.rows[0]);
+          this.individualFilter(this.datatableElement);
         }
         
     });
   }
 
+  individualFilter(datatableElement){
+    $(document).ready(function() {
+      // Setup - add a text input to each footer cell
+      // $('#example tfoot th').each( function () {
+      //     var title = $(this).text();
+      //     $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+      // });
 
-  ngOnInit() {
-    this.table.offset = 0;
+      datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        dtInstance.columns().every(function () {
+          var that = this;
+          $('input', this.footer()).on('keyup change', function () {
+            if (that.search() !== this['value']) {
+              that
+                .search(this['value'])
+                .draw();
+            }
+          });
+        });
+      });   
+   });
   }
-
   async addLinkAlert(){
 
     this.getExternalLinkLocalization();
@@ -127,7 +156,7 @@ export class ExternallinksPage implements OnInit {
               this.addItem(data.topic,data.sub_topic,data.link_desc,data.link_url);
               return true;
             }else {
-              this.showErrorToast(this.phForURLInvalid);
+              this.showErrorToast(this.phForURLInvalid,false);
               return false;
             }
           }
@@ -163,7 +192,8 @@ export class ExternallinksPage implements OnInit {
 
 
 
- async showErrorToast(data: any) {
+ async showErrorToast(data: any,isReload: boolean) {
+
     let toast = await this.toastCtrl.create({
       message: data,
       duration: 2000,
@@ -171,11 +201,18 @@ export class ExternallinksPage implements OnInit {
     });
 
     toast.present();
-  }
 
-
+    if(isReload){
+      const dismiss = await toast.onDidDismiss();
+      console.log('Dismissed toast', dismiss);
+      location.reload();
+    }
+  
+    
+}
 
   getExternalLinkLocalization(){
+
     this.translate.get('ExternalLinks').subscribe((data:any)=> {
     this.phForTopic = data.PhTopic;
     this.phForSubTopic = data.PhSubtopic;
@@ -187,34 +224,11 @@ export class ExternallinksPage implements OnInit {
     this.phForURLInvalid = data.InvalidURL;
     this.phForURLRequired = data.URLRequired;
 
-
     this.phForItemAdd = data.AddItem;
      
    });
   
  }
 
-     // filters results
-filterDatatable(event){
-  // get the value of the key pressed and make it lowercase
-  let filter = event.target.value.toLowerCase();
 
-  // assign filtered matches to the active datatable
-  this.rows = this.filteredData.filter(item => {
-    // iterate through each row's column data
-    for (let i = 0; i < this.columnsWithSearch.length; i++){
-      var colValue = item[this.columnsWithSearch[i]] ;
-
-      // if no filter OR colvalue is NOT null AND contains the given filter
-      if (!filter || (!!colValue && colValue.toString().toLowerCase().indexOf(filter) !== -1)) {
-        // found match, return true to add to result set
-        return true;
-      }
-    }
-  });
-  // TODO - whenever the filter changes, always go back to the first page
-  //this.table.offset = 0;
-}
-
- 
 }

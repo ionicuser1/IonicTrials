@@ -35,7 +35,11 @@
       "DeletePopupHeader":"Aufmerksam",
       "DeletePopupMessage":"Möchten Sie diesen Link wirklich löschen?",
       "BtnYes":"Ja",
-      "BtnNo":"Nein"
+      "BtnNo":"Nein",
+      "SearchID":"ID suchen",
+      "SearchTopic":"Suchthema",
+      "SearchSubTopic":"Unterthema suchen",
+      "SearchLinkDesc":"Suche Link Beschreibung"
       
     }
       

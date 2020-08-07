@@ -11,83 +11,45 @@
   </div>
 
    <br/>
-
-  <!-- <div class="card">
+  
+   <div class="card">
     <div class="card-body">
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
-            <table id="order-listing" datatable class="table">
+            <table id="example" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
               <thead>
                 <tr>
                     <th>{{ 'ExternalLinks.SrNo' | translate }}</th>
                     <th>{{ 'ExternalLinks.Topic' | translate }}</th>
                     <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
                     <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
-                    <th>{{ 'ExternalLinks.LinkUrl' | translate }}</th>
+                    
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let data of items ; let i = index">
-                  <td>{{ i+1 }}</td>
+                  <td>{{ data.count }}</td>
                   <td>{{ data.topic }}</td>
                   <td>{{ data.subtopic }}</td>
                   <td>{{ data.linkDesc }}</td>
-                  <td>{{ data.linkUrl }}</td>
               </tr>
               </tbody>
-            </table>
+              <tfoot>
+                <tr>
+                  <th><input type="text" placeholder="Search ID" name="search-id"/></th>
+                  <th><input type="text" placeholder="Search Topic" name="search-topic"/></th>
+                  <th><input type="text" placeholder="Search Sub-Topic" name="search-sub-topic"/></th>
+                  <th><input type="text" placeholder="Search Link Description" name="search-link-description"/></th>
+                </tr>
+              </tfoot>
+              </table>
           </div>
         </div>
       </div>
     </div>
-  </div> -->
-
-  <!-- <div class="dataTables_length" id="example_length"> -->
-    <form>Show 
-      <select id="mySelect" name="example_length" aria-controls="example" class="">
-      <option value="5">5</option>  
-      <option value="10">10</option>
-      <option value="25">25</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
-      </select> entries
-    </form>
-    <!-- </div> -->
-    
-  <input 
-  class="form-control"
-  type="text" 
-  placeholder="Type to filter the name column..."
-  style="padding:8px;margin:15px auto;width:30%;"
-  (keyup)='filterDatatable($event)'>
-
-
-  
-  <ngx-datatable
-  #myTable
-  [ngClass]="tableStyle"
-  [rows]="rows"
-  [columnMode]="'force'"
-  [footerHeight]="50"
-  [headerHeight]="50"
-  rowHeight="auto"
-  [limit]="maxSize"
-  >
-
-  <ngx-datatable-column name="Sr.No" prop="count">
-   
-  </ngx-datatable-column>
-
-  <ngx-datatable-column name="Topic" prop="topic">
-
-  </ngx-datatable-column>
-
-  <ngx-datatable-column name="Subtopic" prop="subtopic"></ngx-datatable-column>
-
-  <ngx-datatable-column name="Link Description" prop="linkDesc"></ngx-datatable-column>
-
-  </ngx-datatable>
+  </div>
+        
 
 </ion-content>
 

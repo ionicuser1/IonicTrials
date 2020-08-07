@@ -12,6 +12,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { DataTablesModule } from 'angular-datatables';
+
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     ExternallinksPageRoutingModule,
     TranslateModule,
     SweetAlert2Module,
-    NgxDatatableModule
+    NgxDatatableModule,
+    DataTablesModule
   ],
   declarations: [ExternallinksPage]
 })
