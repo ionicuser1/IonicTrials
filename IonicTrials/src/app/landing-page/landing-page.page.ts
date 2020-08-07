@@ -37,21 +37,6 @@ export class LandingPagePage implements OnInit {
     
   }
 
-
-  async presentAlert() {
-
-    this.getStringLocalization();
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-alert',
-      subHeader: this.dialogTitle,
-      message: this.dialogText,
-      buttons: [this.dialogBtnOk]
-    });
-
-    await alert.present();
-  }
-
-
 getStringLocalization(){
     this.translate.get('LandingPage').subscribe((data:any)=> {
     this.dialogTitle = data.ModalDialogTitle;

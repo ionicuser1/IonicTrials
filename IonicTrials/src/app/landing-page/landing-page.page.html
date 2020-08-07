@@ -1,13 +1,6 @@
 <ion-header translucent>
   <ion-toolbar>
-    <!-- <ion-title>Landing-Page</ion-title> -->
     <ion-title> {{ 'LandingPage.Title' | translate }}</ion-title>
-
-    <!-- <ion-buttons slot="end">
-      <ion-button (click)="openLanguagePopover($event)">
-        <ion-icon name="more" slot="icon-only" ios="ellipsis-horizontal"  md="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons> -->
   </ion-toolbar>
 
 
@@ -20,10 +13,7 @@
     </ion-toolbar>
   </ion-header>
   <div id="container">
-    <!-- <strong>This is a landing page</strong> -->
-
     <strong>{{ 'LandingPage.TextValue' | translate }}</strong>
-
   </div>
 
   <div>
@@ -44,12 +34,6 @@
     </div>  
   </div>
 
-
-  <div>
-    <div class="card-body">
-      <div class="wrapper text-center">
-        <button class="btn btn-outline-success" (click) = "presentAlert()">{{ 'LandingPage.BtnShowDialog' | translate }}</button>
-      </div>
-    </div>  
-  </div>
+  <app-custom-swl-alert-dialog></app-custom-swl-alert-dialog>
+  
 </ion-content>

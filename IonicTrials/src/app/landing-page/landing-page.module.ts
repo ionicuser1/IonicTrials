@@ -11,6 +11,7 @@ import { LandingPagePage } from './landing-page.page';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     LandingPagePageRoutingModule,
     SweetAlert2Module,
-    TranslateModule
+    TranslateModule,
+    SharedModule
   ],
   declarations: [LandingPagePage]
 })
