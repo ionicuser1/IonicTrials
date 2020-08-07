@@ -9,7 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MessageComponent implements OnInit {
 
-  message = "Work in progress, be patient..";
+  msgTitle: any;
+  buttonText: any;
+
+  
+  message = this.msgTitle;
 
   constructor(private navCtr: NavController,public translate: TranslateService) { }
 
@@ -17,5 +21,16 @@ export class MessageComponent implements OnInit {
   back(){
 this.navCtr.navigateBack('landing-page')
   }
+
+  dataValue = this.getStringLocalization();
+    getStringLocalization(){
+    this.translate.get('ViewPage').subscribe((data:any)=> {
+    this.msgTitle = data.msg;
+    this.buttonText = data.BackButton;
+    
+     });
+  }
+
+  
 
 }

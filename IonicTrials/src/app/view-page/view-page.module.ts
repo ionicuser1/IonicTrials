@@ -8,6 +8,7 @@ import { ViewPagePageRoutingModule } from './view-page-routing.module';
 
 import { ViewPagePage } from './view-page.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     SharedModule,
     IonicModule,
+    TranslateModule,
     ViewPagePageRoutingModule
   ],
   declarations: [ViewPagePage]
