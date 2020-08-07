@@ -1,0 +1,43 @@
+<div style="overflow-x: auto;" class="d-flex align-items-center auth px-0">
+  <div class="row w-100 mx-0">
+    <div class="col-lg-4 mx-auto">
+      <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+        <div class="form-inline">
+        <div class="brand-logo">
+          <img class="center"style="width: 90%;" src="assets/images/goldspot.png" alt="logo">
+        </div>
+        <h1>Ionic Trials</h1>
+        </div>
+        <h2>{{ 'LoginPage.lets_start' | translate }}</h2>
+        <h3 class="font-weight-light">{{ 'LoginPage.sign_in_to_countinue' | translate }}</h3>
+        <form class="pt-3">
+          <div class="form-group">
+            <input [(ngModel)]="loginModel.username" [ngModelOptions]="{standalone: true}" name="Username"  type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="loginModel.password" [ngModelOptions]="{standalone: true}" type="Password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="mt-3">
+            <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" routerLink="/dashboard" (click)="LoginUser()">{{ 'LoginPage.sign_in' | translate }}</a>
+          </div>
+          <div class="my-2 d-flex justify-content-between align-items-center">
+            <div class="form-check">
+              <label class="form-check-label text-muted">
+                <input type="checkbox" class="form-check-input">
+                <i class="input-helper"></i>
+                {{ 'LoginPage.keep_me_sign_in' | translate }}
+              </label>
+            </div>
+            <a href="javascript:(void)" class="auth-link text-black" style="font-weight:bold">{{ 'LoginPage.forgot_pass' | translate }}</a>
+          </div>
+          <div class="my-2 d-flex justify-content-between align-items-center">
+            <a routerLink="/register" class="text-primary" style="font-size: small;">{{ 'LoginPage.terms' | translate }}</a>
+            <a routerLink="/register" class="text-primary" style="font-size: small;">{{ 'LoginPage.privacy' | translate }}</a>
+            <a routerLink="/register" class="text-primary" style="font-size: small;">{{ 'LoginPage.security' | translate }}</a>
+            <a routerLink="/register" class="text-primary" style="font-size: small;">{{ 'LoginPage.contact_us' | translate }}</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  

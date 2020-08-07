@@ -2,7 +2,20 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
-    }
+    },
 
-   
+    "LoginPage":{
+      "login": "Login",
+      "lets_start": "Hello! let's get started",
+      "sign_in_to_countinue": "Sign in to continue",
+      "username": "Username",
+      "password": "Password",
+      "sign_in": "SIGN IN",
+      "keep_me_sign_in": "Keep Me Signed In",
+      "forgot_pass": "Forgot Password?",
+      "terms": "Landing-Page ",
+      "privacy": "Landing-Page ",
+      "security": "Landing-Page ",
+      "contact_us": "Landing-Page "
+    }
 }

@@ -40,7 +40,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
@@ -87,6 +88,7 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
     ToastrModule.forRoot(),
     // AgmCoreModule.forRoot({ apiKey: 'AIzaSyCnT63XUjqjPgXZ0lFTU_pdpfUX7swzTTM' }),
     BarRatingModule,
+    BrowserAnimationsModule,
     // FullCalendarModule,
     // ScrollToModule.forRoot()
 
