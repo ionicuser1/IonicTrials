@@ -2,6 +2,10 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
+    },
+
+    "ToDoPage":{
+      "todo": "To Do "
     }
 
    

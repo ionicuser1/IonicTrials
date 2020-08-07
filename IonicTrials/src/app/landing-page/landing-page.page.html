@@ -14,13 +14,16 @@
 <ion-content style="text-align: center;" [fullscreen]="true" padding>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">This is a landing page</ion-title>
+      <ion-title size="large">{{ 'LandingPage.Title' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <div id="container">
     <!-- <strong>This is a landing page</strong> -->
-
     <strong>{{ 'LandingPage.TextValue' | translate }}</strong>
-
   </div>
+
+  <div id="container" margin-top="160">
+    <ion-button (click)="gotoTODOPage()">{{ 'ToDoPage.todo' | translate }}</ion-button>
+  </div>
+
 </ion-content>

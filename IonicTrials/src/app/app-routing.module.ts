@@ -14,12 +14,15 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
-  },  {
+  },
+  {
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
-
-  
+  {
+    path: 'todo-list-page',
+    loadChildren: () => import('./todo-list-page/todo-list-page.module').then( m => m.TodoListPagePageModule)
+  },
 ];
 
 @NgModule({
