@@ -1,8 +1,14 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "Dies ist eine Landingpage"
+    "TextValue": "Dies ist eine Landingpage",
+    "TextButton":"Nächster"
+    },
+    "NotifyPage":{
+
     }
+   
 
    
 }
+

@@ -48,5 +48,6 @@ export class NotifyPage implements OnInit {
   toggleRightSidebar() {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
+  
 
 }

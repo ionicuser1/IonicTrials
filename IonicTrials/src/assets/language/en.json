@@ -1,8 +1,21 @@
 {
   "LandingPage":{
     "Title": "Landing-Page ",
-    "TextValue": "This is a landing page"
+    "TextValue": "This is a landing page",
+    "TextButton":"Next"
     
+  },
+  "NotifyPage":{
+    "typeText": "success",
+    "TitleText": "This is just a title",
+    "ContentText":"This is just some content",
+    "AnimateText":"fromRight",
+    "AlertText":"alert",
+    "ErrorText":"error",
+    "InfoText":"info",
+    "WarText":"warn",
+    "SuccText":"success"
+
   }
  
 }
