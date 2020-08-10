@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'timer-count-down',
     loadChildren: () => import('./timer-count-down/timer-count-down.module').then( m => m.TimerCountDownPageModule)
   },
+  {
+    path: 'timer-page',
+    loadChildren: () => import('./timer-page/timer-page.module').then( m => m.TimerPagePageModule)
+  },
 
   
 ];

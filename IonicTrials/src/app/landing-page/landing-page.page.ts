@@ -22,6 +22,8 @@ export class LandingPagePage implements OnInit {
     await popover.present();
   }
   openTimerPage(){
-    this.navCtrl.navigateForward('timer-count-down');
+   // this.navCtrl.navigateForward('timer-count-down');
+   this.navCtrl.navigateForward('timer-page');
+   
   }
 }

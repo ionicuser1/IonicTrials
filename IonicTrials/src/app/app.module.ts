@@ -48,6 +48,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage'
 import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+import { InputToCountdownDirective } from './directives/input-to-countdown.directive';
+import { TimeFormatPipe } from './pipes/time-format.pipe';
 
 export function createTranslateLoader(http : HttpClient){
 
