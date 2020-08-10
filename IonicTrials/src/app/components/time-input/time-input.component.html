@@ -1,7 +1,8 @@
 <!-- 2.1 -->
+<div style="text-align: center;"> 
 <label>
   Hours
-  <input #hours type="number" min="0" max="59" placeholder="hours" 
+  <input #hours type="number" min="0" max="23" placeholder="hours" 
   [value]="d.getHours()" 
   (change)="d.updateState(hours.value, 'hours')"/>
 </label>
@@ -17,9 +18,10 @@
   [value]="d.getSeconds()" 
   (change)="d.updateState(seconds.value, 'seconds')"/>
 </label>
+</div>
 <!-- End 2.1 -->
 <br>
-<label>
+<!-- <label>
   Min
   <input #min type="number" placeholder="min" 
   [value]="d.getMin()" 
@@ -31,4 +33,4 @@
   <input #max type="number" placeholder="max" 
   [value]="d.getMax()" 
   (change)="d.updateIntervalState(max.value, 'max')"/>
-</label>
+</label> -->

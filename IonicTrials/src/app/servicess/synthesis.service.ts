@@ -16,8 +16,8 @@ export class SynthesisService {
   utterance = new SpeechSynthesisUtterance();
 
   constructor() {
-    this.utterance.voice = this.synth.getVoices()[0];
-    this.obs$.subscribe(); // TODO: Remove
+   // this.utterance.voice = this.synth.getVoices()[0];
+    // this.obs$.subscribe(); // TODO: Remove
   }
 
   speak() {
