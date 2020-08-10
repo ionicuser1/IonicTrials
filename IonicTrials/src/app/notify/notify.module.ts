@@ -8,6 +8,7 @@ import { NotifyPageRoutingModule } from './notify-routing.module';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { NotifyPage } from './notify.page';
 import { NotificationDesignComponent } from '../notification-design/notification-design.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,6 +16,7 @@ import { NotificationDesignComponent } from '../notification-design/notification
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     IonicModule,
     SimpleNotificationsModule.forRoot(),

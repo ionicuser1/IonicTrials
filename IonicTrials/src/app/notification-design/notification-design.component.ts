@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NotificationsService } from 'angular2-notifications';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-notification-design',
@@ -70,6 +71,9 @@ export class NotificationDesignComponent implements OnInit {
 		this.successText = data.SuccText;
 		 });
 	  }
+
+
+	 
 }
 
 
