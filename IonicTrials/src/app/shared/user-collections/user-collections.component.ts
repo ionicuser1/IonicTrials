@@ -40,16 +40,22 @@ export class UserCollectionsComponent implements OnInit {
   }
 
   
+  // slideOpts = {
+  //   initialSlide: 1,
+  //   autoplay: true,
+  //   slidesPerView: 1,
+  //   spaceBetween: 0,
+  //   centeredSlides: true,
+  //   speed: 400
+  // }
 
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
     initialSlide: this.user_collection_size,
     autoplay: false,
-    nav: true,
-    loop:false,
+    lazyLoad: true,
     slidesPerView: this.slidePre,
     spaceBetween: 0,
-    autoplayTimeout: 5500,
     navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
     responsive: {
       2100: {
