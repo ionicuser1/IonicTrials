@@ -6,10 +6,18 @@
     
   },
   "TimerPage":{
-    "startButton": "Start Timer ",
-    "pauseButton": "Pause"
+    "startButton": "Start",
+    "pauseButton": "Pause",
+    "reset" : "Reset"
    
-    
-  }
+      },
+      
+        "TimePage":{
+            "minute": "Minutes",
+            "hrs": "Hours",
+            "second" : "Seconds"
+           
+              }
+
  
 }

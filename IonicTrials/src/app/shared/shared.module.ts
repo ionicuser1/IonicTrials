@@ -7,6 +7,7 @@ import { SynthesisService } from '../servicess/synthesis.service';
 import { TimeFormatPipe } from '../pipes/time-format.pipe';
 import { CountdownComponent } from '../components/countdown/countdown.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -14,7 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [CountdownComponent,InputToCountdownDirective,TimeInputComponent,TimeFormatPipe],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   exports: [
     CountdownComponent,InputToCountdownDirective,TimeInputComponent,TimeFormatPipe
