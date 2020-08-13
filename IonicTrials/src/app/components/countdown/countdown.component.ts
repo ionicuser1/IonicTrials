@@ -7,6 +7,8 @@ import { faSquare } from '@fortawesome/free-solid-svg-icons';
 import { InputToCountdownDirective } from 'src/app/directives/input-to-countdown.directive';
 import { SynthesisService } from 'src/app/servicess/synthesis.service';
 import { ContentfulService } from 'src/app/servicess/contentful.service';
+import { ToastrService } from 'ngx-toastr';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -42,7 +44,9 @@ export class CountdownComponent implements OnInit, AfterViewInit {
   max = 0;
   min = 0;
 
-  constructor(public d: InputToCountdownDirective, private s: SynthesisService, private c: ContentfulService) { }
+  constructor(public d: InputToCountdownDirective, private s: SynthesisService, private c: ContentfulService,private toastr: ToastrService, private alertController: AlertController) {
+   
+  }
 
   ngOnInit() {
     this.drills$ = this.c.getDrills().pipe(tap(val => this.selectedDrill$.next(val[0])));
@@ -79,8 +83,10 @@ export class CountdownComponent implements OnInit, AfterViewInit {
 
     this.d.intervalObs$.subscribe(val => {
       console.log(val)
+  
       this.max = val.max;
       this.min = val.min;
+     
     }); // TODO: Don't do this, Brain is alseep.
 
 
@@ -94,7 +100,12 @@ export class CountdownComponent implements OnInit, AfterViewInit {
           console.log(value);
           return value;
         };
-        if (isCounting === null) return of(null);
+        if (isCounting === null) {  this.toastr.info("Timer Ended", "Timer Alert", {
+          progressBar: true,
+          closeButton: true,
+          positionClass: 'toast-top-center'
+        })
+      };
         return isCounting ? interval(1000).pipe(
           concatMap(val => {
             return of(val).pipe(delay(random()), tap(val => {
@@ -102,7 +113,7 @@ export class CountdownComponent implements OnInit, AfterViewInit {
               const randValue = Math.floor((Math.random() * arrayLength))
               const message = this.techniques[randValue];
               this.s.updateMessage(message);
-              this.s.speak();
+             // this.s.speak();
             }));
           })
         ) : of();
