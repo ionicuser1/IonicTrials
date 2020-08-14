@@ -1,0 +1,45 @@
+<div class="template-demo">
+  <button type="button" class="btn btn-primary" (click)= "addLinkAlert()">{{ 'ExternalLinks.AddBtnText' | translate }}</button>
+</div>
+
+ <br/>
+
+ 
+
+ <div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table id="example" class="table table-striped table-bordered pagination-rounded" style="width:100%" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+               <!-- class="row-border hover" -->
+            <thead>
+              <tr>
+                <th>{{ 'ExternalLinks.SrNo' | translate }}</th>
+                <th>{{ 'ExternalLinks.Topic' | translate }}</th>
+                <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
+                <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of items ; let i = index">
+                <td>{{ data.count }}</td>
+                <td>{{ data.topic }}</td>
+                <td>{{ data.subtopic }}</td>
+                <td>{{ data.linkDesc }}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>{{ 'ExternalLinks.SrNo' | translate }}</th>
+                <th>{{ 'ExternalLinks.Topic' | translate }}</th>
+                <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
+                <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
+              </tr>
+            </tfoot>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

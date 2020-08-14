@@ -11,8 +11,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { DataTablesModule } from 'angular-datatables';
     TranslateModule,
     SweetAlert2Module,
     NgxDatatableModule,
-    DataTablesModule
+    SharedModule  
   ],
   declarations: [ExternallinksPage]
 })
