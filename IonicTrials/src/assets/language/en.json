@@ -17,7 +17,15 @@
             "hrs": "Hours",
             "second" : "Seconds"
            
+              },
+              "AltPage":{
+                "header": "Alert message",
+                "subHeader": "Simple Alert Dialogue",
+                "msg" : "This is an alert message.",
+                "btnOk" : "OK",
+                "aletbtn": "Alert Dialogue",  
+                "notifinbtn" : "Success Notification",
+                "successMsg" : "And these were just the basic demos! Scroll down to check further details on how to customize the output"
               }
-
  
 }

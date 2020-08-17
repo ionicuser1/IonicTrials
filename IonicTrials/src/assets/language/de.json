@@ -17,7 +17,15 @@
             "hrs": "Std",
             "second" : "Sekunden"
            
-              }
-
+          },
+          "AltPage":{
+            "header": "Warnmeldung",
+            "subHeader": "Einfacher Alarmdialog",
+            "msg" : "Dies ist eine Warnmeldung.",
+            "btnOk" : "OK",
+            "aletbtn": "Alarmdialog",
+            "notifinbtn" : "Erfolgsbenachrichtigung",
+            "successMsg" : "Und das waren nur die grundlegenden Demos! Scrollen Sie nach unten, um weitere Details zum Anpassen der Ausgabe zu überprüfen"
+          }
  
 }
