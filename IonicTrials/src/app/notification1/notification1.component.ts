@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-notification1',
@@ -8,36 +9,51 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Notification1Component implements OnInit {
 
-  constructor(private toastr: ToastrService) { }
+	msgbox : any;
+
+  constructor(private toastr: ToastrService,public translate: TranslateService) { }
 
   ngOnInit() {}
   showSuccessToast() {
-		this.toastr.success("And these were just the basic demos! Scroll down to check further details on how to customize the output", 'Success', {
+	this. getStringLocalization();
+		this.toastr.success(this.msgbox, 'Success', {
 		  progressBar: true,
 		  closeButton: true
 		})
 	  }
 	
 	  showInfoToast() {
-		this.toastr.info("And these were just the basic demos! Scroll down to check further details on how to customize the output", 'Info', {
+		this. getStringLocalization();
+		this.toastr.info(this.msgbox, 'Info', {
 		  progressBar: true,
 		  closeButton: true
 		})
 	  }
 	
 	  showWarningToast() {
-		this.toastr.warning("And these were just the basic demos! Scroll down to check further details on how to customize the output", 'Warning', {
+		this. getStringLocalization();
+		this.toastr.warning(this.msgbox, 'Warning', {
 		  progressBar: true,
 		  closeButton: true
 		})
 	  }
 	
 	  showDangerToast() {
-		this.toastr.error("And these were just the basic demos! Scroll down to check further details on how to customize the output", 'Error', {
+		  this. getStringLocalization();
+		this.toastr.error(this.msgbox, 'Error', {
 		  progressBar: true,
 		  closeButton: true
 		})
 	  }
 	
 
+
+
+	  getStringLocalization(){
+		this.translate.get('NotifyPage').subscribe((data:any)=> {
+		this.msgbox = data.msges;
+		
+		
+		 });
+}
 }

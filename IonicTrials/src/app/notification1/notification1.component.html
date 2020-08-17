@@ -6,10 +6,10 @@
          Notification Types
         </p>
         <div class="template-demo d-flex justify-content-between flex-wrap">
-          <button type="button" class="btn btn-success btn-fw" (click)="showSuccessToast()">Success</button>
-          <button type="button" class="btn btn-info btn-fw" (click)="showInfoToast()">Info</button>
-          <button type="button" class="btn btn-warning btn-fw" (click)="showWarningToast()">Warning</button>
-          <button type="button" class="btn btn-danger btn-fw" (click)="showDangerToast()">Danger</button>
+          <button type="button" class="btn btn-success btn-fw" (click)="showSuccessToast()">{{'NotifyPage.SuccText' | translate }} </button>
+          <button type="button" class="btn btn-info btn-fw" (click)="showInfoToast()">{{'NotifyPage.WarText' | translate }}</button>
+          <button type="button" class="btn btn-warning btn-fw" (click)="showWarningToast()">{{'NotifyPage.InfoText' | translate }}</button>
+          <button type="button" class="btn btn-danger btn-fw" (click)="showDangerToast()">{{'NotifyPage.ErrorText' | translate }}</button>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ export class NotificationDesignComponent implements OnInit {
 
 
 
-  types = [this.alertText, 'error', 'info', 'warn', 'success'];
+  types = ['alert', 'error', 'info', 'warn', 'success'];
 	animationTypes = ['fromRight'];
 
   ngOnInit() {

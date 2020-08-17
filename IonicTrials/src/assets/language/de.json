@@ -4,9 +4,20 @@
     "TextValue": "Dies ist eine Landingpage",
     "TextButton":"Nächster"
     },
-    "NotifyPage":{
+  
+  "NotifyPage":{
+    "typeText": "success",
+    "TitleText": "Dies ist nur ein Titel",
+    "ContentText":"Dies ist nur ein Inhalt",
+    "AnimateText":"fromRight",
+    "AlertText":"aufmerksam",
+    "ErrorText":"Error",
+    "InfoText":"die Info",
+    "WarText":"warnen",
+    "msges" : "Und das waren nur die grundlegenden Demos! Scrollen Sie nach unten, um weitere Details zum Anpassen der Ausgabe zu überprüfen"
 
-    }
+  }
+ 
    
 
    

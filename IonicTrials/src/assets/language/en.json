@@ -14,7 +14,8 @@
     "ErrorText":"error",
     "InfoText":"info",
     "WarText":"warn",
-    "SuccText":"success"
+    "SuccText":"success",
+    "msges" : "And these were just the basic demos! Scroll down to check further details on how to customize the output"
 
   }
  
