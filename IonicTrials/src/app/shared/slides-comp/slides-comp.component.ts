@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/core/data.service/data.service';
-import { UserCollections, FreeCollections, PublicCollections, PrivateCollections } from 'src/app/core/model/user_collection.model';
+import { UserCollections, Collections } from 'src/app/core/model/user_collection.model';
 import { NavController, IonSlides } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -15,12 +15,12 @@ export class SlidesCompComponent implements OnInit {
 disablePrevBtn = true;
 disableNextBtn = false;
   slidePre = 4;
-  public freeCollectioN : FreeCollections[];
-  public publicCollectioN : PublicCollections[];
-  public privateCollectioN : PrivateCollections[];
+  public freeCollectioN : Collections[];
+  public publicCollectioN : Collections[];
+  public privateCollectioN : Collections[];
 
 
-  public userCollection1 : FreeCollections;
+  public userCollection1 : Collections;
 
   constructor(private dataService : DataService, private navCtrl : NavController,private router: Router ) {
     this.freeCollectioN = this.dataService.freeCollection;
@@ -58,17 +58,17 @@ disableNextBtn = false;
     });
   }
 
-  desc(temp:FreeCollections){
+  desc(temp:Collections){
   this.dataService.newFreeColl = temp;
   this.navCtrl.navigateForward('module-page7');
   }
 
-  desc1(temp:PublicCollections){
+  desc1(temp:Collections){
     this.dataService.newPublicColl = temp;
     this.navCtrl.navigateForward('module-page7');
     }
 
-  desc2(temp:PrivateCollections){
+  desc2(temp:Collections){
       this.dataService.newPrivateColl = temp;
       this.navCtrl.navigateForward('module-page7');
       }

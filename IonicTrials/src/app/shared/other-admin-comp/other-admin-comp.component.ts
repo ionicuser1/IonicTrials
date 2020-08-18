@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FreeCollections } from 'src/app/core/model/user_collection.model';
+
 import { DataService } from 'src/app/core/data.service/data.service';
 import { NavController, IonSlides } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Collections } from 'src/app/core/model/user_collection.model';
 
 @Component({
   selector: 'app-other-admin-comp',
@@ -15,7 +16,7 @@ export class OtherAdminCompComponent implements OnInit {
   disablePrevBtn = true;
   disableNextBtn = false;
 
-  public freeCollectioN : FreeCollections[];
+  public freeCollectioN : Collections[];
 
   constructor(private dataService : DataService, private navCtrl : NavController ) {
     this.freeCollectioN = this.dataService.freeCollection;
@@ -34,7 +35,7 @@ export class OtherAdminCompComponent implements OnInit {
     this.ionSlides.slideNext();
   }
 
-  desc(temp:FreeCollections){
+  desc(temp:Collections){
     this.dataService.newFreeColl = temp;
     this.navCtrl.navigateForward('module-page7');
     }

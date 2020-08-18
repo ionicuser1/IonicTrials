@@ -1,4 +1,4 @@
-import {UserCollections, FreeCollections, PrivateCollections, PublicCollections, OtherCollections, Collections } from '../model/user_collection.model';
+import {UserCollections, Collections } from '../model/user_collection.model';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -44,10 +44,10 @@ export class DataService {
 
 
 
-    newFreeColl :  FreeCollections;
-    newPublicColl : PublicCollections;
-    newPrivateColl : PrivateCollections;
-    newOtherColl : OtherCollections;
+    newFreeColl :  Collections;
+    newPublicColl : Collections;
+    newPrivateColl : Collections;
+    newOtherColl : Collections;
 
     details = this.getStringUserLocalization();
      userCollection : UserCollections[] = [{'card_name': this.cardname1,'card_details' : this.cardDetails1},{'card_name':this.cardname2,'card_details' : this.cardDetails2},{'card_name':this.cardname3,'card_details' : this.cardDetails3},{'card_name':this.cardname4,'card_details' : this.cardDetails4},{'card_name':this.cardname5,'card_details' : this.cardDetails5},{'card_name':this.cardname6,'card_details' : this.cardDetails6}];
@@ -61,10 +61,6 @@ export class DataService {
     otherCollection : Collections[] = [{'collection_name' : this.otherCollectionName,'card_name': this.cardname1,'card_details' : this.cardDetails1,'image' : 'assets/images/carousel/banner_2.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname2,'card_details' : this.cardDetails2,'image' : 'assets/images/carousel/banner_1.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname3,'card_details' : this.cardDetails3,'image' : 'assets/images/carousel/banner_3.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname4,'card_details' : this.cardDetails4,'image' : 'assets/images/carousel/banner_1.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname5,'card_details' : this.cardDetails5,'image' : 'assets/images/carousel/banner_5.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname6,'card_details' : this.cardDetails6,'image' : 'assets/images/carousel/banner_1.jpg'},{'collection_name' : this.otherCollectionName,'card_name':this.cardname7,'card_details' : this.cardDetails7,'image' : 'assets/images/carousel/banner_3.jpg'},{'collection_name' : this.otherCollectionName,'card_name':'card8','card_details' : this.cardDetails8,'image' : 'assets/images/carousel/banner_2.jpg'}];
 
 
-   // adminCollection : AdminUserCollections[] = [{'card_name': 'card1','card_details' : 'this is card1'},{'card_name':'card2','card_details' : 'this is card2'},{'card_name':'card3','card_details' : 'this is card3'},{'card_name':'card4','card_details' : 'this is card4'},{'card_name':'card5','card_details' : 'this is card5'},{'card_name':'card6','card_details' : 'this is card6'},{'card_name':'card7','card_details' : 'this is card7'},{'card_name':'card8','card_details' : 'this is card8'}];
- 
-   // userAdminCollection : AdminUserCollections[] = [{'card_name': 'card1','card_details' : 'this is card1'},{'card_name':'card2','card_details' : 'this is card2'},{'card_name':'card3','card_details' : 'this is card3'},{'card_name':'card4','card_details' : 'this is card4'},{'card_name':'card5','card_details' : 'this is card5'},{'card_name':'card6','card_details' : 'this is card6'}];
-  
   getStringUserLocalization(){
           this.translate.get('UserHomePage').subscribe((data:any)=> {
           this.userCollectionName = data.User_Collection_name;

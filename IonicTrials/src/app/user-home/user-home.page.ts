@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { DataService } from '../core/data.service/data.service';
-import { UserCollections, FreeCollections } from '../core/model/user_collection.model';
+import { UserCollections } from '../core/model/user_collection.model';
 
 
 @Component({
