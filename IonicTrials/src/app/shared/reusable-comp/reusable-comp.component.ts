@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OtherCollections, FreeCollections, Collections } from 'src/app/core/model/user_collection.model';
+import { Collections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { NavController, IonSlides } from '@ionic/angular';
 
@@ -11,7 +11,7 @@ import { NavController, IonSlides } from '@ionic/angular';
 export class ReusableCompComponent implements OnInit {
 
   slidePre = 4;
-  public freeCollectioN : OtherCollections[];
+  public freeCollectioN : Collections[];
   public collectionname : Collections;
 
   constructor(private dataService : DataService, private navCtrl : NavController ) {
@@ -31,7 +31,7 @@ export class ReusableCompComponent implements OnInit {
     this.slider.slideNext();
   }
 
-  desc(temp:FreeCollections){
+  desc(temp:Collections){
     this.dataService.newFreeColl = temp;
     this.navCtrl.navigateForward('module-page7');
     }

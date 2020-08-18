@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/core/data.service/data.service';
-import { UserCollections, FreeCollections, PrivateCollections, PublicCollections } from 'src/app/core/model/user_collection.model';
+import { UserCollections, Collections, } from 'src/app/core/model/user_collection.model';
 
 @Component({
   selector: 'app-module-page7',
@@ -11,9 +11,9 @@ export class ModulePage7Page implements OnInit {
 
  
 
-  freeCollectionObj : FreeCollections;
-  publicCollectinObj : PublicCollections;
-  privateCollectionObj : PrivateCollections;
+  freeCollectionObj : Collections;
+  publicCollectinObj : Collections;
+  privateCollectionObj : Collections;
  // public freeCollections : FreeCollections[];
   //public publicCollections : PublicCollections[];
  // public privateCollections : PrivateCollections[];

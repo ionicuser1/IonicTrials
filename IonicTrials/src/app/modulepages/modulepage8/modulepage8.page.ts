@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FreeCollections } from 'src/app/core/model/user_collection.model';
+
 import { DataService } from 'src/app/core/data.service/data.service';
+import { Collections } from 'src/app/core/model/user_collection.model';
 
 @Component({
   selector: 'app-modulepage8',
@@ -10,7 +11,7 @@ import { DataService } from 'src/app/core/data.service/data.service';
 export class Modulepage8Page implements OnInit {
 
 
-  freeCollectionObj : FreeCollections;
+  freeCollectionObj : Collections;
   constructor( private dataService : DataService) {
     // this.freeCollections = this.dataService.freeCollectionName
     this.freeCollectionObj = this.dataService.newFreeColl;

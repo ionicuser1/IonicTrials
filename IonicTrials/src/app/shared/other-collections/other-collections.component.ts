@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserCollections, FreeCollections, PublicCollections } from 'src/app/core/model/user_collection.model';
+import { UserCollections, Collections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { IonSlides, NavController } from '@ionic/angular';
 
@@ -13,9 +13,9 @@ export class OtherCollectionsComponent implements OnInit {
   slidePre = 4;
 
   public userCollectioN : UserCollections[];
-  public freeCollectio : FreeCollections;
+  public freeCollectio : Collections;
 
-  public publicCollectioN : PublicCollections[];
+  public publicCollectioN : Collections[];
   
   
   constructor(private dataService : DataService, private navCtrl : NavController) {
@@ -72,7 +72,7 @@ export class OtherCollectionsComponent implements OnInit {
 
  
 
-  desc1(temp:PublicCollections){
+  desc1(temp:Collections){
     this.dataService.newPublicColl = temp;
     this.navCtrl.navigateForward('module-page7');
     }
