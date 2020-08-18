@@ -269,10 +269,20 @@ jQuery(document).ready(function($) {
   //       "last":''
   //     }
   //   },
+  "columns": [
+    null,
+    null,
+    null,
+    null,
+    { "orderable": false }
+  ],
+ 
     initComplete: function() {
       
       this.api().columns().every(function() {
         var column = this;
+        if (column.index() == 0 || column.index() == 4) return;
+
         var ddmenu = cbDropdown($(column.header()))
           .on('change', ':checkbox', function() {
             var vals = $(':checked', ddmenu).map(function(index, element) {
@@ -285,7 +295,8 @@ jQuery(document).ready(function($) {
               //console.log(vals);
               if(vals === ""){
               $(this).parent().parent().parent().removeClass("factive");
-              }else{             $(this).parent().parent().parent().addClass("factive");
+              }else{            
+                 $(this).parent().parent().parent().addClass("factive");
               }
               //change callback
           });
