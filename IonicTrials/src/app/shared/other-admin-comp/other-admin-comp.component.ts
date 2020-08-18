@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class OtherAdminCompComponent implements OnInit {
 
   slidePre = 4;
+  disablePrevBtn = true;
+  disableNextBtn = false;
 
   public freeCollectioN : FreeCollections[];
 
@@ -26,10 +28,10 @@ export class OtherAdminCompComponent implements OnInit {
 
   ngOnInit() {}
   slidePrev() {
-    this.slider.slidePrev();
+    this.ionSlides.slidePrev();
   }
   slideNext() {
-    this.slider.slideNext();
+    this.ionSlides.slideNext();
   }
 
   desc(temp:FreeCollections){
@@ -37,7 +39,8 @@ export class OtherAdminCompComponent implements OnInit {
     this.navCtrl.navigateForward('module-page7');
     }
 
-    @ViewChild(IonSlides) slider: IonSlides;
+    // @ViewChild(IonSlides) slider: IonSlides;
+    @ViewChild('slides') ionSlides: IonSlides;
     slideOpts2 = {
      // initialSlide: this.free_collection_size,
       autoplay: false,
@@ -53,5 +56,15 @@ export class OtherAdminCompComponent implements OnInit {
         }
       }
     };
+
+    doCheck() {
+      let prom1 = this.ionSlides.isBeginning();
+      let prom2 = this.ionSlides.isEnd();
+    
+      Promise.all([prom1, prom2]).then((data) => {
+        data[0] ? this.disablePrevBtn = true : this.disablePrevBtn = false;
+        data[1] ? this.disableNextBtn = true : this.disableNextBtn = false;
+      });
+    }
 
 }

@@ -6,16 +6,16 @@
     <h4 style="text-align: center;">{{ 'UserHomePage.AdminTitle' | translate }}</h4>
     <ion-card style="margin-top: 20px;max-height: 400px;">
       <div style="position: absolute;top: 40%; left: 16px;font-size: 15px;z-index: 2;" (click)="slidePrev()">
-        <button type="button" class="btn btn-inverse-dark btn-rounded btn-icon">
+        <button type="button" *ngIf="!disablePrevBtn" class="btn btn-inverse-dark btn-rounded btn-icon">
           <i style="font-size: 40px;" class="mdi mdi-chevron-left"></i>
         </button>
       </div>
       <div style="position: absolute;top: 40%;right: 16px;font-size: 25px;z-index: 2;" (click)="slideNext()">
-        <button type="button" class="btn btn-inverse-dark btn-rounded btn-icon">
+        <button type="button" *ngIf="!disableNextBtn" class="btn btn-inverse-dark btn-rounded btn-icon">
           <i style="font-size: 40px;" class="mdi mdi-chevron-right"></i>
         </button>
       </div>
-      <ion-slides  [options]="slideOpts" paginationType="bullets" class="full-width">
+      <ion-slides  [options]="slideOpts" #slides (ionSlideWillChange)="doCheck()" paginationType="bullets" class="full-width">
         <ion-slide carouselSlide>
           <img src="assets/images/carousel/imagenature.jpg" >
         </ion-slide>

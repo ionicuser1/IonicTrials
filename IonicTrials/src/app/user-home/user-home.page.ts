@@ -12,6 +12,8 @@ import { UserCollections, FreeCollections } from '../core/model/user_collection.
 export class UserHomePage implements OnInit {
 
  initial_slide = 1;
+ disablePrevBtn = true;
+disableNextBtn = false;
   name = "User Home Page"
   public userCollectioN : UserCollections[];
   
@@ -36,14 +38,24 @@ export class UserHomePage implements OnInit {
 
  
 
-  @ViewChild(IonSlides) slider: IonSlides;
+ 
+  @ViewChild('slides') ionSlides: IonSlides;
 
   slidePrev() {
-    this.slider.slidePrev();
+    this.ionSlides.slidePrev();
   }
   slideNext() {
-    this.slider.slideNext();
+    this.ionSlides.slideNext();
   }
 
+  doCheck() {
+    let prom1 = this.ionSlides.isBeginning();
+    let prom2 = this.ionSlides.isEnd();
+  
+    Promise.all([prom1, prom2]).then((data) => {
+      data[0] ? this.disablePrevBtn = true : this.disablePrevBtn = false;
+      data[1] ? this.disableNextBtn = true : this.disableNextBtn = false;
+    });
+  }
  
 }

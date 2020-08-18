@@ -12,6 +12,8 @@ export class UserCollectionsComponent implements OnInit {
 
 
   slidePre = 4;
+  disablePrevBtn = true;
+  disableNextBtn = false;
   public userCollectioN : UserCollections[];
   public userCollection1 : UserCollections;
 
@@ -33,23 +35,15 @@ export class UserCollectionsComponent implements OnInit {
    console.log("collection name="+this.collection);
   }
   slidePrev() {
-    this.slider.slidePrev();
+    this.ionSlides.slidePrev();
   }
   slideNext() {
-    this.slider.slideNext();
+    this.ionSlides.slideNext();
   }
 
-  
-  // slideOpts = {
-  //   initialSlide: 1,
-  //   autoplay: true,
-  //   slidesPerView: 1,
-  //   spaceBetween: 0,
-  //   centeredSlides: true,
-  //   speed: 400
-  // }
 
-  @ViewChild(IonSlides) slider: IonSlides;
+  //@ViewChild(IonSlides) slider: IonSlides;
+  @ViewChild('slides') ionSlides: IonSlides;
   slideOpts2 = {
    // initialSlide: this.user_collection_size,
     autoplay: false,
@@ -63,6 +57,16 @@ export class UserCollectionsComponent implements OnInit {
       }
     }
   };
+
+  doCheck() {
+    let prom1 = this.ionSlides.isBeginning();
+    let prom2 = this.ionSlides.isEnd();
+  
+    Promise.all([prom1, prom2]).then((data) => {
+      data[0] ? this.disablePrevBtn = true : this.disablePrevBtn = false;
+      data[1] ? this.disableNextBtn = true : this.disableNextBtn = false;
+    });
+  }
 
   module1(){
     this.navCtrl.navigateForward('module-page1');
