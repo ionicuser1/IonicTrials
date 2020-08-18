@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CarpagePage } from './carpage.page';
+import { ReusableCompComponent } from './reusable-comp.component';
 
-describe('CarpagePage', () => {
-  let component: CarpagePage;
-  let fixture: ComponentFixture<CarpagePage>;
+describe('ReusableCompComponent', () => {
+  let component: ReusableCompComponent;
+  let fixture: ComponentFixture<ReusableCompComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarpagePage ],
+      declarations: [ ReusableCompComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CarpagePage);
+    fixture = TestBed.createComponent(ReusableCompComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

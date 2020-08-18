@@ -6,6 +6,13 @@ export class UserCollections {
    
   }
 
+  export class Collections {
+    collection_name : string;
+    card_name: string;
+    card_details: string;
+    image : string
+    }
+
   export class FreeCollections {
   collection_name : string;
   card_name: string;

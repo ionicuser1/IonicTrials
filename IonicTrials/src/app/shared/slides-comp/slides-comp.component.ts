@@ -64,7 +64,7 @@ export class SlidesCompComponent implements OnInit {
   @ViewChild(IonSlides) slider: IonSlides;
   
   slideOpts2 = {
-    initialSlide: this.free_collection_size,
+    //initialSlide: this.free_collection_size,
     autoplay: false,
     nav: true,
     loop:false,
@@ -80,7 +80,7 @@ export class SlidesCompComponent implements OnInit {
   };
 
   slideOpts3 = {
-    initialSlide: this.public_collection_size,
+   // initialSlide: this.public_collection_size,
     autoplay: false,
     nav: true,
     loop:false,
@@ -96,7 +96,7 @@ export class SlidesCompComponent implements OnInit {
   };
 
   slideOpts4 = {
-    initialSlide: this.private_collection_size,
+  //  initialSlide: this.private_collection_size,
     autoplay: false,
     nav: true,
     loop:false,

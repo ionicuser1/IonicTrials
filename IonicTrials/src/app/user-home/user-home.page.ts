@@ -11,7 +11,7 @@ import { UserCollections, FreeCollections } from '../core/model/user_collection.
 })
 export class UserHomePage implements OnInit {
 
- 
+ initial_slide = 1;
   name = "User Home Page"
   public userCollectioN : UserCollections[];
   
@@ -26,9 +26,9 @@ export class UserHomePage implements OnInit {
   }
 
   slideOpts = {
-    initialSlide: 1,
+    initialSlide: this.initial_slide,
     autoplay: true,
-    slidesPerView: 1,
+    slidesPerView: this.initial_slide,
     spaceBetween: 0,
     centeredSlides: true,
     speed: 400

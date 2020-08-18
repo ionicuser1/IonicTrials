@@ -60,11 +60,8 @@ const routes: Routes = [
   {
     path: 'modulepage8',
     loadChildren: () => import('./modulepages/modulepage8/modulepage8.module').then( m => m.Modulepage8PageModule)
-  },  {
-    path: 'carpage',
-    loadChildren: () => import('./carpage/carpage.module').then( m => m.CarpagePageModule)
   },
-
+  
 
 
   

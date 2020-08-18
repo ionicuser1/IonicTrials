@@ -18,8 +18,8 @@ export class LandingPagePage implements OnInit {
 
   user()
   {
-   // this.navCtrl.navigateForward('user-home');
-    this.navCtrl.navigateForward('carpage');
+    this.navCtrl.navigateForward('user-home');
+    //this.navCtrl.navigateForward('carpage');
   }
   admin_user()
   {
