@@ -55,7 +55,7 @@ export class OtherCollectionsComponent implements OnInit {
   @ViewChild(IonSlides) slider: IonSlides;
 
   slideOpts3 = {
-    initialSlide: this.public_collection_size,
+   // initialSlide: this.public_collection_size,
     autoplay: true,
     nav: true,
     slidesPerView: this.slidePre,

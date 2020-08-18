@@ -51,7 +51,7 @@ export class UserCollectionsComponent implements OnInit {
 
   @ViewChild(IonSlides) slider: IonSlides;
   slideOpts2 = {
-    initialSlide: this.user_collection_size,
+   // initialSlide: this.user_collection_size,
     autoplay: false,
     lazyLoad: true,
     slidesPerView: this.slidePre,

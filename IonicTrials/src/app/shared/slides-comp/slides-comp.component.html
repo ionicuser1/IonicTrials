@@ -13,7 +13,7 @@
             </button>
           </div>
           
-           <ion-slides  [options]="slideOpts4" paginationType="bullets" class="full-width"> 
+           <ion-slides  [options]="slideOpts2" paginationType="bullets" class="full-width"> 
             <ion-slide *ngFor="let privateC of privateCollectioN; let i = index" carouselSlide >
               <img src={{privateC.image}} (click)="desc(privateCollectioN[i])" height="185" width="200" alt="image"/>
              
@@ -37,7 +37,7 @@
                   <i style="font-size: 40px;" class="mdi mdi-chevron-right"></i>
                 </button>
               </div>
-               <ion-slides  [options]="slideOpts3" paginationType="bullets" class="full-width"> 
+               <ion-slides  [options]="slideOpts2" paginationType="bullets" class="full-width"> 
                 <ion-slide *ngFor="let pub of publicCollectioN; let i = index" carouselSlide >
                   <img src={{pub.image}} (click)="desc(publicCollectioN[i])" height="185" width="200" alt="image"/>
                  

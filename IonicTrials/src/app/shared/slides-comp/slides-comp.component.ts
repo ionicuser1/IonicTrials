@@ -79,37 +79,37 @@ export class SlidesCompComponent implements OnInit {
     }
   };
 
-  slideOpts3 = {
-   // initialSlide: this.public_collection_size,
-    autoplay: false,
-    nav: true,
-    loop:false,
-    slidesPerView: this.slidePre,
-    spaceBetween: 0,
-    autoplayTimeout: 5500,
-    navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
-    responsive: {
-      2100: {
+  // slideOpts3 = {
+  //  // initialSlide: this.public_collection_size,
+  //   autoplay: false,
+  //   nav: true,
+  //   loop:false,
+  //   slidesPerView: this.slidePre,
+  //   spaceBetween: 0,
+  //   autoplayTimeout: 5500,
+  //   navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
+  //   responsive: {
+  //     2100: {
        
-      }
-    }
-  };
+  //     }
+  //   }
+  // };
 
-  slideOpts4 = {
-  //  initialSlide: this.private_collection_size,
-    autoplay: false,
-    nav: true,
-    loop:false,
-    slidesPerView: this.slidePre,
-    spaceBetween: 0,
-    autoplayTimeout: 5500,
-    navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
-    responsive: {
-      2100: {
+  // slideOpts4 = {
+  // //  initialSlide: this.private_collection_size,
+  //   autoplay: false,
+  //   nav: true,
+  //   loop:false,
+  //   slidesPerView: this.slidePre,
+  //   spaceBetween: 0,
+  //   autoplayTimeout: 5500,
+  //   navText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
+  //   responsive: {
+  //     2100: {
        
-      }
-    }
-  };
+  //     }
+  //   }
+  // };
 
 
 

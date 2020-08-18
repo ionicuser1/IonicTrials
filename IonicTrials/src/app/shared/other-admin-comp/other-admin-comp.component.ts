@@ -39,7 +39,7 @@ export class OtherAdminCompComponent implements OnInit {
 
     @ViewChild(IonSlides) slider: IonSlides;
     slideOpts2 = {
-      initialSlide: this.free_collection_size,
+     // initialSlide: this.free_collection_size,
       autoplay: false,
       nav: true,
       loop:false,
