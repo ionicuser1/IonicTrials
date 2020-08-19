@@ -20,6 +20,9 @@
                 <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
                 <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
                 <th class="nosort">{{ 'ExternalLinks.LinkUrl' | translate }}</th>
+                <th class="nosort">{{ 'ExternalLinks.Action' | translate }}</th>
+                <th class="nosort">{{ 'ExternalLinks.Action' | translate }}</th>
+                <th class="nosort">{{ 'ExternalLinks.Action' | translate }}</th>
               </tr>
             </thead>
             <tbody>
@@ -29,17 +32,29 @@
                 <td>{{ data.subtopic }}</td>
                 <td>{{ data.linkDesc }}</td>
                 <td>{{ data.linkUrl }}</td>
+                <td>
+                  <label class="btn btn-outline-primary" (click)="invoke(i)">{{ 'ExternalLinks.Invoke' | translate }}</label>
+                </td>
+                <td>
+                  <label class="btn btn-outline-primary" (click)="loadEdit(i)">{{ 'ExternalLinks.Edit' | translate }}</label>
+                </td>
+                <td>
+                  <label class="btn btn-outline-primary" (click)="delete(i)">{{ 'ExternalLinks.Delete' | translate }}</label>
+                </td>
             </tr>
             </tbody>
-            <tfoot>
+            <!-- <tfoot>
               <tr>
                 <th>{{ 'ExternalLinks.SrNo' | translate }}</th>
                 <th>{{ 'ExternalLinks.Topic' | translate }}</th>
                 <th>{{ 'ExternalLinks.SubTopic' | translate }}</th>
                 <th>{{ 'ExternalLinks.LinkDescription' | translate }}</th>
                 <th>{{ 'ExternalLinks.LinkUrl' | translate }}</th>
+                <th>{{ 'ExternalLinks.Action' | translate }}</th>
+                <th>{{ 'ExternalLinks.Action' | translate }}</th>
+                <th>{{ 'ExternalLinks.Action' | translate }}</th>
               </tr>
-            </tfoot>
+            </tfoot> -->
             </table>
         </div>
       </div>

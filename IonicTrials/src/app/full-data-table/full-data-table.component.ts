@@ -33,7 +33,14 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
   phForURLInvalid: any;
   phForURLRequired: any;
 
+  deletePopupYesBtn: any;
+  deletePopupNoBtn: any;
+  deletePopupMessage: any;
+  deletePopupHeader: any;
+
+  phForItemUpdate: any;
   phForItemAdd: any;
+  phForItemDelete: any;
 
   rows = [];
   filteredData = [];
@@ -74,261 +81,160 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
   }
   // READ
   loadItems(check : string){
-    this.storageService.getItems().then(items => {
-        if(items != null){
-          this.items = items;
-          if(check !== "FromAddItem"){
-            this.dtTrigger.next();
+    console.log("inside loadItems method");
+    this.storageService.getItems().then(tableItems => {
+        if(tableItems != null){
+          
+          console.log("table is not null and size of items ", tableItems.length);
+
+          if(tableItems.length != 0){
+            this.items = tableItems;
+            if(check !== "FromAddItem"){
+              this.dtTrigger.next();
+            }
+            this.rows = this.items;
+            this.filteredData = this.rows;
+            this.columnsWithSearch = Object.keys(this.rows[0]);
           }
-          this.rows = this.items;
-          this.filteredData = this.rows;
-          this.columnsWithSearch = Object.keys(this.rows[0]);
-          this.individualFilter(this.datatableElement);
-        }
+
+            console.log("before individualFilter called");
+            this.individualFilter(this.datatableElement,tableItems.length);
+            console.log("After individualFilter called");
         
-    });
-  }
-
-  individualFilter(datatableElement){
-  
-  //   $(document).ready(function() {
-  //     $('#example').DataTable( {
-  //         "lengthMenu": [[10,20,30,40,50,60,70,80,90,100,-1], [10,20,30,40,50,60,70,80,90,100, "All"]],
-  //         "pageLength": 10
-  //     } );
-  // } );
-
-    // Header searching
-    
-  //   $(document).ready(function(){
-  //   // Setup - add a text input to each footer cell
-  //   $('#example thead tr').clone(true).appendTo( '#example thead' );
-  //   $('#example thead tr:eq(1) th').each( function (i) {
-  //       var title = $(this).text();
-  //       $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
- 
-  //       $( 'input', this ).on( 'keyup change', function () {
-  //           if ( table.column(i).search() !== this['value'] ) {
-  //               table
-  //                   .column(i)
-  //                   .search( this['value'] )
-  //                   .draw();
-  //           }
-  //       });
-  //   });
- 
-  //   var table = $('#example').DataTable( {
-  //        orderCellsTop: true
-  //   });
-    
-  //  });
-
-
- // Footer List with options
-
-//   $(document).ready(function() {
-//     $('#example').DataTable( {
-//         initComplete: function () {
-//             this.api().columns().every( function () {
-//                 var column = this;
-//                 var select = $('<select><option value=""></option></select>')
-//                     .appendTo( $(column.footer()).empty() )
-//                     .on( 'change', function () {
-//                         var val = $.fn.dataTable.util.escapeRegex($(this).val() as string);
-//                         column
-//                             .search( val ? '^'+val+'$' : '', true, false )
-//                             .draw();
-//                     } );
- 
-//                 column.data().unique().sort().each( function ( d, j ) {
-//                     select.append( '<option value="'+d+'">'+d+'</option>' )
-//                 } );
-//             } );
-//         }
-//     } );
-// } );
-
-// checkbox in header 
-
-// $(document).ready(function() {
-//   function cbDropdown(column) {
-//     return $('<ul>', {
-//       'class': 'cb-dropdown'
-//     }).appendTo($('<div>', {
-//       'class': 'cb-dropdown-wrap'
-//     }).appendTo(column));
-//   }
-
-//   $('#example').DataTable({
-//     initComplete: function() {
-//       this.api().columns().every(function() {
-//         var column = this;
-//         var ddmenu = cbDropdown($(column.header()))
-//           .on('change', ':checkbox', function() {
-//             var active;
-//             var vals = $(':checked', ddmenu).map(function(index, element) {
-//               active = true;
-//               return $.fn.dataTable.util.escapeRegex($(element).val() as string);
-//             }).toArray().join('|');
-
-//             column
-//               .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
-//               .draw();
-
-//             // Highlight the current item if selected.
-//             if (this.checked) {
-//               $(this).closest('li').addClass('active');
-//             } else {
-//               $(this).closest('li').removeClass('active');
-//             }
-
-//             // Highlight the current filter if selected.
-//             var active2 = ddmenu.parent().is('.active');
-//             if (active && !active2) {
-//               ddmenu.parent().addClass('active');
-//             } else if (!active && active2) {
-//               ddmenu.parent().removeClass('active');
-//             }
-//           });
-
-//         column.data().unique().sort().each(function(d, j) {
-//           var // wrapped
-//             $label = $('<label>'),
-//             $text = $('<span>', {
-//               text: d
-//             }),
-//             $cb = $('<input>', {
-//               type: 'checkbox',
-//               value: d
-//             });
-
-//           $text.appendTo($label);
-//           $cb.appendTo($label);
-
-//           ddmenu.append($('<li>').append($label));
-//         });
-//       });
-//             $(".cb-dropdown-wrap").each(function(){
-//             console.log($(this).parent().width());
-//             $(this).width($(this).parent().width());
-//             });
-//     }
-//   });
-// });
-
-// Footer select 
-
-// $(document).ready(function() {
-//   $('#example').DataTable({
-//     initComplete: function() {
-//       this.api().columns().every(function() {
-//         var column = this;
-//         //added class "mymsel"
-//         var select = $('<select class="mymsel" multiple="multiple"><option value=""></option></select>')
-//           .appendTo($(column.footer()).empty())
-//           .on('change', function() {
-//             var vals = $('option:selected', this).map(function(index, element) {
-//               return $.fn.dataTable.util.escapeRegex($(element).val() as string);
-//             }).toArray().join('|');
-
-//             column
-//               .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
-//               .draw();
-//           });
-
-//         column.data().unique().sort().each(function(d, j) {
-//           select.append('<option value="' + d + '">' + d + '</option>')
-//         });
-//       });
-//       //select2 init for .mymsel class
-//       $(".mymsel").select2();
-//     }
-//   });
-// });
-
-// Multiselect header
-    // This code has been beautified via http://jsbeautifier.org/ with 2 spaces indentation.
-
-jQuery(document).ready(function($) {
-  function cbDropdown(column) {
-    return $('<ul>', {
-      'class': 'cb-dropdown'
-    }).appendTo($('<div>', {
-      'class': 'cb-dropdown-wrap'
-    }).appendTo(column));
-  }
-
-  $('#example').DataTable({
-    "lengthMenu": [[10,20,30,40,50,60,70,80,90,100,-1], [10,20,30,40,50,60,70,80,90,100, "All"]],
-    "pageLength": 10,
-  //   "language": {
-  //     "paginate": {
-  //       "next": '&#8594;', // or '→'
-  //       "previous": '&#8592;', // or '←' 
-  //       "first":'',
-  //       "last":''
-  //     }
-  //   },
-  "columns": [
-    null,
-    null,
-    null,
-    null,
-    { "orderable": false }
-  ],
- 
-    initComplete: function() {
-      
-      this.api().columns().every(function() {
-        var column = this;
-        if (column.index() == 0 || column.index() == 4) return;
-
-        var ddmenu = cbDropdown($(column.header()))
-          .on('change', ':checkbox', function() {
-            var vals = $(':checked', ddmenu).map(function(index, element) {
-              return $.fn.dataTable.util.escapeRegex($(element).val() as string);
-            }).toArray().join('|');
-
-            column
-              .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
-              .draw();
-              //console.log(vals);
-              if(vals === ""){
-              $(this).parent().parent().parent().removeClass("factive");
-              }else{            
-                 $(this).parent().parent().parent().addClass("factive");
-              }
-              //change callback
-          });
-
-        column.data().unique().sort().each(function(d, j) {
-          var // wrapped
-            $label = $('<label>'),
-            $text = $('<span>', {
-              text: d
-            }),
-            $cb = $('<input>', {
-              type: 'checkbox',
-              value: d
-            });
-
-          $text.appendTo($label);
-          $cb.appendTo($label);
-
-          ddmenu.append($('<li>').append($label));
-        });
+        }else{
+          console.log("table is null");
+        }
       });
+  }
+
+  individualFilter(datatableElement,size:any){
+
+    console.log("inside individualFilter called");
+
+    console.log("Size of Table " + size);
+
+
+    jQuery(document).ready(function($) {
+
+      if(size == 0){
+        console.log("Size is Zero " + size);
+        $('#example').DataTable({
+          "lengthChange": false,
+          'ordering': false,
+            'searching': false,
+            'info': false,
+            "paging": false,
+        });
+      }else{
+        console.log("Size is not Zero " + size);
+        function cbDropdown(column) {
+          return $('<ul>', {
+            'class': 'cb-dropdown'
+          }).appendTo($('<div>', {
+            'class': 'cb-dropdown-wrap'
+          }).appendTo(column));
+          }
       
-  $(".cb-dropdown-wrap").each(function(){
-  	console.log($(this).parent().width());
-  	$(this).width($(this).parent().width());
-  });
-    }
-  });
+        $('#example').DataTable({
+
+                    // "lengthMenu": [[10,20,30,40,50,60,70,80,90,100,-1], [10,20,30,40,50,60,70,80,90,100, "All"]]
+                    "lengthMenu": [[size,20,40,60,80,100,-1], [size,20,40,60,80,100, "All"]],
+                    "pageLength": size,
+                  //   "language": {
+                  //     "paginate": {
+                  //       "next": '&#8594;', // or '→'
+                  //       "previous": '&#8592;', // or '←' 
+                  //       "first":'',
+                  //       "last":''
+                  //     }
+                  //   },
+                  "columns": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false }
+                  ],
+       
+          initComplete: function() {
+            
+            this.api().columns().every(function() {
+              var column = this;
+              if (column.index() == 0 
+              || column.index() == 4 || column.index() == 5 || column.index() == 6
+              || column.index() == 7) return;
+      
+              var ddmenu = cbDropdown($(column.header()))
+                .on('change', ':checkbox', function() {
+                  var vals = $(':checked', ddmenu).map(function(index, element) {
+                    return $.fn.dataTable.util.escapeRegex($(element).val() as string);
+                  }).toArray().join('|');
+      
+                  column
+                    .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
+                    .draw();
+                    //console.log(vals);
+                    if(vals === ""){
+                    $(this).parent().parent().parent().removeClass("factive");
+                    }else{            
+                       $(this).parent().parent().parent().addClass("factive");
+                    }
+                    //change callback
+                });
+      
+              column.data().unique().sort().each(function(d, j) {
+                var // wrapped
+                  $label = $('<label>'),
+                  $text = $('<span>', {
+                    text: d
+                  }),
+                  $cb = $('<input>', {
+                    type: 'checkbox',
+                    value: d
+                  });
+      
+                $text.appendTo($label);
+                $cb.appendTo($label);
+      
+                ddmenu.append($('<li>').append($label));
+              });
+            });
+            
+        $(".cb-dropdown-wrap").each(function(){
+          console.log($(this).parent().width());
+          $(this).width($(this).parent().width());
+        });
+      
+        }
+      
+        });
+      }
 
 });
-  }
+  
+}
 
+// // UPDATE
+// updateItem(item : Item){
+//   item.topic = `UPDATED: ${item.topic}`;
+//   item.modified = Date.now();
+
+//   this.storageService.updateItem(item).then(item => {
+//     this.showErrorToast('Item Updated',true);
+//     this.loadItems("Null");
+//   });
+// }
+
+// // DELETE
+// deleteItem(item: Item){
+//   this.storageService.deleteItem(item.id).then(item => {
+//     this.showErrorToast('Item is removed.!',true);
+//     this.loadItems("Null");
+//   });
+// }
   
   async addLinkAlert(){
 
@@ -419,9 +325,117 @@ jQuery(document).ready(function($) {
       console.log('Dismissed toast', dismiss);
       location.reload();
     }
-  
-    
 }
+
+async loadEdit(index){
+  this.getExternalLinkLocalization();
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-alert',
+      inputs: [
+        {
+          type: 'text',
+          name: 'topic',
+          placeholder: this.phForTopic,
+          value: this.items[index].topic
+        },
+        {
+          type: 'text',
+          name: 'subTopic',
+          placeholder: this.phForSubTopic,
+          value: this.items[index].subtopic
+        },
+        {
+          type: 'text',
+          name: 'linkDescription',
+          placeholder: this.phForLinkDesc,
+          value: this.items[index].linkDesc
+        },{
+          type: 'url',
+          name: 'linkUrl',
+          placeholder: this.phForLinkURL,
+          value: this.items[index].linkUrl
+        },
+      ],
+      buttons: [
+        {
+          text: this.alertSaveBtn,
+          cssClass:'btn btn-outline-primary btn-fw',
+          handler: (data) => {
+          
+            let validateUrl = this.validateUrl(data.linkUrl);      
+            if(validateUrl.isValid){
+              this.updatedItem.topic = data.topic;
+              this.updatedItem.subtopic = data.subTopic;
+              this.updatedItem.linkDesc = data.linkDescription;
+              this.updatedItem.linkUrl = data.linkUrl;
+              this.updatedItem.modified = Date.now();
+              this.updatedItem.id = this.items[index].id;
+              this.updatedItem.count = this.items[index].count;
+              this.storageService.updateItem(this.updatedItem).then(item => {
+               // this.showErrorToast(this.phForItemUpdate,true);
+                console.log("Edit Opeartion")
+                this.loadItems("Null");
+              });
+              return true;
+            }else{
+              this.showErrorToast(this.phForURLInvalid,true);
+              return false;
+            }
+          }
+        }, 
+        {
+          text: this.alertCancelBtn,
+          role: 'cancel',
+          cssClass:'btn btn-outline-danger btn-fw',
+          handler: () => {
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  invoke(index) {
+    var value = this.items[index].linkUrl;
+    window.open(value,'_system', 'location=yes');
+  }
+
+  delete(index){
+    this.presentAlertDelete(index);
+  }
+
+
+  async presentAlertDelete(index) {
+    this.getExternalLinkLocalization();
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-alert',
+      header: this.deletePopupHeader,
+      message: this.deletePopupMessage,
+      buttons: [
+        {
+          text: this.deletePopupYesBtn,
+          cssClass:'btn btn-outline-danger btn-fw',
+          handler: (data) => {
+            var number = this.items[index].id;
+            this.storageService.deleteItem(number).then(item => {
+              this.showErrorToast(this.phForItemDelete,true);
+            });
+              this.showErrorToast(this.phForItemDelete,true);
+              return true;
+          }
+        },
+        {
+          text: this.deletePopupNoBtn,
+          cssClass: 'btn btn-outline-primary btn-fw',
+          handler: () => {
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
   getExternalLinkLocalization(){
 
@@ -436,8 +450,15 @@ jQuery(document).ready(function($) {
     this.phForURLInvalid = data.InvalidURL;
     this.phForURLRequired = data.URLRequired;
 
+    this.deletePopupYesBtn = data.BtnYes;
+    this.deletePopupNoBtn = data.BtnNo;
+    this.deletePopupMessage = data.DeletePopupMessage;
+    this.deletePopupHeader = data.DeletePopupHeader;
+
+    this.phForItemUpdate = data.UpdateItem;
     this.phForItemAdd = data.AddItem;
-     
+    this.phForItemDelete = data.DeleteItem;
+
    });
   
  }
