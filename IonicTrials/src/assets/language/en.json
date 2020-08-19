@@ -15,7 +15,15 @@
     "InfoText":"info",
     "WarText":"warn",
     "SuccText":"success",
-    "msges" : "And these were just the basic demos! Scroll down to check further details on how to customize the output"
+    "msges" : "And these were just the basic demos! Scroll down to check further details on how to customize the output",
+    "Bottom-left" : "Bottom-left",
+    "Bottom-right" : "Bottom-right",
+    "Bottom-center" : "Bottom-center",
+    "Bottom-full-width" : "Bottom-full-width",
+    "Top-left" : "Top-left",
+    "Top-right" : "Top-right",
+    "Top-center" : "Top-center",
+    "Top-full-width" : "Top-full-width"
 
   }
  

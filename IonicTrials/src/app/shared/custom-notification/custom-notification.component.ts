@@ -5,11 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-notification-design',
-  templateUrl: './notification-design.component.html',
-  styleUrls: ['./notification-design.component.scss'],
+  selector: 'app-custom-notification',
+  templateUrl: './custom-notification.component.html',
+  styleUrls: ['./custom-notification.component.scss'],
 })
-export class NotificationDesignComponent implements OnInit {
+export class CustomNotificationComponent implements OnInit {
 
   constructor(private _notifications: NotificationsService,private _fb: FormBuilder,public translate: TranslateService) { }
 
@@ -75,5 +75,4 @@ export class NotificationDesignComponent implements OnInit {
 
 	 
 }
-
 

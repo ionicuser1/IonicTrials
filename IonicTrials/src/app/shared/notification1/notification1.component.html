@@ -1,0 +1,34 @@
+<div style="margin-top: 10px;" class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-description mb-0">
+         Notification Types
+        </p>
+        <div class="template-demo d-flex justify-content-between flex-wrap">
+          <button type="button" class="btn btn-success btn-fw" (click)="showSuccessToast()">{{'NotifyPage.SuccText' | translate }} </button>
+          <button type="button" class="btn btn-info btn-fw" (click)="showInfoToast()">{{'NotifyPage.WarText' | translate }}</button>
+          <button type="button" class="btn btn-warning btn-fw" (click)="showWarningToast()">{{'NotifyPage.InfoText' | translate }}</button>
+          <button type="button" class="btn btn-danger btn-fw" (click)="showDangerToast()">{{'NotifyPage.ErrorText' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Notification positions</h4>
+        <div class="template-demo d-flex justify-content-between flex-wrap">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('bottom-left')">{{'NotifyPage.Bottom-left' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('bottom-right')">{{'NotifyPage.Bottom-right' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('bottom-center')">{{'NotifyPage.Bottom-center' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('bottom-full-width')">{{'NotifyPage.Bottom-full-width' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('top-left')">{{'NotifyPage.Top-left' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('top-right')">{{'NotifyPage.Top-right' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('top-center')">{{'NotifyPage.Top-center' | translate }}</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="showToastPosition('top-full-width')">{{'NotifyPage.Top-full-width' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>

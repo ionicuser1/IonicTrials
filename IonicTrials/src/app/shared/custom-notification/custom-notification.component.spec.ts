@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NotificationDesignComponent } from './notification-design.component';
+import { CustomNotificationComponent } from './custom-notification.component';
 
-describe('NotificationDesignComponent', () => {
-  let component: NotificationDesignComponent;
-  let fixture: ComponentFixture<NotificationDesignComponent>;
+describe('CustomNotificationComponent', () => {
+  let component: CustomNotificationComponent;
+  let fixture: ComponentFixture<CustomNotificationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotificationDesignComponent ],
+      declarations: [ CustomNotificationComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NotificationDesignComponent);
+    fixture = TestBed.createComponent(CustomNotificationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

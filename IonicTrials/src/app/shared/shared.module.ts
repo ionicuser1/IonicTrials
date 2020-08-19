@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Notification1Component } from '../notification1/notification1.component';
+
 import { TranslateModule } from '@ngx-translate/core';
+import { Notification1Component } from './notification1/notification1.component';
 
 
 

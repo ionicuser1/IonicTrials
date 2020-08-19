@@ -14,7 +14,15 @@
     "ErrorText":"Error",
     "InfoText":"die Info",
     "WarText":"warnen",
-    "msges" : "Und das waren nur die grundlegenden Demos! Scrollen Sie nach unten, um weitere Details zum Anpassen der Ausgabe zu überprüfen"
+    "msges" : "Und das waren nur die grundlegenden Demos! Scrollen Sie nach unten, um weitere Details zum Anpassen der Ausgabe zu überprüfen",
+    "Bottom-left" : "Unten links",
+    "Bottom-right" : "Unten rechts",
+    "Bottom-center" : "Unten in der Mitte",
+    "Bottom-full-width" : "Boden in voller Breite",
+    "Top-left" : "Oben links",
+    "Top-right" : "Oben rechts",
+    "Top-center" : "Oben in der Mitte",
+    "Top-full-width" : "Oben in voller Breite"
 
   }
  
