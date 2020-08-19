@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { OtherAdminCompComponent } from './other-admin-comp.component';
+import { FreeCollectionComponent } from './free-collection.component';
 
-describe('OtherAdminCompComponent', () => {
-  let component: OtherAdminCompComponent;
-  let fixture: ComponentFixture<OtherAdminCompComponent>;
+describe('FreeCollectionComponent', () => {
+  let component: FreeCollectionComponent;
+  let fixture: ComponentFixture<FreeCollectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OtherAdminCompComponent ],
+      declarations: [ FreeCollectionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OtherAdminCompComponent);
+    fixture = TestBed.createComponent(FreeCollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

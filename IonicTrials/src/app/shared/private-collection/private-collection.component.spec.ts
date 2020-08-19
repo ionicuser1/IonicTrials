@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ReusableCompComponent } from './reusable-comp.component';
+import { PrivateCollectionComponent } from './private-collection.component';
 
-describe('ReusableCompComponent', () => {
-  let component: ReusableCompComponent;
-  let fixture: ComponentFixture<ReusableCompComponent>;
+describe('PrivateCollectionComponent', () => {
+  let component: PrivateCollectionComponent;
+  let fixture: ComponentFixture<PrivateCollectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReusableCompComponent ],
+      declarations: [ PrivateCollectionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReusableCompComponent);
+    fixture = TestBed.createComponent(PrivateCollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

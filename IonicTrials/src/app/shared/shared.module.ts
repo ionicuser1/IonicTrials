@@ -3,19 +3,18 @@ import { CommonModule } from '@angular/common';
 import { UserCollectionsComponent } from './user-collections/user-collections.component';
 import { IonicModule } from '@ionic/angular';
 import { AdminCollectionsComponent } from './admin-collections/admin-collections.component';
-import { OtherCollectionsComponent } from './other-collections/other-collections.component';
-import { SlidesCompComponent } from './slides-comp/slides-comp.component';
-import { OtherAdminCompComponent } from './other-admin-comp/other-admin-comp.component';
-import { ReusableCompComponent } from './reusable-comp/reusable-comp.component';
+import { FreeCollectionComponent } from './free-collection/free-collection.component';
+import { PublicCollectionComponent } from './public-collection/public-collection.component';
+import { PrivateCollectionComponent } from './private-collection/private-collection.component';
 
 
 
 @NgModule({
-  declarations: [UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent, SlidesCompComponent,OtherAdminCompComponent, ReusableCompComponent],
+  declarations: [UserCollectionsComponent,AdminCollectionsComponent,FreeCollectionComponent,PublicCollectionComponent, PrivateCollectionComponent],
   imports: [
     CommonModule,
     IonicModule
   ],
-  exports :[UserCollectionsComponent,AdminCollectionsComponent,OtherCollectionsComponent,SlidesCompComponent,OtherAdminCompComponent,ReusableCompComponent]
+  exports :[UserCollectionsComponent,AdminCollectionsComponent,FreeCollectionComponent,PublicCollectionComponent,PrivateCollectionComponent]
 })
 export class SharedModule { }

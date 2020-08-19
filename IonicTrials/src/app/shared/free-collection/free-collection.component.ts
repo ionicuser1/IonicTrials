@@ -1,16 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { Collections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
 import { NavController, IonSlides } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { Collections } from 'src/app/core/model/user_collection.model';
 
 @Component({
-  selector: 'app-other-admin-comp',
-  templateUrl: './other-admin-comp.component.html',
-  styleUrls: ['./other-admin-comp.component.scss'],
+  selector: 'app-free-collection',
+  templateUrl: './free-collection.component.html',
+  styleUrls: ['./free-collection.component.scss'],
 })
-export class OtherAdminCompComponent implements OnInit {
+export class FreeCollectionComponent implements OnInit {
 
   slidePre = 4;
   disablePrevBtn = true;
@@ -69,3 +67,4 @@ export class OtherAdminCompComponent implements OnInit {
     }
 
 }
+

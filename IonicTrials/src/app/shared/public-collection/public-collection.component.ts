@@ -1,18 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Collections } from 'src/app/core/model/user_collection.model';
 import { DataService } from 'src/app/core/data.service/data.service';
-import { UserCollections, Collections } from 'src/app/core/model/user_collection.model';
 import { NavController, IonSlides } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-slides-comp',
-  templateUrl: './slides-comp.component.html',
-  styleUrls: ['./slides-comp.component.scss'],
+  selector: 'app-public-collection',
+  templateUrl: './public-collection.component.html',
+  styleUrls: ['./public-collection.component.scss'],
 })
-export class SlidesCompComponent implements OnInit {
+export class PublicCollectionComponent implements OnInit {
 
-
-disablePrevBtn = true;
+  disablePrevBtn = true;
 disableNextBtn = false;
   slidePre = 4;
   public freeCollectioN : Collections[];
@@ -91,8 +90,5 @@ disableNextBtn = false;
       }
     }
   };
-
-  
-
 
 }

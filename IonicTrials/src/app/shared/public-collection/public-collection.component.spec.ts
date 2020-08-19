@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SlidesCompComponent } from './slides-comp.component';
+import { PublicCollectionComponent } from './public-collection.component';
 
-describe('SlidesCompComponent', () => {
-  let component: SlidesCompComponent;
-  let fixture: ComponentFixture<SlidesCompComponent>;
+describe('PublicCollectionComponent', () => {
+  let component: PublicCollectionComponent;
+  let fixture: ComponentFixture<PublicCollectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlidesCompComponent ],
+      declarations: [ PublicCollectionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SlidesCompComponent);
+    fixture = TestBed.createComponent(PublicCollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
