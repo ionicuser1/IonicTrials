@@ -2,7 +2,9 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "This is a landing page"
-    
+  },
+  "NestedTable":{
+    "BtnText":"Nested Data Table"
   }
  
 }

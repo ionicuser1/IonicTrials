@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
+  {
+    path: 'nested-table',
+    loadChildren: () => import('./pages/nested-table/nested-table.module').then( m => m.NestedTablePageModule)
+  },
 
   
 ];

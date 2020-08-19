@@ -2,7 +2,11 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
+    },
+    "NestedTable":{
+      "BtnText":"Verschachtelte Datentabelle"
     }
+   
 
    
 }
