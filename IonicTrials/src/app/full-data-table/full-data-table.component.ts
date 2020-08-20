@@ -372,9 +372,9 @@ async loadEdit(index){
               this.updatedItem.id = this.items[index].id;
               this.updatedItem.count = this.items[index].count;
               this.storageService.updateItem(this.updatedItem).then(item => {
-               // this.showErrorToast(this.phForItemUpdate,true);
+                this.showErrorToast(this.phForItemUpdate,true);
                 console.log("Edit Opeartion")
-                this.loadItems("Null");
+               // this.loadItems("Null");
               });
               return true;
             }else{
