@@ -153,7 +153,7 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
                     null,
                     null,
                     null,
-                    { "orderable": false },
+                    null,
                     { "orderable": false },
                     { "orderable": false },
                     { "orderable": false }
@@ -163,8 +163,7 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
             
             this.api().columns().every(function() {
               var column = this;
-              if (column.index() == 0 
-              || column.index() == 4 || column.index() == 5 || column.index() == 6
+              if (column.index() == 5 || column.index() == 6
               || column.index() == 7) return;
       
               var ddmenu = cbDropdown($(column.header()))
