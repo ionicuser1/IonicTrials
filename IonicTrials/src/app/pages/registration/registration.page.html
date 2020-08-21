@@ -1,0 +1,68 @@
+<!-- main app container -->
+<ion-content>
+<div class="d-flex align-items-center auth px-0">
+  <div class="row w-100 mx-0">
+    <div class="col-lg-4 mx-auto">
+      <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+        <h4>New here?</h4>
+        <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="userName">Username*</label>
+                      <input type="text" class="form-control" name="userName" [(ngModel)]="model.userName" #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.invalid }" required />
+                      <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
+                          <div *ngIf="userName.errors.required">User Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email*</label>
+                      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                          <div *ngIf="email.errors.required">Email is required</div>
+                          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="country">Country*</label>
+                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
+                      <option>Country</option>
+                      <option>United States of America</option>
+                      <option>United Kingdom</option>
+                      <option>India</option>
+                      <option>Germany</option>
+                      <option>Argentina</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password*</label>
+                      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                          <div *ngIf="password.errors.required">Password is required</div>
+                          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="mb-4">
+                    <div class="form-check">
+                      <label class="form-check-label text-muted">
+                        <input type="checkbox" class="form-check-input">
+                        <i class="input-helper"></i>
+                        I agree to all Terms & Conditions
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >Register</button>
+                  </div>
+                 
+                  <div class="text-center mt-4 font-weight-light">
+                    Already have an account? <a routerLink="/login" class="text-primary">Login</a>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</ion-content>
+

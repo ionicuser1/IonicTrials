@@ -38,7 +38,7 @@ import { BarRatingModule } from "ngx-bar-rating";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 
@@ -48,6 +48,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage'
 import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+import { AlertComponent } from './core/directives';
+import { LoginComponent } from './components/login/login.component';
+import { HomesComponent } from './homes/homes.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthGuard } from './core/guards';
+import { AlertService, AuthenticationService, UserService } from './core/services';
+import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './core/helpers';
+
 
 export function createTranslateLoader(http : HttpClient){
 
@@ -55,7 +63,10 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AlertComponent,
+    HomesComponent,
+    LoginComponent,
+    RegistrationComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
@@ -104,8 +115,21 @@ return new TranslateHttpLoader(http,'assets/language/',".json");
   providers: [
     StatusBar,
     SplashScreen,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    fakeBackendProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+   
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
+
+ 
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}
