@@ -73,27 +73,6 @@ export class TodoListPagePage implements OnInit {
     this.selected = TodoListPagePage.TASKS;
     this.menu.toggle();
     this.todoArray = this.dataService.TasksArray;
-    // let myDay = this.dataService.MyDayArray;
-    // let imp = this.dataService.ImportantArray;
-    // let plan = this.dataService.PlannedArray;
-    // let assign = this.dataService.AssignedArray;
-    // let tasksType = this.dataService.TaskTypeArray;
-    // for(let i=0; i<myDay.length; i++) {
-    //   let element = { task: myDay[i].task , completed: myDay[i].completed , important: myDay[i].important, dueDate : myDay[i].dueDate, type : myDay[i].type }
-    //   this.todoArray.push(element);
-    // }
-    // for(let i=0; i<imp.length; i++) {
-    //   let element = { task: imp[i].task , completed: imp[i].completed , important: imp[i].important, dueDate : imp[i].dueDate, type : imp[i].type }
-    //   this.todoArray.push(element);
-    // }
-    // for(let i=0; i<plan.length; i++) {
-    //   let element = { task: plan[i].task , completed: plan[i].completed , important: plan[i].important, dueDate : plan[i].dueDate, type : plan[i].type }
-    //   this.todoArray.push(element);
-    // }
-    // for(let i=0; i<assign.length; i++) {
-    //   let element = { task: assign[i].task , completed: assign[i].completed , important: assign[i].important, dueDate : assign[i].dueDate, type : assign[i].type }
-    //   this.todoArray.push(element);
-    // }
     this.title = "Tasks Todo's";
   }
 
@@ -144,9 +123,6 @@ export class TodoListPagePage implements OnInit {
         if(this.selected == TodoListPagePage.TASKS)
         listData = this.getSameTypeList(item['type']);
         this.todoArray.splice(i, 1);
-        // if(this.selected == TodoListPagePage.TASKS && (this.todoArray[i])['type'] != TodoListPagePage.TASKS){
-        //   listData = this.getSameTypeList(this.todoArray[i])['type'];
-        // }
       }
     } 
 
@@ -174,28 +150,11 @@ export class TodoListPagePage implements OnInit {
     } else {
       this.todoArray[index]['completed'] = false;
     }
-
-    // if(this.selected == TodoListPagePage.TASKS && (this.todoArray[index])['type'] != TodoListPagePage.TASKS){
-    //   listData = this.getSameTypeList(this.todoArray[index])['type'];
-
-    //   for(let i=0; i<=listData.length; i++) {
-    //     if(item === listData[i]) {
-    //       if(event.target.checked) {
-    //         listData[i]['completed'] = true; 
-    //       } else {
-    //         listData[i]['completed'] = false;
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   changeStatus(item, isCompleted) {
     for(let i=0; i<=this.todoArray.length; i++) {
       if(item === this.todoArray[i]) {
-        // if(this.selected == TodoListPagePage.TASKS && (this.todoArray[i])['type'] != TodoListPagePage.TASKS){
-        //   listData = this.getSameTypeList(this.todoArray[i])['type'];
-        // }
         if(isCompleted){
           this.todoArray[i]['completed'] = true;
         } else{
@@ -203,24 +162,11 @@ export class TodoListPagePage implements OnInit {
         }
       }
     }
-
-    // for(let i=0; i<=listData.length; i++) {
-    //   if(item === listData[i]) {
-    //     if(isCompleted){
-    //       listData[i]['completed'] = true;
-    //     }else{
-    //       listData[i]['completed'] = false;
-    //     }
-    //   }
-    // }
   }
 
   impTodoItem(item) {
     for(let i=0; i<=this.todoArray.length; i++) {
       if(item === this.todoArray[i]) {
-        // if(this.selected == TodoListPagePage.TASKS && (this.todoArray[i])['type'] != TodoListPagePage.TASKS){
-        //   listData = this.getSameTypeList(this.todoArray[i])['type'];
-        // }
         if(this.todoArray[i]['important'] == false){
           this.impText = "Mark as Not Important";
           this.todoArray[i]['important'] = true;
@@ -232,7 +178,6 @@ export class TodoListPagePage implements OnInit {
           this.todoArray[i]['important'] = false;
           
           if(this.selected == TodoListPagePage.IMPORTANT){
-            // this.dataService.ImportantArray.splice(i, 1);
             this.todoArray.splice(i, 1);
           }else{
             let impData = this.dataService.ImportantArray;
@@ -242,39 +187,14 @@ export class TodoListPagePage implements OnInit {
               }
             }
           }
-          // if(this.todoArray[i]['type'] == TodoListPagePage.IMPORTANT)
-
-          // else{
-          //   let impData = this.dataService.ImportantArray;
-          //   for(let index=0; i<=impData.length; index++) {
-          //     if(this.todoArray[i] === impData[index]) {
-          //       this.dataService.ImportantArray.splice(index, 1)
-          //     }
-          //   }
-          // }
         }
       }
-    } 
-
-  // if(listData != null && !listData.empty){
-  //   for(let i=0; i<=listData.length; i++) {
-  //     if(item === listData[i]) {
-  //       if(listData[i]['important'] == false){
-  //         listData[i]['important'] = true;
-  //       } else{
-  //         listData[i]['important'] = false;
-  //       }
-  //     }
-  //   }
-  // }
+    }
   }
 
   setDueDate(item, date) {
     for(let i=0; i<=this.todoArray.length; i++) {
       if(item === this.todoArray[i]) {
-        // if(this.selected == TodoListPagePage.TASKS && (this.todoArray[i])['type'] != TodoListPagePage.TASKS){
-        //   listData = this.getSameTypeList(this.todoArray[i])['type'];
-        // }
         if(date === 'today'){
           this.currentDate = new Date();
           this.todoArray[i]['dueDate'] = this.currentDate;
@@ -289,23 +209,6 @@ export class TodoListPagePage implements OnInit {
         }
       }
     }
-
-    // for(let i=0; i<=listData.length; i++) {
-    //   if(item === listData[i]) {
-    //     if(date === 'today'){
-    //       this.currentDate = new Date();
-    //       listData[i]['dueDate'] = this.currentDate;
-    //     }else if(date === 'tomorrow'){
-    //       this.currentDate = new Date();
-    //       this.currentDate.setDate(this.currentDate.getDate() + 1);
-    //       listData[i]['dueDate'] = this.currentDate;
-    //     }else{
-    //       var newdate = date.split("/").reverse().join("/");
-    //       var dueDate = new  Date (newdate);
-    //       listData[i]['dueDate'] = dueDate;
-    //     }
-    //   }
-    // }
   }
 
   async selectCalendar(item) {
@@ -335,10 +238,6 @@ export class TodoListPagePage implements OnInit {
       ]
     });
     (await alert).present();
-
-    // document.getElementById('myCalendar').click();
-    // let element: HTMLElement = document.querySelector('input[type="date"]') as HTMLElement;
-    // element.click();
   }
 
    async createNewList() {

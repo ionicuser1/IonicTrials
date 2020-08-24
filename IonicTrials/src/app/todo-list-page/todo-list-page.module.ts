@@ -24,7 +24,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     IonicContextMenuModule,
     NgbModule, 
     MatDatepickerModule,
-    // CustomFormsModule
   ],
   declarations: [TodoListPagePage]
 })

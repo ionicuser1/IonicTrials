@@ -70,12 +70,6 @@
                 <ion-icon name="star-outline" *ngIf="!todo.important"></ion-icon>
                 <ion-icon name="star" *ngIf="todo.important"></ion-icon>
              </button>
-              <!-- <ion-icon name="star-outline" (click)="removeTodoItem(todo)" padding-left="20px"></ion-icon> -->
-              <!-- <i class="remove ti-close" (click)="onrightClick(todo)"></i> -->
-
-              <!-- <input *ngIf="false" id="myCalendar" type="date" [ngModel] ="dt | date:'yyyy-MM-dd'" #datePicker> -->
-              <!-- <input *ngIf="false" type="date" id="start" name="trip-start"> -->
-
               <ionic-context-menu icon="ellipsis-vertical-outline">
                 <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">{{impText}}</ionic-context-menu-item>
                 <ionic-context-menu-item icon="checkmark-done-outline" (click)="changeStatus(todo, true)">Mark as Completed</ionic-context-menu-item>
@@ -83,10 +77,6 @@
                 <ionic-context-menu-item icon="today-outline" (click)="setDueDate(todo, 'tomorrow')">Due Tomorrow</ionic-context-menu-item>
                 <ionic-context-menu-item icon="calendar-outline" (click)="selectCalendar(todo)">Pick Due Date</ionic-context-menu-item>
                 <ionic-context-menu-item icon="trash-outline" (click)="removeTodoItem(todo)">Remove Task</ionic-context-menu-item>
-                <!-- <ionic-context-menu icon="ellipsis-vertical-outline">
-                  <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">Add to new List</ionic-context-menu-item>        
-                  <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">Add to new List 2</ionic-context-menu-item>
-                </ionic-context-menu> -->
               </ionic-context-menu>
             </li>
           </ul>
@@ -99,7 +89,6 @@
                 <div class="list-wrapper pt-1">
                   <ul class="d-flex flex-column-reverse todo-list todo-list-custom" *ngFor="let todo of todoArray; let i = index">
                     <li *ngIf="todo.completed" [ngClass]="{'completed' : todo.completed }">
-                      <!-- [ngClass]="{'completed' : todo.completed }" -->
                       <div class="form-check form-check-flat col-md-12">
                         <p><label class="form-check-label">
                           <input class="checkbox" [checked]="todo.completed" type="checkbox" (change)="changeTodoStatus($event, i)">
@@ -112,9 +101,6 @@
                         <ion-icon name="star-outline" *ngIf="!todo.important"></ion-icon>
                         <ion-icon name="star" *ngIf="todo.important"></ion-icon>
                      </button>
-                      <!-- <ion-icon name="star-outline" (click)="removeTodoItem(todo)" padding-left="20px"></ion-icon> -->
-                      <!-- <i class="remove ti-close" (click)="onrightClick(todo)"></i> -->
-        
                       <ionic-context-menu icon="ellipsis-vertical-outline">
                         <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">{{impText}}</ionic-context-menu-item>
                         <ionic-context-menu-item icon="checkmark-done-outline" (click)="changeStatus(todo, false)">Mark as Not Completed</ionic-context-menu-item>
@@ -122,11 +108,6 @@
                         <ionic-context-menu-item icon="today-outline" (click)="setDueDate(todo, 'tomorrow')">Due Tomorrow</ionic-context-menu-item>
                         <ionic-context-menu-item icon="calendar-outline" (click)="selectCalendar(todo)">Pick Due Date</ionic-context-menu-item>
                         <ionic-context-menu-item icon="trash-outline" (click)="removeTodoItem(todo)">Remove Task</ionic-context-menu-item>
-                        <!-- <ionic-context-menu icon="ellipsis-vertical-outline">
-                          ng-click=""
-                          <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">Add to new List</ionic-context-menu-item>        
-                          <ionic-context-menu-item icon="star-outline" (click)="impTodoItem(todo)">Add to new List 2</ionic-context-menu-item>
-                        </ionic-context-menu> -->
                       </ionic-context-menu>
                     </li>
                   </ul>
@@ -140,13 +121,6 @@
       <div class="row" [hidden]="selected==4">
       <div class="text-center col-md-12 ml-2 border">
       <form class="add-items d-flex mb-2 mt-2" [formGroup]="form" (ngSubmit)="addTodo()">
-        <!-- <div class="col-12 grid-margin stretch-card" padding-left="20px">
-          <div class="card">
-                  <input type="text" class="form-control" formControlName="todoitem" id="exampleInputName1" placeholder=" Add a Task">
-                  <button class="add btn btn-icon text-primary todo-list-add-btn bg-transparent" type="submit" [disabled]="form.invalid"><i class="ti-location-arrow"></i></button>
-          </div>
-        </div> -->
-
         <input type="text" class="form-control todo-list-input" formControlName="todoitem" placeholder="Add a task">
         <button class="add btn btn-icon text-primary todo-list-add-btn bg-transparent mr-2" type="submit" [disabled]="form.invalid"><i class="ti-location-arrow"></i></button>
       </form>
@@ -154,10 +128,4 @@
     </div>
     </div>
   </ion-app>
-
-  <!-- <script>
-    async function openMenu() {
-      await menuController.open();
-    }
-  </script> -->
 </body>
