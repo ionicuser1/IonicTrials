@@ -6,3 +6,10 @@ body{
   ion-item:hover a {
     background-color: slategray !important;
   }
+
+  .center {
+    display: flex;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+  }

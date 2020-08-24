@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TodoModel } from '../model/TodoModel';
+import { TodoListPagePage } from '../../../app/todo-list-page/todo-list-page.page';
 
 const ITEMS_KEY = 'my-items';
 
@@ -16,32 +16,13 @@ export class DataService {
 
     TaskTypeArray = [];
 
-    MyDayArray = [
-      { task : 'Meeting with Urban Team' , completed : false, important : false, dueDate : null },
-      { task : 'Project meeting with CEO' , completed : false, important : false, dueDate : null },
-      { task : 'Follow up of team zilla' , completed : false, important : false, dueDate : null }
-    ];
+    MyDayArray = [];
 
-    ImportantArray = [
-      { task : 'Duplicate a project for new customer' , completed : false, important : true, dueDate : null },
-      { task : 'Level up for Antony' , completed : false, important : true, dueDate : null }
-    ];
+    ImportantArray = [];
 
-    PlannedArray = [
-      { task : 'Planned for a date' , completed : false, important : false, dueDate : null }
-    ];
+    PlannedArray = [];
 
-    AssignedArray = [
-    ];
+    AssignedArray = [];
 
-    TasksArray = [
-      { task : 'Meeting with Urban Team' , completed : false, important : false, dueDate : null  },
-      { task : 'Project meeting with CEO' , completed : false, important : false, dueDate : null  },
-      { task : 'Follow up of team zilla' , completed : false, important : false, dueDate : null  },
-      { task : 'Duplicate a project for new customer' , completed : false, important : true, dueDate : null  },
-      { task : 'Level up for Antony' , completed : false, important : true, dueDate : null  },
-      { task : 'Planned for a date' , completed : false, important : false, dueDate : null  }
-    ];
-
-    
+    TasksArray = [];
 }

@@ -51,13 +51,16 @@
           <ion-title>{{title}}</ion-title>
         </ion-toolbar>
       </ion-header>
+    <div class="center" [hidden]="todoArray != null && todoArray.length > 0">
+      <h4>Tasks List Will Appear Here</h4>
+    </div>
       <ion-content class="ion-padding">
-        <div class="list-wrapper pt-1">
-          <ul class="d-flex flex-column-reverse todo-list todo-list-custom" overflow="hidden" *ngFor="let todo of todoArray; let i = index">
+        <div [hidden]="todoArray == null || todoArray.length == 0" class="list-wrapper pt-1">
+          <ul class="d-flex flex-column-reverse todo-list todo-list-custom" *ngFor="let todo of todoArray; let i = index">
             <li *ngIf="!todo.completed"  [ngClass]="{'completed' : todo.completed }">
               <div class="form-check form-check-flat col-md-12">
                 <p><label class="form-check-label">
-                  <input class=" checkbox" [checked]="todo.completed" type="checkbox" (change)="changeTodoStatus($event, i)">
+                  <input class=" checkbox" [checked]="todo.completed" type="checkbox" (change)="changeTodoStatus($event, i, todo)">
                   {{todo.task}}
                   <i class="input-helper"></i>
                 </label></p>
@@ -89,7 +92,7 @@
           </ul>
         </div>
 
-        <div class="faq-section mt-4">
+        <div [hidden]="todoArray == null || todoArray.length == 0" class="faq-section mt-4">
           <ngb-accordion class="accordion" [closeOthers]="true" activeIds="panel-7">
             <ngb-panel id="panel-7" title="Completed Tasks">
               <ng-template ngbPanelContent>
@@ -134,7 +137,7 @@
         </div>
       </ion-content>
 
-      <div class="row">
+      <div class="row" [hidden]="selected==4">
       <div class="text-center col-md-12 ml-2 border">
       <form class="add-items d-flex mb-2 mt-2" [formGroup]="form" (ngSubmit)="addTodo()">
         <!-- <div class="col-12 grid-margin stretch-card" padding-left="20px">
