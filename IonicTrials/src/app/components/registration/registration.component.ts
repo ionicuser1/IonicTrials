@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-registration',
@@ -15,10 +16,12 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
     loading = false;
     submitted = false;
+    returnUrl: string;
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
+        private route: ActivatedRoute,
         private userService: UserService,
         private alertService: AlertService) { }
 
@@ -29,6 +32,12 @@ export class RegistrationComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
+
+         // reset login status
+         this.userService.logout();
+
+         // get return url from route parameters or default to '/'
+         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     // convenience getter for easy access to form fields
@@ -47,8 +56,9 @@ export class RegistrationComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                     this.alertService.success('Registration successful', true);
                     this.router.navigate(['/login']);
+                   
                 },
                 error => {
                     this.alertService.error(error);

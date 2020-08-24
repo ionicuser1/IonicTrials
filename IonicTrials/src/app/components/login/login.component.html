@@ -1,21 +1,24 @@
 <ion-content> 
+    
     <div style="margin-top: 20px;"  class="d-flex align-items-center auth px-0">
         <div  class="row w-100 mx-0">
           <div  class="col-lg-4 mx-auto">
-            <div style="border-color: black;background-color: #000000;"   class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <h4 style="color: white;">New here?</h4>
-              <h6  style="color: white;" class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+            <ion-card> 
+            <div  class="auth-form-light text-left py-5 px-4 px-sm-5">
+               
+                <h4 >New here?</h4>
+              <h6   class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div   style="color: white;" class="form-group">
+    <div    class="form-group">
         <label for="username">UserName</label>
-        <input style="color: white;" type="text" placeholder="Enter Username here" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <input  type="text" placeholder="Enter Username here" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div  *ngIf="f.username.errors.required">Username is required</div>
         </div>
     </div>
-    <div style="color: white;" class="form-group">
+    <div  class="form-group">
         <label for="password">Password</label>
-        <input style="color: white;" type="password" placeholder="Enter Password here" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <input  type="password" placeholder="Enter Password here" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Password is required</div>
         </div>
@@ -26,14 +29,17 @@
         
     </div>
    
-      <div  style="color: white;" class="text-center mt-4 font-weight-light">
+      <div   class="text-center mt-4 font-weight-light">
         Don't have an account? <a [routerLink]="['/register']" class="text-primary">Register</a>
        
       </div>
 </form>
+
 </div> 
+</ion-card>
 </div>
 </div>
+
 </div>
 
 </ion-content>
