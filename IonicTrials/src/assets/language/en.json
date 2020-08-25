@@ -3,6 +3,9 @@
     "Title": "Landing-Page ",
     "TextValue": "This is a landing page"
     
-  }
+  },
+  "EditorPage":{
+    "Title": "CKEditor with MathType"
+    }
  
 }

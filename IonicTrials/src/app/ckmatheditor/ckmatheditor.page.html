@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ckeditor (change)="onChange($event)" [editor]="Editor"></ckeditor>
+
+  <button mdbBtn type="button" color="default" (click)="onSaveClick()" block="true" mdbWavesEffect>Save</button>
+  <button mdbBtn type="button" color="default" (click)="onEditorResetClick()" block="true" mdbWavesEffect>Reset</button>
+
+  <div class="form-check">
+    <label class="form-check-label text-muted">{{ enteredText }}</label>
+  </div>
+
+  <ckeditor [config]="{ toolbar: []}" [editor]="Editor" [(ngModel)]="model.editorData"></ckeditor>
+
+  <button mdbBtn type="button" color="default" (click)="onTextResetClick()" block="true" mdbWavesEffect>Reset</button>
+
+</ion-content>
