@@ -2,7 +2,10 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
-    }
+    },
+    "EditorPage":{
+      "Title": "Rich Editor With MathType"
+      }
 
    
 }

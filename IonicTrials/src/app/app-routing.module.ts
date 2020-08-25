@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
+  {
+    path: 'tinymce',
+    loadChildren: () => import('./tinymce/tinymce.module').then( m => m.TinymcePageModule)
+  },
 
   
 ];

@@ -1,0 +1,18 @@
+<h1>TinyMCE 5 Angular Demo</h1>
+<editor apiKey="ioud5v5to9vckf7695nrhbwv61loak794m0bn6bvcxbuc7jp"
+  [init]="{
+    height: 500,
+    menubar: false,
+    skin: false,
+    plugins: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    external_plugins: { tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js' },
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help | tiny_mce_wiris_formulaEditor'
+  }"
+></editor>
