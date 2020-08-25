@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'login-page',
-    loadChildren: () => import('./login-page/login-page.module').then( m => m.LoginPagePageModule)
+    loadChildren: () => import('./login-page/login.module').then( m => m.LoginPagePageModule)
   },
   {
     path: 'user-home-page',
