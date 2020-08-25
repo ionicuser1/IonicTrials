@@ -23,6 +23,6 @@ export class LandingPagePage implements OnInit {
   }
 
   goToCalendar(){
-    this.navCtrl.navigateForward("calendar")
+    this.navCtrl.navigateForward("calendar-page");
   }
 }

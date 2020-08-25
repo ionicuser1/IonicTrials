@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
   {
-    path: 'calendar',
-    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+    path: 'calendar-page',
+    loadChildren: () => import('./calendar-page/calendar-page.module').then( m => m.CalendarPagePageModule)
   },
 
   // {
