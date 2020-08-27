@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
-  },  {
+  },
+  {
     path: 'language-popover',
     loadChildren: () => import('./pages/language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
   },
@@ -22,8 +23,6 @@ const routes: Routes = [
     path: 'questions-answers',
     loadChildren: () => import('./questions-answers/questions-answers.module').then( m => m.QuestionsAnswersPageModule)
   },
-
-  
 ];
 
 @NgModule({

@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { QuestionsAnswersPage } from './questions-answers.page';
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: QuestionsAnswersPage
+//   }
+// ];
 
 const routes: Routes = [
   {
     path: '',
-    component: QuestionsAnswersPage
+    redirectTo: 'answer-options/Inbox',
+    pathMatch: 'full'
+  },
+  {
+    path: 'answer-options/:id',
+    loadChildren: () => import('../answer-options/answer-options.module').then( m => m.AnswerOptionsPageModule)
   }
 ];
 
@@ -14,4 +24,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
+
 export class QuestionsAnswersPageRoutingModule {}

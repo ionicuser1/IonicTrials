@@ -2,7 +2,8 @@
   "LandingPage":{
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
+    },
+    "QAPage":{
+      "Title": "Questions Answers"
     }
-
-   
 }
