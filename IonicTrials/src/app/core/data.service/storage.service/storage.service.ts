@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Item } from '../../model/Item';
 
-export interface Item {
-  id: number,
-  topic: string,
-  subtopic: string,
-  linkDesc: string,
-  linkUrl: string,
-  modified: number,
-  count: number
- }
-
- const ITEMS_KEY = 'my-items';
+const ITEMS_KEY = 'my-items';
 
 @Injectable({
   providedIn: 'root'

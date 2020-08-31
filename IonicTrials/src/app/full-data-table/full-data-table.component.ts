@@ -1,9 +1,10 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
 import { AlertController, ToastController, Platform } from '@ionic/angular';
-import { StorageService, Item } from '../core/storage.service/storage.service';
+import { StorageService } from '../core/data.service/storage.service/storage.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { Item } from '../core/model/Item';
 
 @Component({
   selector: 'app-full-data-table',
