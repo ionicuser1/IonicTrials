@@ -10,7 +10,6 @@ import { TodoListPagePage } from './todo-list-page.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicContextMenuModule } from 'ionic-context-menu';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -23,7 +22,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReactiveFormsModule,
     IonicContextMenuModule,
     NgbModule, 
-    MatDatepickerModule,
   ],
   declarations: [TodoListPagePage]
 })

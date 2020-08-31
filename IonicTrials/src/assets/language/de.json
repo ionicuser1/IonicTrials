@@ -3,10 +3,21 @@
     "Title": "Landing-Page ",
     "TextValue": "Dies ist eine Landingpage"
     },
-
     "ToDoPage":{
-      "todo": "To Do "
+      "todo": "To Do",
+      "todoDrawerTitle": "Ionic Trials Todo",
+      "myDay": "My Day",
+      "important": "Important",
+      "planned": "Planned",
+      "assignToYou": "Assigned To You",
+      "tasks": "Tasks",
+      "createNewList": "Create New list",
+      "tasksAppearHere": "Tasks List Will Appear Here",
+      "markCompleted": "Mark as Completed",
+      "markNotCompleted": "Mark as Not Completed",
+      "dueToday": "Due Today",
+      "dueTomorrow": "Due Tomorrow",
+      "pickDueDate": "Pick Due Date",
+      "removeTask": "Remove Task"
     }
-
-   
 }
