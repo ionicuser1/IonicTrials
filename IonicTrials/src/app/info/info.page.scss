@@ -1,4 +1,4 @@
-#sides{
+    #sides{
     margin:0;
     }
     #left{
@@ -7,7 +7,10 @@
     overflow:hidden;
     }
     #right{
-    float:left;
+    float:right;
     width:75%;
     overflow:hidden;
     } 
+    #center{
+        text-align: center;
+    }

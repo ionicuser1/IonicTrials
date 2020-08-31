@@ -19,9 +19,9 @@ export class InfoService {
   //  @param http The standard Angular HttpClient to make requests
   constructor() { }         //private http: HttpClient
   QUESTION_LIST = [
-    {"id":1, "name": "What is the process to write static list in angular?", "option1": "Read doc", "option2": "Stack overflow", "option3": "Official site", "option4": "Guide", "status": "InActive"},
-    {"id":2, "name": "How the services works in ionic application using angular?", "option1": "BG Service", "option2": "FG Service", "option3": "Official site", "option4": "Guide", "status": "InActive"},
-    {"id":3, "name": "How many types of services?", "option1": " Background", "option2": "Bound", "option3": "Official site", "option4": "Foreground", "status": "InActive"}
+    {"id":1, "name": "What is the process to write static list in angular?", "option1": "Read doc", "option2": "Stack overflow", "option3": "Official site", "option4": "Guide", "status": "InActive", "submitted": false, "selected": ""},
+    {"id":2, "name": "How the services works in ionic application using angular?", "option1": "BG Service", "option2": "FG Service", "option3": "Official site", "option4": "Guide", "status": "InActive", "submitted": true, "selected": ""},
+    {"id":3, "name": "How many types of services?", "option1": " Background", "option2": "Bound", "option3": "Official site", "option4": "Foreground", "status": "InActive", "submitted": false, "selected": ""}
   ]
 
   // Get data from the Omdb Api

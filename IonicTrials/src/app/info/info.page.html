@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Questions</ion-title>
+    <ion-title>MCQ Test</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="left">
+<ion-content>
   <!-- <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar> -->
 
   <!-- <ion-item>
@@ -17,9 +17,9 @@
     </ion-select>
   </ion-item> -->
 
-  <ion-list>
+  <ion-list id="left">
 
-    <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'info', item.id]">
+    <ion-item button *ngFor="let item of (results | async)" (click)="showDetail(item.id)">
       <!-- <ion-avatar slot="start">
         <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
       </ion-avatar> -->
@@ -35,5 +35,61 @@
     </ion-item>
     
   </ion-list>
+
+  <ion-card id="right justify-content-center" style="height:100%" *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.name }}
+      </ion-card-title>
+      <ion-card-subtitle *ngIf="information.submitted" color="success">
+        submitted
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content class="flex-center">
+      <!-- <img [src]="information.Poster" class="info-img">
+        {{ information.Plot }} -->
+
+      <!-- <ion-item lines="none">
+        <ion-icon name="star-half" slot="start"></ion-icon>
+        <ion-label>{{ information.imdbRating }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="clipboard" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.Director }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="contacts" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.Actors }}</ion-label>
+      </ion-item> -->
+
+      <ion-item lines="none">
+      <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" checked="isSelected(1)" (onselect)="onSelectionChange(1)">{{information.option1}}
+        <!-- [checked]="information.selected.equals(information.option1)" -->
+    </label>
+    <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" checked="isSelected(2)" (onselect)="onSelectionChange(2)">{{information.option2}}
+    </label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="mode" checked="isSelected(3)" (onselect)="onSelectionChange(3)">{{information.option3}}
+  </label>
+  <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="mode" checked="isSelected(4)" (onselect)="onSelectionChange(4)">{{information.option4}}
+  </label>
+</ion-item>
+      <ion-button expand="full" (click)="submitAnswer()">    
+        <ion-icon name="open" slot="start"></ion-icon>
+        Submit
+      </ion-button>
+      <!-- *ngIf="information.Website && information.Website !='N/A'" -->
+    </ion-card-content>
+
+  </ion-card> 
 
 </ion-content>
