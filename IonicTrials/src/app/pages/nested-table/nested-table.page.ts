@@ -153,8 +153,13 @@ export class NestedTablePage implements OnInit {
         });
       }
 
-
-
+      function cbDropdown(column) {
+        return $('<ul>', {
+          'class': 'cb-dropdown'
+        }).appendTo($('<div>', {
+          'class': 'cb-dropdown-wrap'
+        }).appendTo(column));
+      }
       // Main table
       var table = $('#example').DataTable({
         // ajax: "/ajax/objects.txt",
@@ -174,6 +179,57 @@ export class NestedTablePage implements OnInit {
           { data: "salary" }
         ],
         order: [[1, 'asc']],
+
+        initComplete: function () {
+
+          this.api().columns().every(function () {
+            var column = this;
+            if (column.index() == 0)  // Use to hide particular 
+            return;
+
+            var ddmenu = cbDropdown($(column.header())).on
+              ('change', ':checkbox', function () {
+                var vals = $(':checked', ddmenu).map(function (index, element) {
+                  return $.fn.dataTable.util.escapeRegex($(element).val() as string);
+                }).toArray().join('|');
+
+                column
+                  .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
+                  .draw();
+                //console.log(vals);
+                if (vals === "") {
+                  $(this).parent().parent().parent().removeClass("factive");
+                } else {
+                  $(this).parent().parent().parent().addClass("factive");
+                }
+                //change callback
+              });
+
+            column.data().unique().sort().each(function (d, j) {
+              var // wrapped
+                $label = $('<label>'),
+                $text = $('<span>', {
+                  text: d
+                }),
+                $cb = $('<input>', {
+                  type: 'checkbox',
+                  value: d
+                });
+
+              $text.appendTo($label);
+              $cb.appendTo($label);
+
+              ddmenu.append($('<li>').append($label));
+            });
+
+          });
+
+          $(".cb-dropdown-wrap").each(function () {
+            console.log($(this).parent().width());
+            $(this).width($(this).parent().width());
+          });
+
+        }
       });
 
       genericChildData(table, 1, 'td.main-table', 'details-control child-table');
@@ -182,8 +238,5 @@ export class NestedTablePage implements OnInit {
       genericChildData(table, 4, 'tr td.child-child-child-table', '');
 
     });
-
   }
-
-
 }
