@@ -24,6 +24,7 @@
 
   <ckeditor [config]="{ toolbar: []}" [editor]="Editor" [(ngModel)]="model.editorData"></ckeditor>
 
+  <button mdbBtn type="button" color="default" (click)="onShowClick()" block="true" mdbWavesEffect>Show</button>
   <button mdbBtn type="button" color="default" (click)="onTextResetClick()" block="true" mdbWavesEffect>Reset</button>
 
 </ion-content>

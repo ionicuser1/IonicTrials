@@ -33,8 +33,11 @@ export class CkmatheditorPage {
       if (this.editorObject != null) {
         const data = this.editorObject.getData();
         this.enteredText = data;
-        this.model.editorData = data;
       }
+    }
+
+    onShowClick(){
+      this.model.editorData = this.enteredText;
     }
 
     onEditorResetClick(){
