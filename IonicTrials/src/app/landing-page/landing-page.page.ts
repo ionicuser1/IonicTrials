@@ -17,7 +17,7 @@ export class LandingPagePage implements OnInit {
   }
 
   gotoQAPage() {
-    this.navCtrl.navigateForward('questions-answers');
+    this.navCtrl.navigateForward('info');
   }
 
   async openLanguagePopover(ev){

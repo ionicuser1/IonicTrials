@@ -23,6 +23,16 @@ const routes: Routes = [
     path: 'questions-answers',
     loadChildren: () => import('./questions-answers/questions-answers.module').then( m => m.QuestionsAnswersPageModule)
   },
+  { 
+    path: 'info', 
+    loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
+    // loadChildren: './pages/info/info.module#InfoPageModule' 
+  },
+  { 
+    path: 'info/:id',
+    loadChildren: () => import('./info-details/info-details.module').then( m => m.InfoDetailsPageModule)
+    // loadChildren: './pages/info-details/info-details.module#InfoDetailsPageModule' 
+  },
 ];
 
 @NgModule({

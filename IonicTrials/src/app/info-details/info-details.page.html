@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ information?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding  id="right">
+
+  <ion-card *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.name }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{ information.status }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content text-center>
+      <img [src]="information.Poster" class="info-img">
+        {{ information.Plot }}
+
+      <!-- <ion-item lines="none">
+        <ion-icon name="star-half" slot="start"></ion-icon>
+        <ion-label>{{ information.imdbRating }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="clipboard" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.Director }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="contacts" slot="start"></ion-icon>
+        <ion-label text-wrap>{{ information.Actors }}</ion-label>
+      </ion-item> -->
+
+      <ion-item lines="none">
+      <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" [value]="true" [(ngModel)]="rule.mode">information?.option1
+    </label>
+    <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" [value]="false" [(ngModel)]="rule.mode">information?.option2
+    </label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="mode" [value]="true" [(ngModel)]="rule.mode">information?.option3
+  </label>
+  <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="mode" [value]="false" [(ngModel)]="rule.mode">information?.option4
+  </label>
+</ion-item>
+
+      <ion-button expand="full" (click)="openWebsite()">    
+        <ion-icon name="open" slot="start"></ion-icon>
+        Submit
+      </ion-button>
+      <!-- *ngIf="information.Website && information.Website !='N/A'" -->
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
