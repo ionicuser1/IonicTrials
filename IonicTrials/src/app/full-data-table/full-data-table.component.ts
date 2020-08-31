@@ -101,7 +101,6 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
             });
             table.destroy();
           }
-
           console.log("before individualFilter called");
           this.individualFilter(tableItems.length);
           console.log("After individualFilter called");
@@ -152,8 +151,8 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
 
         $('#example').DataTable({
 
-          "lengthMenu": [[size, 20, 40, 60, 80, 100, -1], [size, 20, 40, 60, 80, 100, "All"]],
-          "pageLength": size,
+          "lengthMenu": [[20, 40, 60, 80, 100, -1], [20, 40, 60, 80, 100, "All"]],
+          "pageLength": 20,
           retrieve: true,
           "columns": [
             null,
@@ -447,8 +446,5 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
       this.phForItemDelete = data.DeleteItem;
 
     });
-
   }
-
-
 }
