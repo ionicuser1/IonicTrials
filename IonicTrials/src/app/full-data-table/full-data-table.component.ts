@@ -385,7 +385,7 @@ export class FullDataTableComponent implements AfterViewInit, OnDestroy, OnInit 
 
   invoke(index) {
     var value = this.items[index].linkUrl;
-    window.open(value, '_system', 'location=yes');
+    window.open(value);
   }
 
   delete(index) {
