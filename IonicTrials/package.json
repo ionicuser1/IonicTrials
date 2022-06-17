@@ -54,7 +54,7 @@
     "core-js": "^3.6.5",
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
-    "electron": "^9.1.0",
+    "electron": "^15.5.5",
     "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^15.0.0",
     "flag-icon-css": "^3.5.0",
